@@ -1,0 +1,12 @@
+﻿hero-abstract.jpg | Photo by U.Lucas Dubé-Cantin (https://www.pexels.com/@lucasdc) on Pexels | https://www.pexels.com/photo/abstract-orange-lights-10325707/
+ai-network.jpg | Photo by Tara Winstead (https://www.pexels.com/@tara-winstead) on Pexels | https://www.pexels.com/photo/robot-pointing-on-a-wall-8386440/
+it-technician.jpg | Photo by Field Engineer (https://www.pexels.com/@field-engineer-147254) on Pexels | https://www.pexels.com/photo/crop-focused-ethnic-engineer-using-electric-screwdriver-442151/
+data-center.jpg | Photo by panumas nikhomkhai (https://www.pexels.com/@cookiecutter) on Pexels | https://www.pexels.com/photo/data-center-server-racks-with-active-equipment-37730212/
+team-meeting.jpg | Photo by Andrea Piacquadio (https://www.pexels.com/@olly) on Pexels | https://www.pexels.com/photo/multiracial-colleagues-of-different-ages-having-informal-conversation-in-office-3861563/
+engineer-laptop.jpg | Photo by Thirdman (https://www.pexels.com/@thirdman) on Pexels | https://www.pexels.com/photo/man-designing-an-electronic-figurine-7180484/
+cyber-security.jpg | Photo by Pixabay (https://www.pexels.com/@pixabay) on Pexels | https://www.pexels.com/photo/black-android-smartphone-on-top-of-white-book-39584/
+cloud-server.jpg | Photo by panumas nikhomkhai (https://www.pexels.com/@cookiecutter) on Pexels | https://www.pexels.com/photo/data-center-server-racks-with-active-equipment-37730212/
+support-desk.jpg | Photo by Yan Krukau (https://www.pexels.com/@yankrukov) on Pexels | https://www.pexels.com/photo/a-man-and-a-woman-pointing-at-the-computer-screen-8867472/
+network-cables.jpg | Photo by Brett Sayles (https://www.pexels.com/@brett-sayles) on Pexels | https://www.pexels.com/photo/patch-cables-plugged-in-patch-panel-5354506/
+office-people.jpg | Photo by Yan Krukau (https://www.pexels.com/@yankrukov) on Pexels | https://www.pexels.com/photo/a-group-of-people-discussing-7640781/
+abstract-3d.jpg | Photo by Steve A Johnson (https://www.pexels.com/@steve) on Pexels | https://www.pexels.com/photo/3d-render-of-pink-and-purple-pixels-12843338/
