@@ -121,6 +121,16 @@ SolarEmpire/
   omskrivna med torr humor (sv + en). Tonen: underfundig chefen-för-solimperiet-humor,
   aldrig fånig. Exempel: Rengöringsrobotar – "Fågelbajs, möt din nemesis."
 
+## Den synliga parken v1.3 (Jetons idé: "tänk om man kunde se vad man bygger")
+
+- `ParkView` på huvudskärmen, under solen: en levande bild av parken som växer
+  med varje köp. Solpaneler ritas en per nivå (max 18 + "+N"-räknare),
+  solföljare som 🌻, batterier som mätare **som fylls synligt med lagrad energi**,
+  patrullerande robot 🤖 (rengöring/autosälj), blinkande AI-antenn, väderstation,
+  landets flagga. Nya köp poppar in med fjäderanimation. Panelerna glöder när
+  parken producerar. Allt ritat i kod (SF Symbols + former + emoji), inga bildfiler.
+- Solen krymptes något (280→236 pt glöd) för att ge parken plats.
+
 ## Tekniska beslut
 
 - **Ingen AdMob ännu:** `MockRewardedAdView` är låtsasannonsen. När AdMob kopplas in

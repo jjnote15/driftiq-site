@@ -24,6 +24,7 @@ struct ContentView: View {
                 Spacer(minLength: 0)
                 TapAreaView()
                 Spacer(minLength: 0)
+                ParkView()
                 ActionBar(activeSheet: $activeSheet)
                 if showBanner {
                     FakeBanner { activeSheet = .store }

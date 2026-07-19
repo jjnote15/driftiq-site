@@ -34,7 +34,7 @@ struct TapAreaView: View {
                 }
             }
         }
-        .frame(height: 280)
+        .frame(height: 230)
     }
 
     private func tap() {
@@ -64,17 +64,17 @@ struct SunView: View {
         ZStack {
             Circle()
                 .fill(RadialGradient(colors: [Theme.sunYellow.opacity(0.5), .clear],
-                                     center: .center, startRadius: 20, endRadius: 140))
-                .frame(width: 280, height: 280)
+                                     center: .center, startRadius: 18, endRadius: 118))
+                .frame(width: 236, height: 236)
                 .scaleEffect(pulse ? 1.08 : 0.94)
                 .animation(.easeInOut(duration: 2.2).repeatForever(autoreverses: true), value: pulse)
             Circle()
                 .fill(LinearGradient(colors: [Theme.sunYellow, Theme.sunOrange],
                                      startPoint: .topLeading, endPoint: .bottomTrailing))
-                .frame(width: 180, height: 180)
-                .shadow(color: Theme.sunOrange.opacity(0.6), radius: 30)
+                .frame(width: 156, height: 156)
+                .shadow(color: Theme.sunOrange.opacity(0.6), radius: 26)
             Image(systemName: "sun.max.fill")
-                .font(.system(size: 64))
+                .font(.system(size: 56))
                 .foregroundStyle(.white.opacity(0.9))
         }
         .onAppear { pulse = true }

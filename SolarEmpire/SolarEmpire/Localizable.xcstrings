@@ -868,6 +868,23 @@
         }
       }
     },
+    "park.empty": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The field is empty. Your first solar panel awaits!"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fältet är tomt. Din första solpanel väntar!"
+          }
+        }
+      }
+    },
     "prestige.button": {
       "extractionState": "manual",
       "localizations": {
