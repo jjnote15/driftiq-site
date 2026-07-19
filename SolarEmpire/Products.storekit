@@ -1,0 +1,38 @@
+{
+  "identifier" : "3A6B2F10-9C41-4E5D-8A27-5E01D2C9B7F4",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "29.00",
+      "familyShareable" : false,
+      "internalID" : "9D4F1A22-7B58-4C0E-A319-2F6E8B0C5D13",
+      "localizations" : [
+        {
+          "description" : "Removes all ads permanently.",
+          "displayName" : "Remove Ads",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Tar bort alla annonser permanent.",
+          "displayName" : "Ta bort annonser",
+          "locale" : "sv"
+        }
+      ],
+      "productID" : "com.driftiq.solarempire.removeads",
+      "referenceName" : "Remove Ads",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
