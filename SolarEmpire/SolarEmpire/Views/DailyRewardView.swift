@@ -38,6 +38,7 @@ struct DailyRewardView: View {
                 Button {
                     engine.claimDaily(doubled: false)
                     Haptics.success()
+                    Sound.play(.reward)
                     dismiss()
                 } label: {
                     Text(String(format: L.t("daily.claim.format"), Fmt.money(reward.money)))

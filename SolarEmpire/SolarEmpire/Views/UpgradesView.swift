@@ -73,6 +73,7 @@ struct UpgradeRow: View {
             Button {
                 if engine.buy(def) {
                     Haptics.success()
+                    Sound.play(.buy)
                 }
             } label: {
                 Text(maxed ? L.t("max.label") : Fmt.money(price))

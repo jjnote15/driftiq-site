@@ -160,13 +160,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Automatic selling is on"
+            "value": "The robot is selling for you. It never sleeps."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Automatisk försäljning är på"
+            "value": "Roboten säljer åt dig. Den sover aldrig."
           }
         }
       }
@@ -194,13 +194,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Battery full – sell or upgrade!"
+            "value": "Battery full! Sunshine is going to waste…"
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Batteriet är fullt – sälj eller uppgradera!"
+            "value": "Batteriet är fullt! Nu slösas det solsken…"
           }
         }
       }
@@ -1180,13 +1180,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap the sun to make energy"
+            "value": "Tap the sun. It doesn't mind."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tryck på solen för att skapa energi"
+            "value": "Tryck på solen. Den gör inget."
           }
         }
       }
@@ -1197,13 +1197,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+75 energy per second"
+            "value": "+75 energy/s. It has started calling the park “mine”."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+75 energi per sekund"
+            "value": "+75 energi/s. Den har börjat kalla parken ”sin”."
           }
         }
       }
@@ -1231,13 +1231,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sells your energy automatically – even while the app is closed"
+            "value": "Sells everything, around the clock – even while you sleep. It has no shame."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Säljer din energi automatiskt – även när appen är stängd"
+            "value": "Säljer allt, dygnet runt – även när du sover. Den skäms inte."
           }
         }
       }
@@ -1265,13 +1265,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+150 energy storage"
+            "value": "+150 storage. A piggy bank, but for sunshine."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+150 energilagring"
+            "value": "+150 lagring. En sparbössa, fast för solsken."
           }
         }
       }
@@ -1299,13 +1299,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+1 energy per tap"
+            "value": "+1 energy per tap. Your finger deserves the upgrade."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+1 energi per tryck"
+            "value": "+1 energi per tryck. Ditt finger har förtjänat det."
           }
         }
       }
@@ -1333,13 +1333,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+25 % production"
+            "value": "+25 % production. Bird droppings, meet your nemesis."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+25 % produktion"
+            "value": "+25 % produktion. Fågelbajs, möt din nemesis."
           }
         }
       }
@@ -1367,13 +1367,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+50 % sell price"
+            "value": "+50 % sell price. You read the fine print. They didn't."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+50 % försäljningspris"
+            "value": "+50 % pris. Du läste det finstilta. Det gjorde inte de."
           }
         }
       }
@@ -1401,13 +1401,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+20 % sell price"
+            "value": "+20 % sell price. Nobody knows what it does. The power company pays more."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+20 % försäljningspris"
+            "value": "+20 % pris. Ingen vet vad den gör. Elbolaget betalar mer."
           }
         }
       }
@@ -1435,13 +1435,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+1 energy per second"
+            "value": "+1 energy/s. Just stands there, making you money. Employee of the month."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+1 energi per sekund"
+            "value": "+1 energi/s. Står bara där och drar in pengar. Månadens anställd."
           }
         }
       }
@@ -1469,13 +1469,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+8 energy per second"
+            "value": "+8 energy/s. Sunflowers, but stainless steel."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+8 energi per sekund"
+            "value": "+8 energi/s. Solrosor, fast i rostfritt stål."
           }
         }
       }
@@ -1503,13 +1503,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "+15 % production"
+            "value": "+15 % production. We had a serious talk with the clouds."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "+15 % produktion"
+            "value": "+15 % produktion. Vi har haft ett allvarligt samtal med molnen."
           }
         }
       }
@@ -1554,13 +1554,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "You were away for %@."
+            "value": "You were away for %@. The sun wasn't."
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Du var borta i %@."
+            "value": "Du var borta i %@. Det var inte solen."
           }
         }
       }
@@ -1639,13 +1639,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Welcome back!"
+            "value": "Welcome back, boss!"
           }
         },
         "sv": {
           "stringUnit": {
             "state": "translated",
-            "value": "Välkommen tillbaka!"
+            "value": "Välkommen tillbaka, chefen!"
           }
         }
       }

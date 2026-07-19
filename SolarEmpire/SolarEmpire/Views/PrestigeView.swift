@@ -63,6 +63,7 @@ struct PrestigeView: View {
                 Button(L.t("prestige.confirm.action")) {
                     engine.prestige()
                     Haptics.success()
+                    Sound.play(.reward)
                     dismiss()
                 }
                 Button(L.t("cancel"), role: .cancel) {}

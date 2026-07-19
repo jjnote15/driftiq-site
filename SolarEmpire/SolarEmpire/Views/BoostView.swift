@@ -102,6 +102,7 @@ struct MockRewardedAdView: View {
                     Button {
                         onReward()
                         Haptics.success()
+                        Sound.play(.reward)
                         dismiss()
                     } label: {
                         Text(L.t("ad.claim"))

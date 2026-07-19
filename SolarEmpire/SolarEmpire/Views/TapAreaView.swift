@@ -41,8 +41,10 @@ struct TapAreaView: View {
         let result = engine.tap()
         if result.critical {
             Haptics.success()
+            Sound.play(.crit)
         } else {
             Haptics.tap()
+            Sound.play(.tap)
         }
         let text = (result.critical ? "×10! " : "+") + Fmt.number(result.amount)
         let floater = Floater(text: text,
@@ -119,6 +121,7 @@ struct GoldenSunView: View {
         Button {
             onCatch()
             Haptics.success()
+            Sound.play(.reward)
         } label: {
             ZStack {
                 Circle()

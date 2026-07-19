@@ -107,6 +107,20 @@ SolarEmpire/
 - Etisk gräns (medvetet vald): inga betalväggar, ingen kasinomekanik med riktiga
   pengar, inga notisspam. Standardmekanik som Apple godkänner.
 
+## Ljud & personlighet v1.2
+
+- **Ljudeffekter:** 6 st, syntetiserade med skript (`gen_sounds.py` i scratchpad,
+  kan genereras om) — tap (mjukt plopp), sell (ka-ching), buy (dunk+pling),
+  crit (stigande burst), golden (mystisk arpeggio när gyllene solen dyker upp),
+  reward (fanfar för solrusch/daglig/boost/prestige). Ligger i `SolarEmpire/Sounds/`.
+  Spelas via `Sound.swift` (AVAudioPlayer-pooler). Ljudkategori `.ambient`:
+  respekterar ljudlös-knappen och stoppar inte spelarens egen musik.
+  Ingen mute-knapp i appen ännu (ljudlös-knappen räcker i v1) — kandidat till 1.1-uppdateringen.
+  Obs: ljud hörs dåligt/inte alls på appetize beroende på webbläsare — riktigt test på iPhone.
+- **Personlighet:** alla 10 uppgraderingsbeskrivningar + välkomst-/batteritexter
+  omskrivna med torr humor (sv + en). Tonen: underfundig chefen-för-solimperiet-humor,
+  aldrig fånig. Exempel: Rengöringsrobotar – "Fågelbajs, möt din nemesis."
+
 ## Tekniska beslut
 
 - **Ingen AdMob ännu:** `MockRewardedAdView` är låtsasannonsen. När AdMob kopplas in
@@ -160,6 +174,10 @@ SolarEmpire/
   Actions-bygge på gratis Mac-servrar. **Första bygget grönt utan ett enda
   kompileringsfel** (run #1). Spelbar simulator-app sparas som artefakt vid varje
   bygge; Jeton testar via appetize.io. Plan omskriven för Mac-fri väg till lansering.
+  Kompileringsfel åtgärdat efter run #4 (ternary mellan olika knappstilar).
+  Därefter v1.2: ljudeffekter + humoristiska texter (se ovan) efter ärlig
+  "hade du betalat?"-diskussion — nej: saknade personlighet, ljud och djup.
+  Kvarstår för "kanske betala": mer innehållsdjup (achievements, landsbonusar).
   Stabil nedladdningslänk utan inloggning:
   https://github.com/jjnote15/driftiq-site/releases/download/simulator-latest/SolarEmpire-Simulator.zip
 - **2026-07-19 (session 1, forts 2):** Jeton testade spelet live på appetize —

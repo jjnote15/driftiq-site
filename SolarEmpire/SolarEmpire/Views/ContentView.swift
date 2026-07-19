@@ -53,6 +53,9 @@ struct ContentView: View {
             DailyRewardView(reward: reward)
         }
         .onAppear { engine.checkDailyReward() }
+        .onChange(of: engine.goldenSunVisible) { _, visible in
+            if visible { Sound.play(.golden) }
+        }
         .onChange(of: store.adsRemoved) { _, removed in
             if removed { engine.setAdsRemoved() }
         }
@@ -198,6 +201,7 @@ struct EnergyPanel: View {
             } else {
                 Button {
                     Haptics.tap()
+                    Sound.play(.sell)
                     engine.sellAll()
                 } label: {
                     HStack {
