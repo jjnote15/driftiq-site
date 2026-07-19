@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// The big tappable sun with floating "+N" labels.
+/// The big tappable sun with floating "+N" labels. ~5 % of taps are
+/// critical (10×) with a bigger label and stronger haptic.
 struct TapAreaView: View {
     @EnvironmentObject private var engine: GameEngine
     @State private var floaters: [Floater] = []
@@ -9,6 +10,7 @@ struct TapAreaView: View {
         let id = UUID()
         let text: String
         let x: CGFloat
+        let critical: Bool
     }
 
     var body: some View {
@@ -20,7 +22,7 @@ struct TapAreaView: View {
             }
             .buttonStyle(SunButtonStyle())
             ForEach(floaters) { floater in
-                FloatingLabel(text: floater.text)
+                FloatingLabel(text: floater.text, critical: floater.critical)
                     .offset(x: floater.x)
             }
             VStack {
@@ -36,10 +38,16 @@ struct TapAreaView: View {
     }
 
     private func tap() {
-        engine.tap()
-        Haptics.tap()
-        let floater = Floater(text: "+" + Fmt.number(engine.tapPower),
-                              x: .random(in: -70...70))
+        let result = engine.tap()
+        if result.critical {
+            Haptics.success()
+        } else {
+            Haptics.tap()
+        }
+        let text = (result.critical ? "×10! " : "+") + Fmt.number(result.amount)
+        let floater = Floater(text: text,
+                              x: .random(in: -70...70),
+                              critical: result.critical)
         floaters.append(floater)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             floaters.removeAll { $0.id == floater.id }
@@ -81,19 +89,56 @@ struct SunButtonStyle: ButtonStyle {
 
 struct FloatingLabel: View {
     let text: String
+    var critical = false
     @State private var risen = false
 
     var body: some View {
         Text(text)
-            .font(.title2.bold())
+            .font(critical ? .largeTitle.bold() : .title2.bold())
             .monospacedDigit()
-            .foregroundStyle(Theme.sunYellow)
-            .shadow(color: .black.opacity(0.4), radius: 2)
-            .offset(y: risen ? -160 : -60)
+            .foregroundStyle(critical ? Color.white : Theme.sunYellow)
+            .shadow(color: critical ? Theme.sunOrange : .black.opacity(0.4),
+                    radius: critical ? 8 : 2)
+            .scaleEffect(critical && !risen ? 1.4 : 1)
+            .offset(y: risen ? -170 : -60)
             .opacity(risen ? 0 : 1)
             .onAppear {
-                withAnimation(.easeOut(duration: 0.9)) { risen = true }
+                withAnimation(.easeOut(duration: critical ? 1.2 : 0.9)) { risen = true }
             }
             .allowsHitTesting(false)
+    }
+}
+
+/// The rare golden sun that drifts in — tap it within a few seconds to
+/// trigger a ×5 production frenzy.
+struct GoldenSunView: View {
+    let onCatch: () -> Void
+    @State private var wobble = false
+
+    var body: some View {
+        Button {
+            onCatch()
+            Haptics.success()
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(RadialGradient(colors: [.white.opacity(0.9), Theme.sunYellow, .clear],
+                                         center: .center, startRadius: 4, endRadius: 44))
+                    .frame(width: 88, height: 88)
+                Image(systemName: "sparkles")
+                    .font(.system(size: 30, weight: .bold))
+                    .foregroundStyle(.white)
+            }
+            .scaleEffect(wobble ? 1.15 : 0.9)
+            .rotationEffect(.degrees(wobble ? 10 : -10))
+            .shadow(color: Theme.sunYellow.opacity(0.9), radius: 18)
+        }
+        .buttonStyle(.plain)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 0.45).repeatForever(autoreverses: true)) {
+                wobble = true
+            }
+        }
+        .transition(.scale.combined(with: .opacity))
     }
 }

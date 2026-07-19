@@ -31,6 +31,14 @@ struct UpgradeRow: View {
     @EnvironmentObject private var engine: GameEngine
     let def: UpgradeDef
 
+    /// Flat upgrades double their output every 10 levels.
+    private var hasMilestones: Bool {
+        switch def.effect {
+        case .energyPerSecond, .tapPower, .batteryCapacity: return true
+        default: return false
+        }
+    }
+
     var body: some View {
         let level = engine.level(of: def.id)
         let price = engine.cost(of: def)
@@ -54,6 +62,12 @@ struct UpgradeRow: View {
                 Text(L.t("upgrade.\(def.id).desc"))
                     .font(.caption)
                     .foregroundStyle(Theme.textDim)
+                if hasMilestones {
+                    let step = GameEngine.milestoneStep
+                    Text(String(format: L.t("milestone.next"), level % step, step))
+                        .font(.caption2.bold())
+                        .foregroundStyle(Theme.sunYellow.opacity(0.9))
+                }
             }
             Spacer(minLength: 8)
             Button {

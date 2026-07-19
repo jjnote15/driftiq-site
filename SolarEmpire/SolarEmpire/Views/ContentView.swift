@@ -17,9 +17,10 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             SunsetBackground()
-            VStack(spacing: 14) {
+            VStack(spacing: 12) {
                 HeaderView()
                 EnergyPanel()
+                NextGoalBanner { activeSheet = .upgrades }
                 Spacer(minLength: 0)
                 TapAreaView()
                 Spacer(minLength: 0)
@@ -31,7 +32,12 @@ struct ContentView: View {
             .padding(.horizontal)
             .padding(.top, 8)
             .padding(.bottom, 6)
+            if engine.goldenSunVisible {
+                GoldenSunView { engine.catchGoldenSun() }
+                    .offset(x: engine.goldenSunX, y: engine.goldenSunY)
+            }
         }
+        .animation(.spring(duration: 0.35), value: engine.goldenSunVisible)
         .sheet(item: $activeSheet) { sheet in
             switch sheet {
             case .upgrades: UpgradesView()
@@ -40,9 +46,13 @@ struct ContentView: View {
             case .store: StoreView()
             }
         }
-        .sheet(item: $engine.offlineReport) { report in
+        .sheet(item: $engine.offlineReport, onDismiss: { engine.checkDailyReward() }) { report in
             WelcomeBackView(report: report)
         }
+        .sheet(item: $engine.pendingDaily) { reward in
+            DailyRewardView(reward: reward)
+        }
+        .onAppear { engine.checkDailyReward() }
         .onChange(of: store.adsRemoved) { _, removed in
             if removed { engine.setAdsRemoved() }
         }
@@ -71,7 +81,14 @@ struct HeaderView: View {
                         .background(Capsule().fill(Theme.sunOrange.opacity(0.25)))
                 }
                 Spacer()
-                if engine.isBoostActive {
+                if engine.isFrenzyActive {
+                    Text(String(format: L.t("frenzy.chip"), Fmt.duration(engine.frenzyRemaining)))
+                        .font(.caption.bold())
+                        .foregroundStyle(.black)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Capsule().fill(.white))
+                } else if engine.isBoostActive {
                     Text(String(format: L.t("boost.chip"), Fmt.duration(engine.boostRemaining)))
                         .font(.caption.bold())
                         .foregroundStyle(.black)
@@ -101,6 +118,60 @@ struct HeaderView: View {
             }
             .font(.caption)
             .foregroundStyle(Theme.textDim)
+        }
+    }
+}
+
+// MARK: - Next goal
+
+/// Always-visible pointer to the cheapest upgrade still to buy — there is
+/// always a bar filling up towards "one more purchase".
+struct NextGoalBanner: View {
+    @EnvironmentObject private var engine: GameEngine
+    let onTap: () -> Void
+
+    var body: some View {
+        if let goal = engine.nextGoal {
+            let price = engine.cost(of: goal)
+            let progress = min(1, engine.state.money / price)
+            let ready = progress >= 1
+            Button(action: onTap) {
+                HStack(spacing: 10) {
+                    Text(goal.icon)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(String(format: L.t(ready ? "goal.ready" : "goal.saving"),
+                                    L.t("upgrade.\(goal.id).name")))
+                            .font(.caption.bold())
+                            .foregroundStyle(ready ? Theme.sunYellow : .white)
+                        GeometryReader { geo in
+                            ZStack(alignment: .leading) {
+                                Capsule().fill(Color.white.opacity(0.12))
+                                Capsule()
+                                    .fill(ready ? Theme.sunYellow : Theme.sunOrange)
+                                    .frame(width: geo.size.width * CGFloat(progress))
+                                    .animation(.linear(duration: 0.1), value: progress)
+                            }
+                        }
+                        .frame(height: 5)
+                    }
+                    Spacer()
+                    Text(Fmt.money(price))
+                        .font(.caption.bold())
+                        .monospacedDigit()
+                        .foregroundStyle(ready ? Theme.sunYellow : Theme.textDim)
+                    Image(systemName: "chevron.right")
+                        .font(.caption2)
+                        .foregroundStyle(Theme.textDim)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(RoundedRectangle(cornerRadius: 12).fill(Theme.card))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(ready ? Theme.sunYellow.opacity(0.6) : Theme.cardStroke)
+                )
+            }
+            .buttonStyle(.plain)
         }
     }
 }

@@ -528,6 +528,108 @@
         }
       }
     },
+    "daily.boost.note": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Streak bonus: 2× production for 1 hour!"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Svitbonus: 2× produktion i 1 timme!"
+          }
+        }
+      }
+    },
+    "daily.claim.format": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claim %@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hämta %@"
+          }
+        }
+      }
+    },
+    "daily.day.format": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Day %d in a row!"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dag %d i rad!"
+          }
+        }
+      }
+    },
+    "daily.double.format": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Watch ad – get %@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se annons – få %@"
+          }
+        }
+      }
+    },
+    "daily.streak.info": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come back tomorrow to keep your streak!"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kom tillbaka i morgon för att behålla sviten!"
+          }
+        }
+      }
+    },
+    "daily.title": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily bonus"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daglig bonus"
+          }
+        }
+      }
+    },
     "done": {
       "extractionState": "manual",
       "localizations": {
@@ -592,6 +694,57 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d s"
+          }
+        }
+      }
+    },
+    "frenzy.chip": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SUN RUSH ×5 – %@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SOLRUSCH ×5 – %@"
+          }
+        }
+      }
+    },
+    "goal.ready": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ready to buy: %@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redo att köpa: %@"
+          }
+        }
+      }
+    },
+    "goal.saving": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next goal: %@"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nästa mål: %@"
           }
         }
       }
@@ -694,6 +847,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "MAX"
+          }
+        }
+      }
+    },
+    "milestone.next": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d/%d to permanent ×2"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d/%d till permanent ×2"
           }
         }
       }
@@ -1408,6 +1578,23 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fortsätt"
+          }
+        }
+      }
+    },
+    "welcome.double": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Watch ad – double your earnings"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se annons – dubbla förtjänsten"
           }
         }
       }

@@ -89,6 +89,24 @@ SolarEmpire/
 - Prestige: kräver 1 miljon intjänat totalt i landet, ×8 per nytt land. Ger +30 % produktion permanent per land.
 - Balansen är en första gissning — justeras efter speltest.
 
+## Retentionpaketet v1.1 ("beroendepaketet", byggt på Jetons order: inga restriktioner)
+
+- **Nästa mål-raden:** huvudskärmen visar alltid billigaste köpbara uppgradering med
+  progressbar — det finns alltid något att spara till. Lyser gul när man har råd.
+- **Milstolpar:** platta uppgraderingar (paneler, celler, solföljare, AI, batteri)
+  dubblar sin effekt permanent vid var 10:e nivå. Visas som "7/10 till ×2" i listan.
+- **Gyllene solen:** dyker upp slumpmässigt (första gången efter 45–90 s, sedan var
+  2–5 min), försvinner efter 6 s. Träffar man den: SOLRUSCH ×5 produktion i 30 s.
+- **Kritiska tryck:** 5 % chans att ett tryck ger ×10 med stor visuell explosion.
+- **Dubbla mot annons:** både "Välkommen tillbaka"-rutan (offline-inkomst) och
+  dagliga bonusen har "Se annons → få dubbelt" (låtsasannonsen, AdMob senare).
+  Detta är genrens mest lönsamma annonsplacering.
+- **Daglig bonus-svit:** dag 1–7, belöning skalar med dag och produktion
+  (min 100 kr, ~4 min produktion × dagnummer). Dag 7+: även 1 tim dubbel produktion.
+  Missad dag nollställer sviten. Detta är mekaniken som ska driva dag 2-retention.
+- Etisk gräns (medvetet vald): inga betalväggar, ingen kasinomekanik med riktiga
+  pengar, inga notisspam. Standardmekanik som Apple godkänner.
+
 ## Tekniska beslut
 
 - **Ingen AdMob ännu:** `MockRewardedAdView` är låtsasannonsen. När AdMob kopplas in
@@ -142,3 +160,11 @@ SolarEmpire/
   Actions-bygge på gratis Mac-servrar. **Första bygget grönt utan ett enda
   kompileringsfel** (run #1). Spelbar simulator-app sparas som artefakt vid varje
   bygge; Jeton testar via appetize.io. Plan omskriven för Mac-fri väg till lansering.
+  Stabil nedladdningslänk utan inloggning:
+  https://github.com/jjnote15/driftiq-site/releases/download/simulator-latest/SolarEmpire-Simulator.zip
+- **2026-07-19 (session 1, forts 2):** Jeton testade spelet live på appetize —
+  hela kedjan funkar. Ärligt marknadssamtal: organisk succé osannolik, projektet
+  är en billig marknadsutbildning + app-fabrik; mätgrind satt (dag 2/3-retention
+  i TestFlight avgör ev. annonsbudget). Därefter byggdes retentionpaketet v1.1
+  (se ovan) på Jetons klartecken "inga restriktioner". Gamla sparfiler
+  är kompatibla (GameState avkodar nu med standardvärden för nya fält).
