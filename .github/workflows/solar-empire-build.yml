@@ -9,6 +9,9 @@ on:
       - ".github/workflows/solar-empire-build.yml"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build for iPhone simulator
@@ -40,3 +43,18 @@ jobs:
           name: SolarEmpire-Simulator
           path: build/Build/Products/Debug-iphonesimulator/SolarEmpire-Simulator.zip
           retention-days: 30
+
+      # Same file on a stable, login-free URL:
+      # https://github.com/jjnote15/driftiq-site/releases/download/simulator-latest/SolarEmpire-Simulator.zip
+      - name: Publish to "simulator-latest" release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view simulator-latest >/dev/null 2>&1 || \
+            gh release create simulator-latest \
+              --title "Solar Empire – spelbart simulatorbygge" \
+              --notes "Senaste gröna bygget. Ladda ned SolarEmpire-Simulator.zip och ladda upp den på appetize.io för att spela i webbläsaren." \
+              --prerelease \
+              --target "$GITHUB_SHA"
+          gh release upload simulator-latest \
+            build/Build/Products/Debug-iphonesimulator/SolarEmpire-Simulator.zip --clobber
