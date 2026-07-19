@@ -25,19 +25,29 @@ intäkter via belönade annonser + köpet "Ta bort annonser".
 | Köp "Ta bort annonser" (StoreKit 2 + lokal testconfig) | ✅ Byggd |
 | Svenska + engelska (86 texter) | ✅ Byggd |
 | Solnedgångsdesign, animationer, haptik, app-ikon | ✅ Byggd |
-| **Byggd och testad i iPhone-simulatorn** | ⚠️ **EJ GJORT — session 1 kördes i en Linux-molnmiljö utan Xcode. Första prioritet nästa session: bygg i Xcode på Jetons Mac och rätta eventuella kompileringsfel.** |
+| Bygget verifierat med riktig Xcode | ✅ Grönt på första försöket (GitHub Actions, 2026-07-19) |
+| Spelet genomspelat/testat av människa | ⚠️ Återstår — Jeton testar via appetize.io (se nedan) |
 
-## Så startas spelet (på en Mac)
+## Viktigt: Jeton har PC, ingen Mac
 
-1. Installera **Xcode** från Mac App Store (kräver Xcode 16 eller nyare — projektet använder det moderna projektformatet).
-2. Hämta koden: grenen `claude/solar-empire-idle-game-akn240` i repot `jjnote15/driftiq-site`.
-3. Dubbelklicka på `SolarEmpire/SolarEmpire.xcodeproj`.
-4. Välj en iPhone-simulator uppe i mitten (t.ex. "iPhone 16").
-5. Tryck på ▶ (Play). Klart.
-6. Svenska: simulatorn följer systemspråket. Byt via Edit Scheme → Run → Options → App Language → Swedish.
+Xcode och iPhone-simulatorn finns bara på Mac. Lösningen (uppsatt och fungerande):
 
-Testköpet fungerar direkt i simulatorn tack vare `Products.storekit`
-(redan vald i körschemat) — inga Apple-konton behövs.
+- **Bygget:** GitHub Actions bygger appen automatiskt på GitHubs gratis Mac-servrar
+  vid varje push som rör `SolarEmpire/` (workflow: `.github/workflows/solar-empire-build.yml`).
+  Claude ser byggloggar och rättar fel direkt från molnsessionen. Repot är publikt
+  → obegränsade gratisbyggen.
+- **Spela/testa på PC:** varje grönt bygge sparar artefakten `SolarEmpire-Simulator`
+  (zip med `SolarEmpire.app`). Den kan köras i webbläsaren via **appetize.io**
+  (gratis konto): ladda ned artefakten från byggets sida på GitHub → packa upp det
+  yttre zippet → ladda upp `SolarEmpire-Simulator.zip` på appetize → välj iPhone → spela.
+- **Begränsningar i webbläsartestet:** ingen haptik (vibrationer), och köpet
+  "Ta bort annonser" kan inte testas där — StoreKit-testconfigen aktiveras via
+  Xcodes körschema och följer inte med i den råa appfilen. Sparfilen nollställs
+  också ofta mellan appetize-sessioner. Allt annat (spelloop, uppgraderingar,
+  låtsasannons, prestige, språk) går att testa i webbläsaren.
+- **Fullständigt köptest** kräver antingen en Mac med Xcode (hyrd moln-Mac, t.ex.
+  MacinCloud, ~kaffepengar per timme) eller vänta till TestFlight med riktig
+  App Store Connect-produkt (sandbox-köp funkar då på riktig iPhone).
 
 ## Arkitektur och filer
 
@@ -95,31 +105,32 @@ SolarEmpire/
 - **Ikonen** är genererad med ett skript; duger gott för test,
   men bör ersättas med en proffsigare version innan lansering.
 
-## 30-dagarsplan (prioriterad)
+## 30-dagarsplan (prioriterad, anpassad för PC-ägare)
 
-**Vecka 1 — Få igång och polera (nästa session börjar här)**
-1. ⚠️ Bygg i Xcode på Jetons Mac, rätta eventuella kompileringsfel (koden är
-   skriven "i blindo" i molnet — räkna med några små rättningar).
-2. Testa hela loopen i simulatorn: tryck, sälj, alla 10 köp, låtsasannons,
-   offline (stäng appen, vänta, öppna), prestige, köpet, återställ, språkbyte.
-3. Justera spelbalansen efter känsla.
+**Vecka 1 — Speltesta och polera (nästa session börjar här)**
+1. Jeton spelar via appetize.io (instruktioner ovan) och ger feedback på känsla,
+   balans och design. Claude justerar och bygger om (varje push → nytt grönt bygge).
+2. Justera spelbalansen efter känslan (uppgraderingspriser, prestige-tröskel).
 
-**Vecka 2 — Konton och riktig telefon** *(kräver Jeton: konto + pengar)*
-4. Apple Developer Program, 99 USD/år — developer.apple.com. Behövs för test på
-   riktig iPhone, TestFlight och App Store.
-5. Kör på Jetons riktiga iPhone (haptiken känns bara där).
-6. TestFlight: låt 5–10 vänner testa, samla feedback.
+**Vecka 2 — Apple-konto och riktig iPhone** *(kräver Jeton: konto + pengar)*
+3. Apple Developer Program, 99 USD/år — developer.apple.com. Går att registrera
+   från PC:n i webbläsaren. Behövs för TestFlight och App Store.
+4. Sätt upp signering + TestFlight-uppladdning i GitHub Actions (fastlane eller
+   Codemagic) — då kan Jeton testa på sin riktiga iPhone utan Mac, och haptiken
+   går äntligen att känna. Sandbox-köpet testas här.
+5. TestFlight: låt 5–10 vänner testa, samla feedback.
 
 **Vecka 3 — Riktiga pengar** *(kräver Jeton: AdMob-konto)*
-7. AdMob-konto (admob.google.com) + Google Mobile Ads SDK; ersätt MockRewardedAdView.
+6. AdMob-konto (admob.google.com) + Google Mobile Ads SDK; ersätt MockRewardedAdView.
    Obs: kräver App Tracking Transparency-dialog eller enbart icke-spårade annonser.
-8. App Store Connect: registrera appen + köpet "Ta bort annonser" på riktigt.
-9. Integritetspolicy (krävs av både Apple och AdMob) — enkel sida, kan ligga på driftiq.se.
+7. App Store Connect: registrera appen + köpet "Ta bort annonser" på riktigt.
+8. Integritetspolicy (krävs av både Apple och AdMob) — enkel sida, kan ligga på driftiq.se.
 
 **Vecka 4 — Lansering**
-10. App Store-material: skärmbilder, beskrivning (sv + en), nyckelord, ev. förbättrad ikon.
-11. Apples granskning (räkna med 1–3 dagar + risk för en avvisning första gången).
-12. Lansera. Därefter: mät, justera balans, planera uppdatering 1.1
+9. App Store-material: skärmbilder, beskrivning (sv + en), nyckelord, ev. förbättrad ikon.
+10. Inskickning till Apple via CI (fastlane deliver) eller hyrd moln-Mac vid behov.
+    Apples granskning: räkna med 1–3 dagar + risk för en avvisning första gången.
+11. Lansera. Därefter: mät, justera balans, planera uppdatering 1.1
     (fler länder-bonusar, statistik, ljud?).
 
 ## Sessionslogg
@@ -127,4 +138,7 @@ SolarEmpire/
 - **2026-07-19 (session 1):** Hela v1 byggd från noll i molnmiljö (Linux, utan Xcode).
   All kod, design, språk, ikon, StoreKit-config klar och kvalitetskontrollerad
   (JSON/XML validerad, alla översättningsnycklar korskollade, syntax-sanity).
-  **Ej byggt i riktig Xcode ännu** — det är första steget nästa session.
+- **2026-07-19 (session 1, forts):** Jeton har PC, ingen Mac. Satte upp GitHub
+  Actions-bygge på gratis Mac-servrar. **Första bygget grönt utan ett enda
+  kompileringsfel** (run #1). Spelbar simulator-app sparas som artefakt vid varje
+  bygge; Jeton testar via appetize.io. Plan omskriven för Mac-fri väg till lansering.
