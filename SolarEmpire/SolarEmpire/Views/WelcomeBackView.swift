@@ -52,7 +52,7 @@ struct WelcomeBackView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
                 }
-                .buttonStyle(doubled ? .borderedProminent : .bordered)
+                .buttonStyle(.borderedProminent)
                 .tint(doubled ? Theme.sunOrange : .gray)
             }
             .padding(24)
