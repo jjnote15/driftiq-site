@@ -10,13 +10,14 @@ Jeton och Claude fram till att ett rent idle-klickspel troligen **inte kommer
 sälja eller behålla spelare på den nivå Jeton siktar på** ("Top-notch,
 världsnivå", betalvilja ~100 kr, "man kan bara inte låta bli att öppna spelet").
 
-Vi utforskar därför just nu **en ny spelriktning**, inspirerad av två förebilder:
-**Josef Fares/Hazelight** (It Takes Two, Split Fiction — se "Pivot-diskussionen")
-och **King/Candy Crush Saga** (Sebastian Knutsson — se "King-analysen", tillagd
-session 2). Två skissade koncept finns: TVÅ och MELLAN. **Inget beslut är
-taget.** Jeton skulle fundera vidare och eventuellt testa pitchar på riktiga
-människor. **Nästa session ska börja med att fråga Jeton var han landade**,
-inte anta att Solar Empire eller något av de skissade koncepten är valt.
+Vi utforskar därför just nu **en ny spelriktning**. Session 2 (2026-07-20)
+utvecklade den i fyra steg: King-analysen → djupdykningen (marknad + mästare)
+→ stresstestet (sociala trender + AI-frågan) → **ett fullt konceptdokument:
+`KONCEPT-GLOD.md`** (arbetsnamn GLÖD/EMBER — asynkront tvåpersonsspel, daglig
+5-minutersritual, delat väsen av glöd). Jeton gav klartecken att gå på djupet
+med konceptet ("jag gillar din idé") — men **inget bygge är beslutat**; nästa
+konkreta steg är valideringsplanen i KONCEPT-GLOD.md §11 (pitchtest +
+Trollkarlen från Oz-testet). Läs KONCEPT-GLOD.md tillsammans med denna fil.
 Om ett nytt koncept väljs blir det sannolikt ett nytt projekt/mapp — Solar
 Empire-koden och hela CI/bygginfrastrukturen fredas och återanvänds tekniskt
 (se "Tekniska beslut"), men spelet, namnet och designen kan bytas helt ut.
@@ -612,3 +613,16 @@ ett väsen som bara överlever om ni båda kommer tillbaka").
   innehållsmotor + ev. parets gemensamma varelse (Tamagotchi/Finch/Widgetable-
   spåret) + mjuk fallback. Två pitch-varianter att testa formulerade.
   **Inget byggt, inget beslutat.**
+- **2026-07-20 (session 2, forts 3 — KONCEPT-GLOD.md skapad):** Jeton gillade
+  riktningen ("fortsätt gå djupare, applicera allt som gör de främsta spelen
+  beroendeframkallande och premium-värda"). Claude skrev konceptdokumentet
+  `KONCEPT-GLOD.md` v0.1: kärnfantasi (två håller liv i ett väsen av glöd),
+  världen (delad dal, Grynings-/Skymningssidan), dagligt 5-minutersritual i
+  5 steg, komplett mekanismtabell (mästare → mekanik), etiska designlagar
+  (längtan aldrig skuld, privat by design, utanför companion-chatbot-
+  regulatoriken), trelagers innehållsmotor, livscykeldesign (ägg-inbjudan,
+  kläckning kräver båda, ide i stället för död, värdig arkivering),
+  hybridmodell (129 kr parpass + gåvobutik 15–39 kr, aldrig energi/annonser),
+  riskregister och valideringsplan (pitchtest + Trollkarlen från Oz-test via
+  WhatsApp — noll kod). Öppna antaganden listade i §12 för Jetons reaktion.
+  **Fortfarande inget byggt.**
