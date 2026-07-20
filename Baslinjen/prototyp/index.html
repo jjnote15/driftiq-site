@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BASLINJEN — Fall 01: Handkassan</title>
+<title>BASLINJEN — prototyp</title>
 <style>
   :root{
     --bg:#0f1216; --panel:#171c24; --panel2:#1d232e; --line:#2a3240;
@@ -19,7 +19,7 @@
   .screen.active{display:flex;}
   h1{font-family:Georgia,'Times New Roman',serif; font-weight:700; letter-spacing:.18em;
      font-size:1.9rem; margin:0; color:var(--amber);}
-  h2{font-family:Georgia,serif; font-size:1.15rem; letter-spacing:.06em; margin:1.4em 0 .4em; color:var(--cold);}
+  h2{font-family:Georgia,serif; font-size:1.15rem; letter-spacing:.06em; margin:1.2em 0 .4em; color:var(--cold);}
   .kicker{color:var(--dim); letter-spacing:.3em; font-size:.72rem; text-transform:uppercase; margin-bottom:6px;}
   .card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:10px 0;}
   .rule{display:flex; gap:12px; margin:12px 0; align-items:baseline;}
@@ -27,6 +27,7 @@
   button{font:inherit; cursor:pointer; border-radius:12px; border:1px solid var(--line);
     background:var(--panel2); color:var(--text); padding:12px 16px; text-align:left; width:100%;}
   button:active{transform:scale(.985);}
+  button:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
   button.primary{background:var(--amber); border-color:var(--amber); color:#1a1408;
     font-weight:700; text-align:center; letter-spacing:.04em;}
   button.ghost{text-align:center; color:var(--dim);}
@@ -34,6 +35,24 @@
   .qlist{display:flex; flex-direction:column; gap:8px; margin-top:10px;}
   .qlist button{font-size:.95rem;}
   .qlist button.asked{opacity:.35; text-decoration:line-through;}
+
+  /* hub */
+  .hub-head{text-align:center; padding:28px 0 6px;}
+  .hub-tag{color:var(--dim); font-family:Georgia,serif; font-style:italic; margin-top:6px;}
+  .case-card{display:flex; gap:14px; align-items:center; margin:10px 0;}
+  .case-card .portrait{flex:0 0 74px; height:74px; border-radius:50%; background:var(--panel2);
+    border:1px solid var(--line); overflow:hidden; display:flex; align-items:flex-end; justify-content:center;}
+  .case-card .portrait svg{width:64px; height:64px;}
+  .case-card .meta{flex:1;}
+  .case-card .cnr{color:var(--dim); font-size:.7rem; letter-spacing:.24em; text-transform:uppercase;}
+  .case-card .cname{font-family:Georgia,serif; font-size:1.1rem; margin:2px 0;}
+  .chip{display:inline-block; font-size:.72rem; letter-spacing:.08em; border-radius:999px;
+    padding:3px 10px; border:1px solid var(--line); color:var(--dim); margin-top:4px;}
+  .chip.done{border-color:var(--good); color:var(--good);}
+  .case-card.locked{opacity:.5;}
+  .hub-foot{display:flex; gap:10px; justify-content:center; align-items:center; margin-top:14px;
+    color:var(--dim); font-size:.78rem;}
+  .hub-foot button{width:auto; padding:6px 12px; font-size:.78rem; color:var(--dim);}
 
   /* topbar */
   .topbar{display:flex; justify-content:space-between; align-items:center; padding:14px 18px 8px;
@@ -49,9 +68,14 @@
   .hands{transform-origin:95px 128px;}
   [data-hands="fidget"] .hands{animation:fidget 1.1s ease-in-out infinite;}
   [data-hands="hair"] .hand-r{animation:hairtouch 1.6s ease-in-out infinite;}
+  [data-hands="watch"] .hand-r{animation:watchspin 1.4s ease-in-out infinite;}
   [data-hands="still"] .hands{animation:none;}
   @keyframes fidget{0%,100%{transform:translate(0,0) rotate(0deg)} 25%{transform:translate(-2px,1px) rotate(-2deg)} 60%{transform:translate(2px,-1px) rotate(2deg)}}
   @keyframes hairtouch{0%,100%{transform:translate(0,0)} 50%{transform:translate(6px,-26px)}}
+  @keyframes watchspin{0%,100%{transform:translate(0,0)} 50%{transform:translate(-16px,-2px)}}
+  @media (prefers-reduced-motion: reduce){
+    [data-hands] .hands, [data-hands] .hand-r{animation:none !important;}
+  }
   .namechip{text-align:center; color:var(--dim); font-size:.8rem; letter-spacing:.12em; margin-bottom:6px;}
 
   /* dialogue */
@@ -61,14 +85,15 @@
   .msg .bubble{display:inline-block; text-align:left; padding:10px 14px; border-radius:14px; font-size:.95rem;}
   .msg.you .bubble{background:#243040; border:1px solid #33435a; color:#dfe7ef;}
   .msg.her .bubble{background:var(--panel); border:1px solid var(--line);}
+  .msg.echo .bubble{border-color:var(--amber); box-shadow:0 0 14px rgba(224,165,75,.12);}
   .stagedir{color:var(--dim); font-style:italic; font-size:.83rem; margin:8px 0 -2px; max-width:92%;}
   .dots{display:inline-block; min-width:34px; letter-spacing:3px; color:var(--dim);}
   .sysline{text-align:center; color:var(--cold); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; margin:16px 0 6px;}
 
   /* flag chips */
   .flags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
-  .flags .chip{width:auto; padding:8px 13px; border-radius:999px; font-size:.85rem; color:var(--dim);}
-  .flags .chip.on{background:#3a2f1c; border-color:var(--amber); color:var(--amber); font-weight:600;}
+  .flags .chip-btn{width:auto; padding:8px 13px; border-radius:999px; font-size:.85rem; color:var(--dim);}
+  .flags .chip-btn.on{background:#3a2f1c; border-color:var(--amber); color:var(--amber); font-weight:600;}
   .hint{color:var(--dim); font-size:.82rem; margin-top:8px;}
 
   /* notebook */
@@ -80,7 +105,7 @@
 
   /* verdict */
   .scorebox{display:flex; align-items:baseline; gap:10px;}
-  .scorebox .big{font-family:Georgia,serif; font-size:2.6rem; color:var(--amber);}
+  .scorebox .big{font-family:Georgia,serif; font-size:2.6rem; color:var(--amber); font-variant-numeric:tabular-nums;}
   .title-earned{font-family:Georgia,serif; font-size:1.3rem; color:var(--text); letter-spacing:.06em;}
   .bd{margin:6px 0; padding-left:0; list-style:none;}
   .bd li{margin:7px 0; font-size:.92rem; display:flex; gap:9px;}
@@ -91,27 +116,26 @@
   @keyframes fadein{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
   .spacer{height:10px;}
   .footer-note{color:var(--dim); font-size:.78rem; text-align:center; margin-top:18px;}
+  .vbtns{display:flex; flex-direction:column; gap:8px;}
 </style>
 </head>
 <body>
 <div id="app">
 
-  <!-- INTRO -->
-  <section class="screen active" id="s-intro">
-    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-      <div class="kicker">Prototyp · Fall 01</div>
+  <!-- HUB -->
+  <section class="screen active" id="s-hub">
+    <div class="hub-head">
+      <div class="kicker">Persongalleriet</div>
       <h1>BASLINJEN</h1>
-      <p style="color:var(--dim); font-family:Georgia,serif; font-style:italic; margin-top:6px;">
-        Du ser vad folk faktiskt säger.</p>
-      <div class="card">
-        <p style="margin:0 0 10px;"><b>Wessmans Bil, Ystad.</b> I fredags kväll försvann
-        14&nbsp;300&nbsp;kr ur handkassan. Ägaren Kenneth vill inte blanda in polisen — än.
-        Du är den han ringer.</p>
-        <p style="margin:0;">Praktikanten <b>Moa Lindqvist, 22</b>, räknade kassan och
-        var bland de sista som gick. Hon väntar på dig i fikarummet.</p>
-      </div>
-      <button class="primary" onclick="show('s-howto')">Ta fallet</button>
+      <div class="hub-tag">Du ser vad folk faktiskt säger.</div>
     </div>
+    <div id="hub-cases"></div>
+    <div class="hub-foot">
+      <button onclick="show('s-howto')">Reglerna</button>
+      <button id="sndbtn" onclick="toggleSound()">Ljud: på</button>
+      <button onclick="resetAll()">Nollställ</button>
+    </div>
+    <div class="footer-note">BASLINJEN · prototyp v0.2 · framsteg sparas i din webbläsare</div>
   </section>
 
   <!-- HOW TO -->
@@ -126,50 +150,36 @@
         <div class="rule"><b>3.</b><span>Avvikelse betyder inte skuld. Det betyder <b>stress</b>.
           Din uppgift är att förstå varför.</span></div>
       </div>
-      <p class="hint">Akt 1: småprata och anteckna hennes baslinje. Akt 2: fråga om pengarna
-        och flagga avvikelser. Akt 3: fäll ditt omdöme.</p>
-      <button class="primary" onclick="startAct1()">Kliv in i fikarummet</button>
+      <p class="hint">Varje människa är en ny regelbok. Det som var normalt hos den förra
+        kan vara en varningsflagga hos nästa.</p>
+      <button class="primary" id="howto-next" onclick="afterHowto()">Vidare</button>
+    </div>
+  </section>
+
+  <!-- CASE INTRO -->
+  <section class="screen" id="s-intro">
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <div class="kicker" id="intro-kicker"></div>
+      <h1 style="font-size:1.5rem;" id="intro-name"></h1>
+      <div class="card" id="intro-body"></div>
+      <button class="primary" id="intro-go"></button>
     </div>
   </section>
 
   <!-- GAME -->
   <section class="screen" id="s-game">
-    <div class="topbar"><span class="act" id="actlabel">Akt 1 · Baslinjen</span><span id="progress"></span></div>
-    <div class="stage" id="stage" data-gaze="direct" data-hands="fidget">
-      <svg viewBox="0 0 190 150" aria-hidden="true">
-        <ellipse cx="95" cy="145" rx="80" ry="7" fill="#0a0d11"/>
-        <path d="M40 150 Q42 96 95 94 Q148 96 150 150 Z" fill="#2b3a4d"/>
-        <path d="M66 60 Q60 18 95 16 Q130 18 124 60 Q128 84 95 86 Q62 84 66 60 Z" fill="#3d2f28"/>
-        <ellipse cx="95" cy="56" rx="26" ry="29" fill="#caa183"/>
-        <path d="M69 48 Q73 26 95 25 Q117 26 121 48 Q112 38 95 38 Q78 38 69 48 Z" fill="#3d2f28"/>
-        <g class="eyes">
-          <ellipse cx="85" cy="55" rx="5.6" ry="4.4" fill="#f3ede2"/>
-          <ellipse cx="106" cy="55" rx="5.6" ry="4.4" fill="#f3ede2"/>
-          <g class="pupils">
-            <circle cx="85" cy="55.5" r="2.5" fill="#2a2019"/>
-            <circle cx="106" cy="55.5" r="2.5" fill="#2a2019"/>
-          </g>
-          <path d="M79 47 q6 -4 12 -1" stroke="#3d2f28" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M100 46 q6 -3 12 1" stroke="#3d2f28" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </g>
-        <path id="mouth" d="M89 71 q6 3 12 0" stroke="#8a5f4b" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <g class="hands">
-          <circle class="hand-l" cx="78" cy="126" r="8" fill="#caa183"/>
-          <circle class="hand-r" cx="112" cy="126" r="8" fill="#caa183"/>
-          <rect x="88" y="118" width="14" height="16" rx="3" fill="#e8e4da" opacity=".9"/>
-        </g>
-      </svg>
-    </div>
-    <div class="namechip">MOA LINDQVIST · praktikant</div>
+    <div class="topbar"><span class="act" id="actlabel"></span><span id="progress"></span></div>
+    <div class="stage" id="stage" data-gaze="direct" data-hands="still"></div>
+    <div class="namechip" id="gamename"></div>
     <div class="log" id="log"></div>
     <div id="controls"></div>
   </section>
 
   <!-- NOTEBOOK -->
   <section class="screen" id="s-notebook">
-    <div class="topbar"><span class="act">Anteckningsboken</span><span>Baslinje: Moa L.</span></div>
-    <p class="hint" style="margin-top:0;">Lås hennes baslinje. Vad är <b>hennes</b> normala —
-      när inget står på spel?</p>
+    <div class="topbar"><span class="act">Anteckningsboken</span><span id="nb-who"></span></div>
+    <p class="hint" style="margin-top:0;">Lås baslinjen. Vad är <b>den här personens</b>
+      normala — när inget står på spel?</p>
     <div id="nb"></div>
     <button class="primary" id="nb-lock" disabled onclick="lockBaseline()">Lås baslinjen → Akt 2</button>
   </section>
@@ -178,351 +188,648 @@
   <section class="screen" id="s-decision">
     <div class="topbar"><span class="act">Akt 3 · Beslutet</span></div>
     <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-      <h2>Kenneth väntar utanför. Vad säger du?</h2>
-      <div class="qlist">
-        <button onclick="decide('A')">»Moa tog pengarna. Hon var nervös genom hela samtalet.«</button>
-        <button onclick="decide('B')">»Moa är oskyldig — men hon skyddar någon. Titta närmare på Viktor.«</button>
-        <button onclick="decide('C')">»Moa är oskyldig. Nervositeten är bara hennes sätt. Fråga inte mig vem som tog dem.«</button>
-      </div>
+      <h2 id="dec-prompt"></h2>
+      <div class="qlist" id="dec-opts"></div>
     </div>
   </section>
 
   <!-- VERDICT -->
   <section class="screen" id="s-verdict">
-    <div class="topbar"><span class="act">Facit · Fall 01</span></div>
+    <div class="topbar"><span class="act" id="v-act">Facit</span></div>
     <div class="card fade" id="truth"></div>
     <div class="card fade">
-      <div class="scorebox"><span class="big" id="scorenum">0</span><span style="color:var(--dim)">/ 120 poäng</span></div>
+      <div class="scorebox"><span class="big" id="scorenum">0</span><span style="color:var(--dim)" id="scoremax"></span></div>
       <div class="title-earned" id="titletxt"></div>
       <ul class="bd" id="breakdown"></ul>
     </div>
-    <div class="lesson fade">Nervositet är inte skuld. Avvikelsen från baslinjen — det är signalen.</div>
-    <button class="primary" onclick="location.reload()">Spela igen (du kommer se mer)</button>
-    <div class="spacer"></div>
-    <button class="ghost" disabled>Fall 02: »Den som aldrig darrar« — låst</button>
+    <div class="lesson fade" id="lessontxt"></div>
+    <div class="vbtns">
+      <button class="primary" onclick="goHub()">Till persongalleriet</button>
+      <button onclick="saveCard()">Spara utlåtandekortet (bild)</button>
+      <button class="ghost" onclick="replayCase()">Spela fallet igen (du kommer se mer)</button>
+    </div>
     <div class="footer-note">BASLINJEN · prototyp · allt är platshållare utom känslan</div>
   </section>
 </div>
 
+<canvas id="cardcanvas" width="1000" height="1250" style="display:none;"></canvas>
+
 <script>
 "use strict";
-/* ================= DATA ================= */
+/* =============================================================
+   BASLINJEN — prototyp v0.2
+   Motorn är datadriven: ett fall är innehåll, inte kod.
+   ============================================================= */
 const CH = ["tempo","sprak","detaljer","kropp"];
 const CHNAME = {tempo:"Tempo", sprak:"Språk", detaljer:"Detaljer", kropp:"Kropp"};
 
-// latency ms innan svar, speed ms/tecken vid utrullning
-const ACT1 = [
-  {q:"Hur länge har du praktiserat här?",
-   dir:"Hon svarar innan du hunnit prata klart. Snurrar en penna mellan fingrarna.",
-   a:"Typ två månader? Nej vänta — tio veckor faktiskt, jag började veckan efter påsk. Det är ba… det är första stället där jag får göra riktiga grejer liksom, inte bara koka kaffe. Jag sköter kassan, bokningarna, typ allt administrativt.",
-   latency:350, speed:16, gaze:"direct", hands:"fidget"},
-  {q:"Vad vill du göra efter praktiken?",
-   dir:"Blicken far iväg mot fönstret — hon ler. Handen upp och vrider en hårslinga.",
-   a:"Alltså drömmen är ekonomiprogrammet i Lund. Jag har sökt, besked i slutet av juli, jag typ dör lite varje gång mejlen plingar. Kenneth har lovat skriva referens, och med den… ja. Lund. Sen typ controller på nåt stort bolag. Jag har liksom hela planen.",
-   latency:400, speed:15, gaze:"away", hands:"hair"},
-  {q:"Hur är det att jobba här?",
-   dir:"Fortfarande snabb i orden. En knappt märkbar paus mitt i — sen rullar det på igen.",
-   a:"Sjukt bra! Kenneth är typ världens gulligaste chef, han köper semlor på fredagar fast det inte ens är semmeltider. Och säljarna är snälla. Alla är… ja, alla är snälla. Det är högt i tak liksom.",
-   latency:380, speed:16, gaze:"direct", hands:"fidget"},
-  {q:"Berätta om en vanlig dag för dig.",
-   dir:"Hon räknar upp på fingrarna, orden hinner knappt med tanken.",
-   a:"Okej så jag kommer typ kvart i åtta fast jag börjar åtta, öppnar kassan, kollar gårdagens bokningar, sen är det kunder och papper hela dan. Jag lunchar med Sara i receptionen, vi går alltid till thaistället. Sen räknar jag kassan vid stängning och lägger den i kassaskåpet. Samma varje dag typ. Jag gillar det.",
-   latency:350, speed:15, gaze:"direct", hands:"fidget"},
-];
-
-// baslinje-facit: det spelaren bör ha antecknat
-const BASELINE_KEY = {tempo:0, sprak:0, detaljer:0, kropp:0};
-const NB_OPTS = {
-  tempo:["Snabb — orden hinner knappt med","Lugn och jämn","Långsam, eftertänksam"],
-  sprak:["Full av småord — typ, ba, liksom","Neutral vardagssvenska","Formell och korrekt"],
-  detaljer:["Detaljrik — svarar mer än frågan","Svarar exakt på frågan","Kortfattad, måste lockas"],
-  kropp:["Rastlös i händerna men direkt blick","Stilla och samlad","Undviker blickkontakt"]
-};
-
-// Akt 2. dev = sanna avvikelser per kanal.
-const ACT2 = [
-  {id:"fri", q:"Berätta om fredagskvällen, från stängning tills du gick.",
-   dir:"Samma tempo som förut. Pennan snurrar. Hon möter din blick.",
-   a:"Okej så vi stängde sex, jag räknade kassan typ kvart över — räknade den två gånger till och med, för det var mycket kontanter efter husvagnsaffären. 14 320 tror jag det var. La den i skåpet, vred om, hängde nyckeln i nyckelskåpet som alltid. Sen hämtade jag min jacka och cyklade hem vid halv sju typ.",
-   latency:380, speed:15, gaze:"direct", hands:"fidget",
-   dev:{tempo:false, sprak:false, detaljer:false, kropp:false}},
-  {id:"kvar", q:"Vilka fler var kvar i byggnaden när du gick?",
-   dir:"Pennan stannar. Hon tittar ner i bordet. Det dröjer innan hon svarar — och svaret är kort.",
-   a:"… Det var… jag och Kenneth. Och Viktor var väl där ett tag.",
-   latency:2600, speed:46, gaze:"down", hands:"still",
-   dev:{tempo:true, sprak:true, detaljer:true, kropp:true}},
-  {id:"CHOICE"},
-  {id:"viktor", q:"Vad gjorde Viktor där så sent?",
-   dir:"Stilla händer. Blicken åt sidan. Varje ord låter avvägt — småorden är borta.",
-   a:"Vet inte. Han brukar vara där ibland. Det är hans pappas firma.",
-   latency:2900, speed:50, gaze:"away", hands:"still",
-   dev:{tempo:true, sprak:true, detaljer:true, kropp:true}},
-  {id:"sista", q:"Något mer jag borde veta innan jag pratar med Kenneth?", branch:true},
-];
-
-const Q_SISTA = {
-  rapport:{
-    dir:"Lång tystnad. Sen sjunker axlarna, och orden kommer tillbaka — fast tystare.",
-    a:"… Viktor var inne på kontoret när jag hämtade jackan. Han sa att han glömt sin laddare. Jag tänkte inte mer på det då, jag lovar. Snälla säg inte att jag sa det — han lovade ordna referensen till Lund om jag… om jag inte bråkade. Jag har inte tagit några pengar. Jag skulle aldrig.",
-    latency:3400, speed:26, gaze:"down", hands:"hair"},
-  press:{
-    dir:"Hon korsar armarna. Blicken i bordet. Rösten är alldeles platt.",
-    a:"Nej. Inget. Kan jag gå hem nu?",
-    latency:1800, speed:55, gaze:"down", hands:"still"}
-};
-
-/* ================= STATE ================= */
-const S = {
-  act:1, qi:0, asked:new Set(),
-  baseline:{}, flags:{}, approach:null, decision:null
-};
-
-/* ================= HELPERS ================= */
-const $ = id => document.getElementById(id);
-function show(id){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  $(id).classList.add("active");
-  window.scrollTo(0,0);
-}
-function setAvatar(gaze,hands){
-  const st=$("stage"); st.dataset.gaze=gaze; st.dataset.hands=hands;
-}
-function addMsg(cls, html){
-  const d=document.createElement("div"); d.className="msg "+cls;
-  d.innerHTML='<span class="bubble">'+html+'</span>';
-  $("log").appendChild(d); scrollLog(); return d;
-}
-function addDir(text){
-  const d=document.createElement("div"); d.className="stagedir fade"; d.textContent=text;
-  $("log").appendChild(d); scrollLog();
-}
-function addSys(text){
-  const d=document.createElement("div"); d.className="sysline fade"; d.textContent=text;
-  $("log").appendChild(d); scrollLog();
-}
-function scrollLog(){ const l=$("log"); l.scrollTop=l.scrollHeight; }
-function clearControls(){ $("controls").innerHTML=""; }
-
-// spelar upp ett svar: latens ("…") + utrullning i svarets tempo. Tapp = hoppa fram.
-function playAnswer(item, done){
-  setAvatar(item.gaze, item.hands);
-  if(item.dir) addDir(item.dir);
-  const msg=addMsg("her",'<span class="dots">·</span>');
-  const bubble=msg.querySelector(".bubble");
-  let skip=false;
-  const skipper=()=>{skip=true;};
-  msg.addEventListener("click",skipper);
-  let dots=1;
-  const dotTimer=setInterval(()=>{
-    dots=dots%3+1; bubble.innerHTML='<span class="dots">'+"·".repeat(dots)+'</span>'; scrollLog();
-  },380);
-  setTimeout(()=>{
-    clearInterval(dotTimer);
-    let i=0; const txt=item.a;
-    (function tick(){
-      if(skip){ i=txt.length; }
-      bubble.textContent=txt.slice(0,++i); scrollLog();
-      if(i<txt.length) setTimeout(tick, item.speed);
-      else { msg.removeEventListener("click",skipper); done && done(); }
-    })();
-  }, skip?200:item.latency);
-}
-
-/* ================= AKT 1 ================= */
-function startAct1(){
-  show("s-game");
-  $("actlabel").textContent="Akt 1 · Baslinjen";
-  addSys("Småprata. Lär dig hennes normala innan du frågar om pengarna.");
-  addDir("Fikarummet luktar bryggkaffe. Moa sitter redan där — hon reser sig halvvägs när du kommer in, ångrar sig, sätter sig igen.");
-  act1Menu();
-}
-function act1Menu(){
-  clearControls();
-  $("progress").textContent = S.asked.size+" / "+ACT1.length;
-  if(S.asked.size===ACT1.length){
-    const div=document.createElement("div"); div.className="qlist";
-    const b=document.createElement("button"); b.className="primary";
-    b.textContent="Öppna anteckningsboken — lås hennes baslinje";
-    b.onclick=openNotebook; div.appendChild(b); $("controls").appendChild(div);
-    return;
-  }
-  const div=document.createElement("div"); div.className="qlist";
-  ACT1.forEach((item,idx)=>{
-    const b=document.createElement("button");
-    b.textContent="»"+item.q+"«";
-    if(S.asked.has(idx)){ b.className="asked"; b.disabled=true; }
-    else b.onclick=()=>{ S.asked.add(idx); clearControls();
-      addMsg("you",item.q);
-      playAnswer(item, act1Menu);
-    };
-    div.appendChild(b);
-  });
-  $("controls").appendChild(div);
-}
-
-/* ================= NOTEBOOK ================= */
-function openNotebook(){
-  show("s-notebook");
-  const nb=$("nb"); nb.innerHTML="";
-  CH.forEach(ch=>{
-    const wrap=document.createElement("div"); wrap.className="channel";
-    wrap.innerHTML='<div class="cname">'+CHNAME[ch]+'</div>';
-    const opts=document.createElement("div"); opts.className="opts";
-    NB_OPTS[ch].forEach((label,oi)=>{
-      const b=document.createElement("button"); b.textContent=label;
-      b.onclick=()=>{
-        S.baseline[ch]=oi;
-        opts.querySelectorAll("button").forEach(x=>x.classList.remove("sel"));
-        b.classList.add("sel");
-        $("nb-lock").disabled = Object.keys(S.baseline).length<CH.length;
-      };
-      opts.appendChild(b);
-    });
-    wrap.appendChild(opts); nb.appendChild(wrap);
-  });
-}
-function lockBaseline(){
-  show("s-game");
-  $("actlabel").textContent="Akt 2 · Trycket";
-  $("progress").textContent="";
-  addSys("Baslinjen låst. Nu: pengarna. Jaga avvikelser — inte nervositet.");
-  S.qi=0; act2Next();
-}
-
-/* ================= AKT 2 ================= */
-function act2Next(){
-  clearControls();
-  if(S.qi>=ACT2.length){ show("s-decision"); return; }
-  const item=ACT2[S.qi];
-
-  if(item.id==="CHOICE"){
-    addDir("Något hände nyss. Hon sitter kvar men är inte längre riktigt här. Hur går du vidare?");
-    const div=document.createElement("div"); div.className="qlist";
-    const b1=document.createElement("button");
-    b1.textContent="Pressa: »Du tvekade precis. Vad är det du inte säger?«";
-    b1.onclick=()=>{ S.approach="press"; clearControls();
-      addMsg("you","Du tvekade precis. Vad är det du inte säger?");
-      playAnswer({dir:"Hon rycker till. Armarna i kors. Dörren du var på väg att öppna — den stängs.",
-        a:"Inget! Jag döljer ingenting. Det var en helt vanlig fredag. Är vi klara snart?",
-        latency:900, speed:30, gaze:"down", hands:"still"}, ()=>{ S.qi++; act2Next(); });
-    };
-    const b2=document.createElement("button");
-    b2.textContent="Lugna: »Du är inte misstänkt, Moa. Jag vill bara förstå kvällen.«";
-    b2.onclick=()=>{ S.approach="rapport"; clearControls();
-      addMsg("you","Du är inte misstänkt, Moa. Jag vill bara förstå kvällen.");
-      playAnswer({dir:"Hon andas ut. Pennan hittar tillbaka till fingrarna — nästan.",
-        a:"… Okej. Förlåt. Jag är ba nervös, hela grejen är så obehaglig. Fråga du.",
-        latency:1400, speed:22, gaze:"direct", hands:"fidget"}, ()=>{ S.qi++; act2Next(); });
-    };
-    div.appendChild(b1); div.appendChild(b2); $("controls").appendChild(div);
-    return;
-  }
-
-  const div=document.createElement("div"); div.className="qlist";
-  const b=document.createElement("button");
-  b.textContent="»"+item.q+"«";
-  b.onclick=()=>{
-    clearControls(); addMsg("you",item.q);
-    const payload = item.branch ? Q_SISTA[S.approach||"press"]
-                                : item;
-    playAnswer(payload, ()=>{
-      if(item.branch){ S.qi++; act2Next(); }   // sista svaret flaggas inte — det talar för sig självt
-      else showFlags(item);
-    });
-  };
-  div.appendChild(b); $("controls").appendChild(div);
-}
-
-function showFlags(item){
-  clearControls();
-  const wrap=document.createElement("div");
-  wrap.innerHTML='<div class="hint">Avvek hon från sin baslinje? Markera i vilka kanaler — eller gå vidare om hon lät som sig själv.</div>';
-  const flags=document.createElement("div"); flags.className="flags";
-  const sel={};
-  CH.forEach(ch=>{
-    const c=document.createElement("button"); c.className="chip"; c.textContent=CHNAME[ch];
-    c.onclick=()=>{ sel[ch]=!sel[ch]; c.classList.toggle("on",sel[ch]); };
-    flags.appendChild(c);
-  });
-  const go=document.createElement("button"); go.className="primary"; go.style.marginTop="10px";
-  go.textContent="Nästa";
-  go.onclick=()=>{ S.flags[item.id]=Object.assign({},sel); S.qi++; act2Next(); };
-  wrap.appendChild(flags); wrap.appendChild(go);
-  $("controls").appendChild(wrap);
-}
-
-/* ================= AKT 3 + FACIT ================= */
-function decide(d){
-  S.decision=d;
-  buildVerdict();
-  show("s-verdict");
-}
-
-function buildVerdict(){
-  // poäng
-  let score=0; const rows=[];
-  // 1) baslinje
-  let bOK=0; CH.forEach(ch=>{ if(S.baseline[ch]===BASELINE_KEY[ch]) bOK++; });
-  score += bOK*10;
-  rows.push([bOK===4,"Baslinjen: "+bOK+" av 4 kanaler rätt. Hennes normala är snabbt, pladdrigt, detaljrikt och rastlöst — med direkt blick. ("+(bOK*10)+" p)"]);
-  // 2) avvikelser
-  let hits=0, misses=0, falses=0;
-  ACT2.forEach(item=>{
-    if(!item.dev) return;
-    const sel=S.flags[item.id]||{};
-    CH.forEach(ch=>{
-      if(item.dev[ch] && sel[ch]) hits++;
-      else if(item.dev[ch] && !sel[ch]) misses++;
-      else if(!item.dev[ch] && sel[ch]) falses++;
-    });
-  });
-  score += hits*5 - falses*4;
-  rows.push([hits>=6,"Avvikelser: "+hits+" träffar av 8 möjliga"+(falses?", "+falses+" falsklarm (−"+falses*4+" p)":"")+". De äkta avvikelserna kom BARA kring frågorna om vilka som var kvar — och om Viktor. ("+(hits*5)+" p)"]);
-  if(falses>0 && (S.flags["fri"]&&Object.values(S.flags["fri"]).some(Boolean)))
-    rows.push([false,"Fredagskvällen i sig var ren baslinje: snabb, detaljrik, rastlös. Hon var bekväm — för om själva stölden har hon inget att dölja."]);
-  // 3) vägval
-  if(S.approach==="rapport"){ score+=10;
-    rows.push([true,"Vägvalet: du lugnade i stället för att pressa — och fick sanningen om Viktor på kontoret. Trygghet slår tryck. (+10 p)"]);
-  } else {
-    rows.push([false,"Vägvalet: du pressade en stressad människa — hon stängde, och svaret som hade löst fallet uteblev. (0 p)"]);
-  }
-  // 4) beslutet
-  const D={A:0,B:30,C:10}[S.decision];
-  score+=D;
-  const dtxt={
-    A:[false,"Ditt omdöme: du dömde på nervositet — hennes baslinje. Det är myternas fälla, och fel person hade fått bära det. (0 p)"],
-    B:[true,"Ditt omdöme: rätt. Oskyldig — men hon skyddade någon. (+30 p)"],
-    C:[false,"Ditt omdöme: halvrätt. Du såg att nervositeten var hennes normala — men missade att avvikelserna pekade på att hon visste mer. (+10 p)"]
-  }[S.decision];
-  rows.push(dtxt);
-  score=Math.max(0,score);
-
-  // sanningen
-  $("truth").innerHTML =
-    '<div class="kicker">Vad som faktiskt hände</div>'+
+/* ---------------- FALL 01: HANDKASSAN ---------------- */
+const FALL01 = {
+  id:"fall01", nr:"FALL 01", namn:"Handkassan",
+  person:"Moa Lindqvist", roll:"praktikant", who:"MOA LINDQVIST · praktikant",
+  avatar:{hair:"#3d2f28", skin:"#caa183", shirt:"#2b3a4d", style:"long", glasses:false, watch:false},
+  introKicker:"Fall 01 · Ystad",
+  introHtml:'<p style="margin:0 0 10px;"><b>Wessmans Bil, Ystad.</b> I fredags kväll försvann '+
+    '14&nbsp;300&nbsp;kr ur handkassan. Ägaren Kenneth vill inte blanda in polisen — än. '+
+    'Du är den han ringer.</p>'+
+    '<p style="margin:0;">Praktikanten <b>Moa Lindqvist, 22</b>, räknade kassan och var bland '+
+    'de sista som gick. Hon väntar på dig i fikarummet.</p>',
+  introBtn:"Kliv in i fikarummet",
+  opening:"Fikarummet luktar bryggkaffe. Moa sitter redan där — hon reser sig halvvägs när du kommer in, ångrar sig, sätter sig igen.",
+  act1sys:"Småprata. Lär dig hennes normala innan du frågar om pengarna.",
+  act1:[
+    {q:"Hur länge har du praktiserat här?",
+     dir:"Hon svarar innan du hunnit prata klart. Snurrar en penna mellan fingrarna.",
+     a:"Typ två månader? Nej vänta — tio veckor faktiskt, jag började veckan efter påsk. Det är ba… det är första stället där jag får göra riktiga grejer liksom, inte bara koka kaffe. Jag sköter kassan, bokningarna, typ allt administrativt.",
+     latency:350, speed:16, gaze:"direct", hands:"fidget"},
+    {q:"Vad vill du göra efter praktiken?",
+     dir:"Blicken far iväg mot fönstret — hon ler. Handen upp och vrider en hårslinga.",
+     a:"Alltså drömmen är ekonomiprogrammet i Lund. Jag har sökt, besked i slutet av juli, jag typ dör lite varje gång mejlen plingar. Kenneth har lovat skriva referens, och med den… ja. Lund. Sen typ controller på nåt stort bolag. Jag har liksom hela planen.",
+     latency:400, speed:15, gaze:"away", hands:"hair"},
+    {q:"Hur är det att jobba här?",
+     dir:"Fortfarande snabb i orden. En knappt märkbar paus mitt i — sen rullar det på igen.",
+     a:"Sjukt bra! Kenneth är typ världens gulligaste chef, han köper semlor på fredagar fast det inte ens är semmeltider. Och säljarna är snälla. Alla är… ja, alla är snälla. Det är högt i tak liksom.",
+     latency:380, speed:16, gaze:"direct", hands:"fidget"},
+    {q:"Berätta om en vanlig dag för dig.",
+     dir:"Hon räknar upp på fingrarna, orden hinner knappt med tanken.",
+     a:"Okej så jag kommer typ kvart i åtta fast jag börjar åtta, öppnar kassan, kollar gårdagens bokningar, sen är det kunder och papper hela dan. Jag lunchar med Sara i receptionen, vi går alltid till thaistället. Sen räknar jag kassan vid stängning och lägger den i kassaskåpet. Samma varje dag typ. Jag gillar det.",
+     latency:350, speed:15, gaze:"direct", hands:"fidget"},
+  ],
+  nbKey:{tempo:0, sprak:0, detaljer:0, kropp:0},
+  nbOpts:{
+    tempo:["Snabb — orden hinner knappt med","Lugn och jämn","Långsam, eftertänksam"],
+    sprak:["Full av småord — typ, ba, liksom","Neutral vardagssvenska","Formell och korrekt"],
+    detaljer:["Detaljrik — svarar mer än frågan","Svarar exakt på frågan","Kortfattad, måste lockas"],
+    kropp:["Rastlös i händerna men direkt blick","Stilla och samlad","Undviker blickkontakt"]
+  },
+  nbSummary:"Hennes normala är snabbt, pladdrigt, detaljrikt och rastlöst — med direkt blick.",
+  act2sys:"Baslinjen låst. Nu: pengarna. Jaga avvikelser — inte nervositet.",
+  act2:[
+    {type:"q", id:"fri", q:"Berätta om fredagskvällen, från stängning tills du gick.",
+     dir:"Samma tempo som förut. Pennan snurrar. Hon möter din blick.",
+     a:"Okej så vi stängde sex, jag räknade kassan typ kvart över — räknade den två gånger till och med, för det var mycket kontanter efter husvagnsaffären. 14 320 tror jag det var. La den i skåpet, vred om, hängde nyckeln i nyckelskåpet som alltid. Sen hämtade jag min jacka och cyklade hem vid halv sju typ.",
+     latency:380, speed:15, gaze:"direct", hands:"fidget",
+     dev:{tempo:false, sprak:false, detaljer:false, kropp:false}},
+    {type:"q", id:"kvar", q:"Vilka fler var kvar i byggnaden när du gick?",
+     dir:"Pennan stannar. Hon tittar ner i bordet. Det dröjer innan hon svarar — och svaret är kort.",
+     a:"… Det var… jag och Kenneth. Och Viktor var väl där ett tag.",
+     latency:2600, speed:46, gaze:"down", hands:"still",
+     dev:{tempo:true, sprak:true, detaljer:true, kropp:true}},
+    {type:"fork",
+     dir:"Något hände nyss. Hon sitter kvar men är inte längre riktigt här. Hur går du vidare?",
+     opts:[
+      {label:"Pressa: »Du tvekade precis. Vad är det du inte säger?«",
+       say:"Du tvekade precis. Vad är det du inte säger?",
+       key:"press", bonus:0,
+       ans:{dir:"Hon rycker till. Armarna i kors. Dörren du var på väg att öppna — den stängs.",
+            a:"Inget! Jag döljer ingenting. Det var en helt vanlig fredag. Är vi klara snart?",
+            latency:900, speed:30, gaze:"down", hands:"still"}},
+      {label:"Lugna: »Du är inte misstänkt, Moa. Jag vill bara förstå kvällen.«",
+       say:"Du är inte misstänkt, Moa. Jag vill bara förstå kvällen.",
+       key:"rapport", bonus:10,
+       ans:{dir:"Hon andas ut. Pennan hittar tillbaka till fingrarna — nästan.",
+            a:"… Okej. Förlåt. Jag är ba nervös, hela grejen är så obehaglig. Fråga du.",
+            latency:1400, speed:22, gaze:"direct", hands:"fidget"}}
+     ]},
+    {type:"q", id:"viktor", q:"Vad gjorde Viktor där så sent?",
+     dir:"Stilla händer. Blicken åt sidan. Varje ord låter avvägt — småorden är borta.",
+     a:"Vet inte. Han brukar vara där ibland. Det är hans pappas firma.",
+     latency:2900, speed:50, gaze:"away", hands:"still",
+     dev:{tempo:true, sprak:true, detaljer:true, kropp:true}},
+    {type:"final", q:"Något mer jag borde veta innan jag pratar med Kenneth?",
+     variants:{
+      rapport:{dir:"Lång tystnad. Sen sjunker axlarna, och orden kommer tillbaka — fast tystare.",
+        a:"… Viktor var inne på kontoret när jag hämtade jackan. Han sa att han glömt sin laddare. Jag tänkte inte mer på det då, jag lovar. Snälla säg inte att jag sa det — han lovade ordna referensen till Lund om jag… om jag inte bråkade. Jag har inte tagit några pengar. Jag skulle aldrig.",
+        latency:3400, speed:26, gaze:"down", hands:"hair"},
+      press:{dir:"Hon korsar armarna. Blicken i bordet. Rösten är alldeles platt.",
+        a:"Nej. Inget. Kan jag gå hem nu?",
+        latency:1800, speed:55, gaze:"down", hands:"still"}
+     }}
+  ],
+  decisionPrompt:"Kenneth väntar utanför. Vad säger du?",
+  decisions:[
+    {label:"»Moa tog pengarna. Hon var nervös genom hela samtalet.«", pts:0,
+     row:[false,"Ditt omdöme: du dömde på nervositet — hennes baslinje. Det är myternas fälla, och fel person hade fått bära det. (0 p)"]},
+    {label:"»Moa är oskyldig — men hon skyddar någon. Titta närmare på Viktor.«", pts:30,
+     row:[true,"Ditt omdöme: rätt. Oskyldig — men hon skyddade någon. (+30 p)"]},
+    {label:"»Moa är oskyldig. Nervositeten är bara hennes sätt. Fråga inte mig vem som tog dem.«", pts:10,
+     row:[false,"Ditt omdöme: halvrätt. Du såg att nervositeten var hennes normala — men missade att avvikelserna pekade på att hon visste mer. (+10 p)"]}
+  ],
+  correctDecision:1,
+  bonusRow:{
+    rapport:[true,"Vägvalet: du lugnade i stället för att pressa — och fick sanningen om Viktor på kontoret. Trygghet slår tryck. (+10 p)"],
+    press:[false,"Vägvalet: du pressade en stressad människa — hon stängde, och svaret som hade löst fallet uteblev. (0 p)"]
+  },
+  devHint:"De äkta avvikelserna kom BARA kring frågorna om vilka som var kvar — och om Viktor.",
+  falseHint:"Fredagskvällen i sig var ren baslinje: snabb, detaljrik, rastlös. Hon var bekväm — för om själva stölden har hon inget att dölja.",
+  truth:function(S){
+    return '<div class="kicker">Vad som faktiskt hände</div>'+
     '<p style="margin:6px 0 0;">Moa tog aldrig pengarna. <b>Viktor</b> — Kenneths son — tömde '+
     'handkassan för att täcka spelskulder. Moa såg honom på kontoret, och han köpte hennes '+
     'tystnad med det enda hon inte hade råd att förlora: referensbrevet till Lund.</p>'+
     '<p style="margin:10px 0 0;">Hennes nervositet var aldrig signalen — den är hennes baslinje. '+
     'Signalen var <i>tystnaden</i>: pauserna, de korta svaren, småorden som försvann. '+
     'Bara kring en enda person.</p>'+
-    (S.approach==="rapport"
+    (S.bonusKey==="rapport"
       ? '<p style="margin:10px 0 0; color:var(--dim);">Epilog: Kenneth konfronterade Viktor samma kväll. Han erkände. Moa fick sitt referensbrev — av Kenneth själv.</p>'
       : '<p style="margin:10px 0 0; color:var(--dim);">Epilog: utan Moas ord tog det Kenneth två veckor och en kameralogg att nå sanningen. Viktor erkände till slut. Moa vågade aldrig be om referensbrevet.</p>');
+  },
+  lesson:"Nervositet är inte skuld. Avvikelsen från baslinjen — det är signalen."
+};
 
-  $("scorenum").textContent=score;
-  const t = score>=105 ? "Människoläsare"
-        : score>=85 ? "Skarp blick"
-        : score>=55 ? "Lovande amatör"
-        : "Myternas fånge";
-  $("titletxt").textContent="Titel: "+t;
-  const bd=$("breakdown"); bd.innerHTML="";
-  rows.forEach(([ok,txt])=>{
-    const li=document.createElement("li");
-    li.innerHTML='<span class="'+(ok?"ok":"miss")+'">'+(ok?"✓":"✗")+'</span><span>'+txt+'</span>';
-    bd.appendChild(li);
+/* ---------------- FALL 02: DEN SOM ALDRIG DARRAR ---------------- */
+const FALL02 = {
+  id:"fall02", nr:"FALL 02", namn:"Den som aldrig darrar",
+  person:"Richard Stenmark", roll:"egenföretagare", who:"RICHARD STENMARK · egenföretagare",
+  avatar:{hair:"#5a5148", skin:"#d0a284", shirt:"#39434e", style:"short", glasses:true, watch:true},
+  introKicker:"Fall 02 · Höllviken",
+  introHtml:'<p style="margin:0 0 10px;"><b>Trygg &amp; Säker Försäkring AB.</b> För tre veckor '+
+    'sedan anmäldes en villa i Höllviken länsad. Bland det stulna: en Rolex Daytona, '+
+    'försäkrad för 180&nbsp;000&nbsp;kr. Utredaren litar inte på sin magkänsla längre — '+
+    'hon ringer dig innan utbetalningen godkänns.</p>'+
+    '<p style="margin:0;"><b>Richard Stenmark, 45</b>, egenföretagare, tar emot dig i sitt kök. '+
+    'Kom ihåg: hans avvikelse kommer inte se ut som Moas.</p>',
+  introBtn:"Kliv in i köket",
+  opening:"Köket är obefläckat. Han häller upp kaffe utan att fråga om du vill ha, skjuter koppen över bänken och möter din blick: »Fråga vad ni behöver. Jag har inget att dölja.«",
+  act1sys:"Småprata. Lär dig hans normala innan du frågar om inbrottet.",
+  act1:[
+    {q:"Berätta om ditt företag.",
+     dir:"Han tänker färdigt innan han svarar. Händerna vilar stilla runt koppen.",
+     a:"Jag driver en konsultverksamhet inom logistik. Tolv år i höst. Sex anställda, kontor i Malmö. Det går bra.",
+     latency:1000, speed:34, gaze:"direct", hands:"still"},
+    {q:"Hur länge har ni bott i huset?",
+     dir:"Samma lugna takt. Exakt svar — inget extra.",
+     a:"Nio år. Vi byggde om köket för tre år sedan och lade om taket i fjol. Det är ett bra hus.",
+     latency:950, speed:33, gaze:"direct", hands:"still"},
+    {q:"Ni samlar på klockor, förstår jag?",
+     dir:"För första gången mjuknar rösten. Han vrider ett halvt varv på klockan han bär — med något som liknar ömhet.",
+     a:"Min far gav mig min första automatklocka när jag tog studenten. Det är väl det närmaste en hobby jag kommer. Man äger dem egentligen inte — man förvaltar dem åt nästa generation.",
+     latency:1200, speed:30, gaze:"away", hands:"still"},
+    {q:"Hur ser en vanlig lördag ut för er?",
+     dir:"Han rättar till kaffekoppens öra så det pekar rakt. Svarar avmätt, som alltid.",
+     a:"Golf om vädret tillåter. Middag med familjen. Söndagar arbetar jag några timmar när det är tyst. Rutiner är underskattade.",
+     latency:1000, speed:33, gaze:"direct", hands:"still"},
+  ],
+  nbKey:{tempo:0, sprak:0, detaljer:0, kropp:0},
+  nbOpts:{
+    tempo:["Avmätt — tänker färdigt före svar","Snabb och ivrig","Tvekande, osäker"],
+    sprak:["Korrekt och formell — inga småord","Vardaglig och avslappnad","Full av utfyllnadsord"],
+    detaljer:["Exakt — svarar på frågan, inget mer","Utbroderande, associativ","Enstavig, måste pressas"],
+    kropp:["Stilla händer, stadig blick","Rastlös, plockar med saker","Undviker blickkontakt"]
+  },
+  nbSummary:"Hans normala är avmätt, formellt, exakt och alldeles stilla — med stadig blick.",
+  act2sys:"Baslinjen låst. Nu: inbrottet. Hans avvikelse ser inte ut som nervositet.",
+  act2:[
+    {type:"q", id:"kvallen", q:"Berätta om kvällen då inbrottet skedde.",
+     dir:"Svaret kommer innan du hunnit klart — snabbare än han svarat på något annat. Klockslag efter klockslag, som uppläst ur en rapport.",
+     a:"Vi lämnade huset 18:42 — jag minns, för jag låste och såg på mobilen vid bilen. Middag på Vellinge Gästis, bord klockan sju, hemma 22:15. Larmet var avstängt eftersom hantverkarna skulle in med nyckel tidigt nästa morgon. Altandörren var uppbruten, byrålådan i sovrummet utdragen, klockboxen borta. Jag ringde polisen 22:31.",
+     latency:250, speed:18, gaze:"direct", hands:"still",
+     dev:{tempo:true, sprak:true, detaljer:true, kropp:false}},
+    {type:"q", id:"klockan", q:"Berätta om klockan. Daytonan.",
+     dir:"Mannen som nyss mjuknade om sin fars klocka låter nu som om han läser upp ett kvitto. Och för första gången rör sig händerna — han snurrar sitt armbandsur, ett varv i taget.",
+     a:"En Daytona från 2016. Stål. Jag köpte den efter en bra affär. Den låg i boxen i sovrummet.",
+     latency:1000, speed:33, gaze:"direct", hands:"watch",
+     dev:{tempo:false, sprak:false, detaljer:false, kropp:true}},
+    {type:"repeat", targetId:"kvallen",
+     dir:"Han har kvällen på fingrarna. Lite väl mycket på fingrarna. Vill du testa något?",
+     offer:"Be honom ta kvällen en gång till — från början",
+     skipLabel:"Gå vidare",
+     say:"Ta kvällen en gång till för mig. Från början.",
+     preDir:"Han suckar knappt hörbart. Sedan börjar han om — i exakt samma takt.",
+     postSys:"Ordagrant identiskt. 18:42. 22:15. 22:31. Minnen varierar när man hämtar dem på nytt — manus gör det inte.",
+     bonus:10, bonusKey:"repeat"},
+    {type:"q", id:"vetskap", q:"Vem visste att klockorna förvarades i sovrummet?",
+     dir:"Den första riktiga pausen. Blicken går till fönstret. För en man med exakta svar är »möjligen någon« påfallande vagt.",
+     a:"… Få. Familjen, förstås. Möjligen någon i klockklubben. Jag skyltar inte med det.",
+     latency:2800, speed:40, gaze:"away", hands:"still",
+     dev:{tempo:true, sprak:false, detaljer:true, kropp:true}},
+    {type:"final", q:"Något du vill tillägga innan jag lämnar mitt utlåtande?",
+     variants:{
+      any:{dir:"Rösten är jämn igen. Men han nämner summan — det enda hittills som du inte frågat om.",
+        a:"Bara att jag förväntar mig att det här sköts skyndsamt. Det har gått tre veckor. Klockan var försäkrad för 180 000 kronor — det är vad den var värd, och det är vad jag väntar mig.",
+        latency:1100, speed:31, gaze:"direct", hands:"still"}
+     }}
+  ],
+  decisionPrompt:"Utredaren väntar på ditt utlåtande. Vad skriver du?",
+  decisions:[
+    {label:"»Historien håller. Betala ut.«", pts:0,
+     row:[false,"Ditt omdöme: du köpte polityren. Perfekta redogörelser känns trovärdiga — det är därför de repeteras. (0 p)"]},
+    {label:"»Neka och utred bedrägeri. Berättelsen är repeterad — klockan var borta innan altandörren bröts upp.«", pts:30,
+     row:[true,"Ditt omdöme: rätt. Arrangerat inbrott, repeterad berättelse. (+30 p)"]},
+    {label:"»Han döljer något, men inbrottet är äkta. Titta på hantverkarna som hade nyckel.«", pts:10,
+     row:[false,"Ditt omdöme: halvrätt. Du såg stressen — men skickade den mot fel människor. Det var berättelsen som var falsk, inte hantverkarna. (+10 p)"]}
+  ],
+  correctDecision:1,
+  bonusRow:{
+    repeat:[true,"Draget: du lät honom ta historien igen — ordagrant identisk. Det är ett manus, inte ett minne. (+10 p)"],
+    none:[false,"Draget: du lät bli att testa berättelsen igen. En andra tagning hade avslöjat manuset — minnen varierar, manus gör det inte. (0 p)"]
+  },
+  devHint:"Hans avvikelser var inte tystnad utan ÖVERPRESTATION: kvällen kom för snabbt och för exakt, känslan för klockan var borta, och första äkta pausen kom när frågan inte fanns i manuset.",
+  falseHint:"Frågorna om företaget och klocksamlandet var hans äkta baslinje: avmätt, exakt, stilla. Där fanns inget att flagga.",
+  truth:function(S){
+    return '<div class="kicker">Vad som faktiskt hände</div>'+
+    '<p style="margin:6px 0 0;">Det fanns inget inbrott. <b>Daytonan såldes privat i Köpenhamn '+
+    'fem veckor tidigare</b> — företaget hade tappat två stora kunder och Richard behövde '+
+    'likviditet utan att familjen skulle förstå. Kvällen familjen åt ute bröt han själv upp '+
+    'altandörren utifrån och drog ut byrålådan.</p>'+
+    '<p style="margin:10px 0 0;">Berättelsen var repeterad — därför kom den snabbare och mer '+
+    'exakt än allt annat han sa. Det enda han inte kunde repetera: känslan för en klocka han '+
+    'redan sålt, och pausen när frågan låg utanför manuset.</p>'+
+    (S.bonusKey==="repeat"
+      ? '<p style="margin:10px 0 0; color:var(--dim);">Epilog: ditt utlåtande citerade den ordagranna upprepningen. Bolaget nekade och polisanmälde — kvittot från Köpenhamn dök upp i utredningen inom en vecka.</p>'
+      : '<p style="margin:10px 0 0; color:var(--dim);">Epilog: bolaget höll inne utbetalningen på ditt utlåtande. Richard drog tillbaka anspråket två dagar senare. Tystnad är också ett svar.</p>');
+  },
+  lesson:"Den som är för perfekt avviker också. Minnen varierar — manus gör det inte."
+};
+
+const CASES = [FALL01, FALL02];
+const LOCKED_TEASER = {nr:"FALL 03", namn:"Två personer, en lögn",
+  desc:"Två syskon. Ett arv. En namnteckning som inte stämmer. Korsläs två baslinjer mot varandra — låst i prototypen."};
+
+/* ================= LJUD (WebAudio, syntetiserat, valbart) ================= */
+let AC=null, soundOn=true;
+function ac(){ if(!AC){ try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){} } return AC; }
+function beep(freq,dur,gain,type){
+  if(!soundOn) return; const c=ac(); if(!c) return;
+  try{
+    const o=c.createOscillator(), g=c.createGain();
+    o.type=type||"sine"; o.frequency.value=freq;
+    g.gain.setValueAtTime(gain,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+dur);
+    o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime+dur);
+  }catch(e){}
+}
+const snd={
+  click:()=>beep(300,.06,.05,"triangle"),
+  tick:()=>beep(880+Math.random()*220,.02,.012,"square"),
+  chime:()=>{beep(392,.35,.06); setTimeout(()=>beep(523.25,.5,.06),140);},
+  bad:()=>beep(196,.4,.05,"triangle")
+};
+function toggleSound(){ soundOn=!soundOn; localStorage.setItem("bl_snd", soundOn?"1":"0");
+  document.getElementById("sndbtn").textContent="Ljud: "+(soundOn?"på":"av"); }
+
+/* ================= SPARADE FRAMSTEG ================= */
+function loadSave(){ try{return JSON.parse(localStorage.getItem("bl_save")||"{}");}catch(e){return{};} }
+function writeSave(s){ try{localStorage.setItem("bl_save",JSON.stringify(s));}catch(e){} }
+function resetAll(){ localStorage.removeItem("bl_save"); renderHub(); }
+
+/* ================= TILLSTÅND ================= */
+let C=null; // aktivt fall
+const S={ qi:0, asked:new Set(), baseline:{}, flags:{}, bonusKey:null, bonusPts:0, decision:null, seenHowto:false };
+
+/* ================= HJÄLPARE ================= */
+const $=id=>document.getElementById(id);
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  $(id).classList.add("active"); window.scrollTo(0,0);
+}
+function avatarSVG(cfg, mini){
+  const hairLong='<path d="M66 60 Q60 18 95 16 Q130 18 124 60 Q128 84 95 86 Q62 84 66 60 Z" fill="'+cfg.hair+'"/>';
+  const hairShort='<path d="M68 52 Q66 22 95 20 Q124 22 122 52 L118 44 Q112 30 95 30 Q78 30 72 44 Z" fill="'+cfg.hair+'"/>';
+  const fringeLong='<path d="M69 48 Q73 26 95 25 Q117 26 121 48 Q112 38 95 38 Q78 38 69 48 Z" fill="'+cfg.hair+'"/>';
+  const glasses=cfg.glasses?'<g stroke="#8b8478" stroke-width="1.6" fill="none"><circle cx="85" cy="55" r="7.6"/><circle cx="106" cy="55" r="7.6"/><path d="M92.6 55 h5.8"/></g>':"";
+  const watch=cfg.watch?'<rect x="104" y="121" width="5" height="10" rx="2" fill="#b9b3a4"/>':"";
+  const prop=cfg.watch
+    ?'<ellipse cx="95" cy="130" rx="9" ry="5" fill="#e8e4da" opacity=".85"/>'
+    :'<rect x="88" y="118" width="14" height="16" rx="3" fill="#e8e4da" opacity=".9"/>';
+  return '<svg viewBox="'+(mini?"52 8 86 96":"0 0 190 150")+'" aria-hidden="true">'+
+    (mini?"":'<ellipse cx="95" cy="145" rx="80" ry="7" fill="#0a0d11"/>')+
+    '<path d="M40 150 Q42 96 95 94 Q148 96 150 150 Z" fill="'+cfg.shirt+'"/>'+
+    (cfg.style==="long"?hairLong:hairShort)+
+    '<ellipse cx="95" cy="56" rx="26" ry="29" fill="'+cfg.skin+'"/>'+
+    (cfg.style==="long"?fringeLong:hairShort)+
+    '<g class="eyes">'+
+      '<ellipse cx="85" cy="55" rx="5.6" ry="4.4" fill="#f3ede2"/>'+
+      '<ellipse cx="106" cy="55" rx="5.6" ry="4.4" fill="#f3ede2"/>'+
+      '<g class="pupils"><circle cx="85" cy="55.5" r="2.5" fill="#2a2019"/><circle cx="106" cy="55.5" r="2.5" fill="#2a2019"/></g>'+
+      '<path d="M79 47 q6 -4 12 -1" stroke="'+cfg.hair+'" stroke-width="2" fill="none" stroke-linecap="round"/>'+
+      '<path d="M100 46 q6 -3 12 1" stroke="'+cfg.hair+'" stroke-width="2" fill="none" stroke-linecap="round"/>'+
+    '</g>'+glasses+
+    '<path d="M89 71 q6 3 12 0" stroke="#8a5f4b" stroke-width="2" fill="none" stroke-linecap="round"/>'+
+    '<g class="hands"><circle class="hand-l" cx="78" cy="126" r="8" fill="'+cfg.skin+'"/>'+watch+
+    '<circle class="hand-r" cx="112" cy="126" r="8" fill="'+cfg.skin+'"/>'+prop+'</g></svg>';
+}
+function setAvatar(gaze,hands){ const st=$("stage"); st.dataset.gaze=gaze; st.dataset.hands=hands; }
+function addMsg(cls,html){
+  const d=document.createElement("div"); d.className="msg "+cls;
+  d.innerHTML='<span class="bubble"></span>'; d.querySelector(".bubble").innerHTML=html;
+  $("log").appendChild(d); scrollLog(); return d;
+}
+function addDir(t){ const d=document.createElement("div"); d.className="stagedir fade"; d.textContent=t; $("log").appendChild(d); scrollLog(); }
+function addSys(t){ const d=document.createElement("div"); d.className="sysline fade"; d.textContent=t; $("log").appendChild(d); scrollLog(); }
+function scrollLog(){ const l=$("log"); l.scrollTop=l.scrollHeight; }
+function clearControls(){ $("controls").innerHTML=""; }
+
+function playAnswer(item, done, extraCls){
+  setAvatar(item.gaze,item.hands);
+  if(item.dir) addDir(item.dir);
+  const msg=addMsg("her"+(extraCls?" "+extraCls:""),'<span class="dots">·</span>');
+  const bubble=msg.querySelector(".bubble");
+  let skip=false; const skipper=()=>{skip=true;};
+  msg.addEventListener("click",skipper);
+  let dots=1;
+  const dotTimer=setInterval(()=>{ dots=dots%3+1; bubble.innerHTML='<span class="dots">'+"·".repeat(dots)+'</span>'; scrollLog(); },380);
+  setTimeout(()=>{
+    clearInterval(dotTimer);
+    let i=0; const txt=item.a;
+    (function tick(){
+      if(skip){ i=txt.length; }
+      bubble.textContent=txt.slice(0,++i); scrollLog();
+      if(i%3===0 && !skip) snd.tick();
+      if(i<txt.length) setTimeout(tick,item.speed);
+      else { msg.removeEventListener("click",skipper); done&&done(); }
+    })();
+  }, item.latency);
+}
+
+/* ================= HUBBEN ================= */
+function renderHub(){
+  const save=loadSave(); const wrap=$("hub-cases"); wrap.innerHTML="";
+  CASES.forEach(cs=>{
+    const st=save[cs.id];
+    const b=document.createElement("button"); b.className="case-card card";
+    b.innerHTML='<span class="portrait">'+avatarSVG(cs.avatar,true)+'</span>'+
+      '<span class="meta"><span class="cnr">'+cs.nr+'</span>'+
+      '<div class="cname">'+cs.namn+'</div>'+
+      '<span style="color:var(--dim); font-size:.85rem;">'+cs.person+' · '+cs.roll+'</span><br>'+
+      (st&&st.done?'<span class="chip done">Löst · '+st.title+' · '+st.score+' p</span>'
+                  :'<span class="chip">Olöst</span>')+'</span>';
+    b.onclick=()=>{ snd.click(); startCase(cs); };
+    wrap.appendChild(b);
+  });
+  const lock=document.createElement("div"); lock.className="case-card card locked";
+  lock.innerHTML='<span class="portrait" style="font-size:1.6rem; align-items:center;">🔒</span>'+
+    '<span class="meta"><span class="cnr">'+LOCKED_TEASER.nr+'</span>'+
+    '<div class="cname">'+LOCKED_TEASER.namn+'</div>'+
+    '<span style="color:var(--dim); font-size:.85rem;">'+LOCKED_TEASER.desc+'</span></span>';
+  wrap.appendChild(lock);
+}
+function goHub(){ renderHub(); show("s-hub"); }
+
+/* ================= FALLSTART ================= */
+function startCase(cs){
+  C=cs; S.qi=0; S.asked=new Set(); S.baseline={}; S.flags={}; S.bonusKey=null; S.bonusPts=0; S.decision=null;
+  $("intro-kicker").textContent=cs.introKicker;
+  $("intro-name").textContent=cs.namn.toUpperCase();
+  $("intro-body").innerHTML=cs.introHtml;
+  const go=$("intro-go"); go.textContent=cs.introBtn; go.className="primary";
+  go.onclick=()=>{ snd.click();
+    if(!S.seenHowto && !loadSave().__howto){ S.pendingStart=true; show("s-howto"); }
+    else beginAct1();
+  };
+  show("s-intro");
+}
+function afterHowto(){
+  const save=loadSave(); save.__howto=true; writeSave(save); S.seenHowto=true;
+  if(S.pendingStart){ S.pendingStart=false; beginAct1(); } else goHub();
+}
+function beginAct1(){
+  $("stage").innerHTML=avatarSVG(C.avatar,false);
+  $("gamename").textContent=C.who;
+  $("log").innerHTML="";
+  $("actlabel").textContent="Akt 1 · Baslinjen";
+  show("s-game");
+  addSys(C.act1sys);
+  addDir(C.opening);
+  act1Menu();
+}
+function act1Menu(){
+  clearControls();
+  $("progress").textContent=S.asked.size+" / "+C.act1.length;
+  if(S.asked.size===C.act1.length){
+    const div=document.createElement("div"); div.className="qlist";
+    const b=document.createElement("button"); b.className="primary";
+    b.textContent="Öppna anteckningsboken — lås baslinjen";
+    b.onclick=()=>{ snd.click(); openNotebook(); };
+    div.appendChild(b); $("controls").appendChild(div); return;
+  }
+  const div=document.createElement("div"); div.className="qlist";
+  C.act1.forEach((item,idx)=>{
+    const b=document.createElement("button"); b.textContent="»"+item.q+"«";
+    if(S.asked.has(idx)){ b.className="asked"; b.disabled=true; }
+    else b.onclick=()=>{ snd.click(); S.asked.add(idx); clearControls();
+      addMsg("you",item.q); playAnswer(item,act1Menu); };
+    div.appendChild(b);
+  });
+  $("controls").appendChild(div);
+}
+
+/* ================= ANTECKNINGSBOKEN ================= */
+function openNotebook(){
+  show("s-notebook");
+  $("nb-who").textContent="Baslinje: "+C.person;
+  const nb=$("nb"); nb.innerHTML=""; $("nb-lock").disabled=true;
+  CH.forEach(ch=>{
+    const wrap=document.createElement("div"); wrap.className="channel";
+    wrap.innerHTML='<div class="cname">'+CHNAME[ch]+'</div>';
+    const opts=document.createElement("div"); opts.className="opts";
+    C.nbOpts[ch].forEach((label,oi)=>{
+      const b=document.createElement("button"); b.textContent=label;
+      b.onclick=()=>{ snd.click(); S.baseline[ch]=oi;
+        opts.querySelectorAll("button").forEach(x=>x.classList.remove("sel"));
+        b.classList.add("sel");
+        $("nb-lock").disabled=Object.keys(S.baseline).length<CH.length; };
+      opts.appendChild(b);
+    });
+    wrap.appendChild(opts); nb.appendChild(wrap);
   });
 }
+function lockBaseline(){
+  snd.click(); show("s-game");
+  $("actlabel").textContent="Akt 2 · Trycket"; $("progress").textContent="";
+  addSys(C.act2sys);
+  S.qi=0; act2Next();
+}
+
+/* ================= AKT 2-MOTORN ================= */
+function act2Next(){
+  clearControls();
+  if(S.qi>=C.act2.length){ showDecision(); return; }
+  const step=C.act2[S.qi];
+
+  if(step.type==="fork"){
+    addDir(step.dir);
+    const div=document.createElement("div"); div.className="qlist";
+    step.opts.forEach(o=>{
+      const b=document.createElement("button"); b.textContent=o.label;
+      b.onclick=()=>{ snd.click(); S.bonusKey=o.key; S.bonusPts=o.bonus; clearControls();
+        addMsg("you",o.say);
+        playAnswer(o.ans,()=>{ S.qi++; act2Next(); }); };
+      div.appendChild(b);
+    });
+    $("controls").appendChild(div); return;
+  }
+
+  if(step.type==="repeat"){
+    addDir(step.dir);
+    const div=document.createElement("div"); div.className="qlist";
+    const b1=document.createElement("button"); b1.textContent=step.offer;
+    b1.onclick=()=>{ snd.click(); clearControls();
+      addMsg("you",step.say);
+      const src=C.act2.find(x=>x.id===step.targetId);
+      playAnswer({dir:step.preDir, a:src.a, latency:300, speed:12, gaze:src.gaze, hands:src.hands},
+        ()=>{ addSys(step.postSys); S.bonusKey=step.bonusKey; S.bonusPts=step.bonus;
+          const div2=document.createElement("div"); div2.className="qlist";
+          const nx=document.createElement("button"); nx.className="primary"; nx.textContent="Vidare";
+          nx.onclick=()=>{ snd.click(); S.qi++; act2Next(); };
+          div2.appendChild(nx); clearControls(); $("controls").appendChild(div2);
+        },"echo");
+    };
+    const b2=document.createElement("button"); b2.textContent=step.skipLabel;
+    b2.onclick=()=>{ snd.click(); S.bonusKey="none"; S.bonusPts=0; S.qi++; act2Next(); };
+    div.appendChild(b1); div.appendChild(b2); $("controls").appendChild(div); return;
+  }
+
+  // q & final
+  const div=document.createElement("div"); div.className="qlist";
+  const b=document.createElement("button"); b.textContent="»"+step.q+"«";
+  b.onclick=()=>{
+    snd.click(); clearControls(); addMsg("you",step.q);
+    if(step.type==="final"){
+      const v=step.variants[S.bonusKey]||step.variants.any||Object.values(step.variants)[0];
+      playAnswer(v,()=>{ S.qi++; act2Next(); });
+    } else {
+      playAnswer(step,()=>showFlags(step));
+    }
+  };
+  div.appendChild(b); $("controls").appendChild(div);
+}
+
+function showFlags(step){
+  clearControls();
+  const wrap=document.createElement("div");
+  wrap.innerHTML='<div class="hint">Avvek '+(C.id==="fall01"?"hon":"han")+' från sin baslinje? Markera i vilka kanaler — eller gå vidare om svaret lät som personens normala.</div>';
+  const flags=document.createElement("div"); flags.className="flags";
+  const sel={};
+  CH.forEach(ch=>{
+    const c=document.createElement("button"); c.className="chip-btn"; c.textContent=CHNAME[ch];
+    c.onclick=()=>{ snd.click(); sel[ch]=!sel[ch]; c.classList.toggle("on",sel[ch]); };
+    flags.appendChild(c);
+  });
+  const go=document.createElement("button"); go.className="primary"; go.style.marginTop="10px";
+  go.textContent="Nästa";
+  go.onclick=()=>{ snd.click(); S.flags[step.id]=Object.assign({},sel); S.qi++; act2Next(); };
+  wrap.appendChild(flags); wrap.appendChild(go);
+  $("controls").appendChild(wrap);
+}
+
+/* ================= BESLUT + FACIT ================= */
+function showDecision(){
+  $("dec-prompt").textContent=C.decisionPrompt;
+  const wrap=$("dec-opts"); wrap.innerHTML="";
+  C.decisions.forEach((d,di)=>{
+    const b=document.createElement("button"); b.textContent=d.label;
+    b.onclick=()=>{ snd.click(); S.decision=di; buildVerdict(); show("s-verdict"); };
+    wrap.appendChild(b);
+  });
+  show("s-decision");
+}
+
+function caseMax(){
+  let devs=0;
+  C.act2.forEach(st=>{ if(st.dev) CH.forEach(ch=>{ if(st.dev[ch]) devs++; }); });
+  const bonusMax=C.act2.some(st=>st.type==="fork")
+    ? Math.max.apply(null,C.act2.find(st=>st.type==="fork").opts.map(o=>o.bonus))
+    : (C.act2.some(st=>st.type==="repeat") ? C.act2.find(st=>st.type==="repeat").bonus : 0);
+  const decMax=Math.max.apply(null,C.decisions.map(d=>d.pts));
+  return 40 + devs*5 + bonusMax + decMax;
+}
+
+function buildVerdict(){
+  let score=0; const rows=[];
+  // baslinjen
+  let bOK=0; CH.forEach(ch=>{ if(S.baseline[ch]===C.nbKey[ch]) bOK++; });
+  score+=bOK*10;
+  rows.push([bOK===4,"Baslinjen: "+bOK+" av 4 kanaler rätt. "+C.nbSummary+" ("+(bOK*10)+" p)"]);
+  // avvikelser
+  let hits=0,misses=0,falses=0,totalDevs=0;
+  C.act2.forEach(st=>{
+    if(!st.dev) return;
+    const sel=S.flags[st.id]||{};
+    CH.forEach(ch=>{
+      if(st.dev[ch]){ totalDevs++; if(sel[ch]) hits++; else misses++; }
+      else if(sel[ch]) falses++;
+    });
+  });
+  score+=hits*5-falses*4;
+  rows.push([hits>=totalDevs*0.7,
+    "Avvikelser: "+hits+" träffar av "+totalDevs+" möjliga"+
+    (falses?", "+falses+" falsklarm (−"+falses*4+" p)":"")+". "+C.devHint+" ("+(hits*5)+" p)"]);
+  if(falses>0) rows.push([false,C.falseHint]);
+  // bonusdrag
+  const bRow=C.bonusRow[S.bonusKey]||C.bonusRow.none||null;
+  if(bRow){ score+=S.bonusPts; rows.push(bRow); }
+  // beslutet
+  const dec=C.decisions[S.decision];
+  score+=dec.pts; rows.push(dec.row);
+  score=Math.max(0,score);
+  const max=caseMax();
+
+  const pct=score/max;
+  const title=pct>=0.87?"Människoläsare":pct>=0.7?"Skarp blick":pct>=0.45?"Lovande amatör":"Myternas fånge";
+
+  $("v-act").textContent="Facit · "+C.nr;
+  $("truth").innerHTML=C.truth(S);
+  $("scorenum").textContent=score;
+  $("scoremax").textContent="/ "+max+" poäng";
+  $("titletxt").textContent="Titel: "+title;
+  $("lessontxt").textContent=C.lesson;
+  const bd=$("breakdown"); bd.innerHTML="";
+  rows.forEach(r=>{
+    const li=document.createElement("li");
+    li.innerHTML='<span class="'+(r[0]?"ok":"miss")+'">'+(r[0]?"✓":"✗")+'</span><span>'+r[1]+'</span>';
+    bd.appendChild(li);
+  });
+  (S.decision===C.correctDecision?snd.chime:snd.bad)();
+
+  // spara bästa resultat
+  const save=loadSave(); const prev=save[C.id];
+  if(!prev || score>prev.score) save[C.id]={done:true, score:score, max:max, title:title};
+  writeSave(save);
+  S.lastScore=score; S.lastMax=max; S.lastTitle=title;
+}
+
+function replayCase(){ snd.click(); startCase(C); }
+
+/* ================= UTLÅTANDEKORTET ================= */
+function saveCard(){
+  snd.click();
+  const cv=$("cardcanvas"), x=cv.getContext("2d");
+  x.fillStyle="#0f1216"; x.fillRect(0,0,1000,1250);
+  x.strokeStyle="#e0a54b"; x.lineWidth=3; x.strokeRect(46,46,908,1158);
+  x.strokeStyle="#2a3240"; x.lineWidth=1; x.strokeRect(60,60,880,1130);
+  x.textAlign="center"; x.fillStyle="#9aa3ad";
+  x.font="26px Georgia"; x.fillText("U T L Å T A N D E",500,180);
+  x.fillStyle="#e0a54b"; x.font="bold 78px Georgia";
+  x.fillText("B A S L I N J E N",500,290);
+  x.fillStyle="#7fa6b8"; x.font="30px Georgia";
+  x.fillText(C.nr+" · "+C.namn.toUpperCase(),500,390);
+  x.strokeStyle="#2a3240"; x.beginPath(); x.moveTo(200,450); x.lineTo(800,450); x.stroke();
+  x.fillStyle="#e8e4da"; x.font="italic 40px Georgia";
+  x.fillText("Utredarens omdöme:",500,560);
+  x.font="bold 84px Georgia";
+  x.fillText(S.lastTitle,500,680);
+  x.fillStyle="#e0a54b"; x.font="bold 60px Georgia";
+  x.fillText(S.lastScore+" / "+S.lastMax,500,790);
+  x.strokeStyle="#2a3240"; x.beginPath(); x.moveTo(200,860); x.lineTo(800,860); x.stroke();
+  x.fillStyle="#9aa3ad"; x.font="italic 32px Georgia";
+  x.fillText("Kan du läsa människor?",500,950);
+  x.font="24px Georgia";
+  x.fillText("Nervositet är inte skuld. Avvikelsen är signalen.",500,1010);
+  x.fillStyle="#5d6570"; x.font="22px Georgia";
+  x.fillText("BASLINJEN · prototyp",500,1130);
+  const url=cv.toDataURL("image/png");
+  const a=document.createElement("a");
+  a.href=url; a.download="baslinjen-"+C.id+"-utlatande.png";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+/* ================= INIT ================= */
+(function init(){
+  soundOn=localStorage.getItem("bl_snd")!=="0";
+  document.getElementById("sndbtn").textContent="Ljud: "+(soundOn?"på":"av");
+  renderHub();
+})();
 </script>
 </body>
 </html>

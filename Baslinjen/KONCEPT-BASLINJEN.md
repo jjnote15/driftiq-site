@@ -1,6 +1,8 @@
-# BASLINJEN (en: BASELINE) — konceptdokument v0.1
+# BASLINJEN (en: BASELINE) — konceptdokument v0.2
 
-**Status: koncept + spelbar webbprototyp (Fall 01). Ägare: Jeton. Skrivet 2026-07-20 (session 3).**
+**Status: koncept + spelbar webbprototyp v0.2 (Fall 01–02, galleri, delningskort, ljud).**
+**Ägare: Jeton. Skrivet 2026-07-20 (session 3), fördjupat samma dag på Jetons GO**
+**("gå vidare med detta koncept och utveckla på djupet").**
 Enspelarspel. Separat projekt — GLÖD och Solar Empire ligger orörda på sina brancher.
 Claude valde detta koncept på Jetons mandat ("ta du fram något som faktiskt funkar,
 är roligt och folk betalar för"). Motivering nedan i §2.
@@ -72,19 +74,36 @@ halvrätt. Full poäng kräver att man läste *personen*.
 
 ## 4. Innehållsstruktur och variation
 
-- **Säsong 1: 8–10 fall**, varje fall en ny människa = ny baslinje = nya regler.
-  Planerade specialfall som håller mekaniken färsk (Fares princip 2):
-  - *Den plattes fall:* en person nästan utan avvikelser (manipulatör) — vinsten
-    ligger i att upptäcka att baslinjen är för perfekt.
-  - *Den nervösa oskulden:* maximala "skuldsignaler", helt oskyldig.
-  - *Spegeln:* någon som matchar och speglar DIG — förhöret vänds.
-  - *Två personer, en lögn:* korsläs två baslinjer mot varandra.
-- Fallens ämnen: vardagsnära och relaterbara (stöld på jobbet, en försvunnen
-  förälder, en misstänkt otrohet, en anställningsintervju, ett arv) — inte
-  seriemördarklichéer. Tonen: skandinavisk noir med värme och torr humor.
+- **Säsong 1: 10 fall**, varje fall en ny människa = ny baslinje = nya regler.
+  Fullständig fallbibel i §4b. Fallens ämnen: vardagsnära och relaterbara —
+  inte seriemördarklichéer. Tonen: skandinavisk noir med värme och torr humor.
 - **Metaprogression:** "persongalleriet" — varje läst människa sparas som ett
-  porträttkort med baslinje och utfall. Samlarinstinkt + synligt bygge
-  (Solar Empire-lärdomen: se vad man byggt).
+  porträttkort med utfall och intjänad titel. Samlarinstinkt + synligt bygge
+  (Solar Empire-lärdomen: se vad man byggt). Byggt i prototyp v0.2.
+
+## 4b. Fallbibeln — säsong 1 (varje fall lär ut EN äkta läsprincip)
+
+Säsongen är i hemlighet en kurs i människoläsning — det är premiumkänslans
+kärna: efter tio fall ÄR spelaren bättre på att läsa folk. Varje fall byter
+dessutom ut ett mekaniskt verktyg (Fares princip 2: ingen mekanik hinner tråka ut).
+
+| # | Arbetsnamn | Person & härva | Lärdomen | Mekanisk variation |
+|---|---|---|---|---|
+| 01 | Handkassan | Moa, praktikant; stulen handkassa | Nervositet är inte skuld — avvikelsen är signalen | Grundloopen + pressa/lugna-vägval |
+| 02 | Den som aldrig darrar | Richard, egenföretagare; "inbrott" och försäkring | Perfektion är också en avvikelse; manus varierar inte | »Ställ frågan igen« — ordagrann upprepning avslöjar manus |
+| 03 | Två personer, en lögn | Två syskon, ett arv, en namnteckning | Korsläsning: två baslinjer, en berättelse — hitta glappet | Växla mellan två stolar; svaren måste jämföras |
+| 04 | Den nervösa oskulden | Vittne med maximala "skuldsignaler" | Falsklarmets pris — allt du lärt dig kan överanvändas | Poängvikten flyttad: falsklarm kostar dubbelt |
+| 05 | Rösten i telefonen | Ett samtal, ingen kropp | Kanalbrist: tempo och språk får bära allt | Två kanaler släckta — bara ljud/text |
+| 06 | Familjemiddagen | Fyra personer, en liten lögn, hög känsla | Låg insats ≠ låg svårighet; kärlek stör avläsning | Flera baslinjer samtidigt vid samma bord |
+| 07 | Spegeln | En förhandlare som läser DIG | Den som vet vad du letar efter kan spela din baslinje | Dina egna frågeval förändrar motpartens beteende |
+| 08 | Minnet | Ett vittne som minns fel — och tror sig tala sanning | Avvikelse utan lögn: stress ≠ lögn ≠ falskt minne | Bevis kan motsäga ett ärligt svar |
+| 09 | Experten | En person utbildad i förhörsteknik; dubbelbluff | Kontrollerad avvikelse — planterade signaler | Vissa "tells" är beten; källkritik på beteende |
+| 10 | Rekryteringen (final) | Två kandidater — du anställer en till DITT team | Allt testas; facit visar din utveckling över säsongen | Två fullständiga förhör, ett oåterkalleligt val |
+
+Svårighetskurvan: 01–02 lär grunderna (två motsatta avvikelsetyper), 03–06
+utökar kontexten, 07–09 vänder verktygen mot spelaren, 10 examinerar.
+Slutfacit efter fall 10: spelarens "läsprofil" över hela säsongen — vilka
+kanaler man är stark i, var man går på myter. Mycket delbar.
 
 ## 5. Beroendemekanismer (medvetet och etiskt, samma ramverk som GLÖD)
 
@@ -111,21 +130,31 @@ Inga fejkade notiser, ingen FOMO-mekanik. Premium utan kasinologik.
   "AI-läge" (improviserade förhör mot AI-karaktärer, abonnemang),
   B2B-spår (rekryterare/säljteam tränar personbedömning — Jetons nätverk).
 
-## 7. Prototypen (byggd, spelbar nu)
+## 7. Prototypen v0.2 (byggd, spelbar nu)
 
-`Baslinjen/prototyp/index.html` — hela Fall 01 **"Handkassan"** som spelbar
-webbprototyp (fungerar i mobil och på PC, en enda fil, inga beroenden):
-14 300 kr saknas ur handkassan på en bilfirma i Ystad; praktikanten Moa
-Lindqvist var sist kvar. Sanningen: hon är oskyldig men skyddar ägarens son
-Viktor (spelskulder) i utbyte mot ett referensbrev. Hennes baslinje är snabb,
-pladdrig och rastlös — den som dömer på nervositet åker dit; avvikelserna
-(pauser, korta svar, småorden tystnar) kommer bara kring frågorna om Viktor.
-Prototypen testar exakt en sak: **är kärnloopen baslinje → avvikelse → beslut
-rolig?** Grafik, ljud och omfång är medvetet enkla.
+`Baslinjen/prototyp/index.html` — en enda fristående fil (mobil + PC, inga
+beroenden) med riktig spelstruktur:
 
-**Vad prototypen redan visar tekniskt:** svarslatens och texthastighet som
-tempo-signal, scenanvisningar som kroppsspråk, flaggning per kanal,
-pressa/lugna-förgrening med informationskostnad, poäng + titel + facit.
+- **Persongalleriet (hubb):** fallval, porträttkort, sparade framsteg
+  (bästa poäng + titel per fall, localStorage), teaser för låst Fall 03.
+- **Fall 01 "Handkassan":** Moa, praktikant. Lärdomen: nervositet är inte
+  skuld. Hennes baslinje är snabb/pladdrig/rastlös; avvikelserna (pauser,
+  korta svar, småorden tystnar) kommer bara kring Viktor. Vägval pressa/lugna
+  med verklig informationskostnad.
+- **Fall 02 "Den som aldrig darrar":** Richard, egenföretagare, anmält inbrott,
+  Rolex försäkrad för 180 000 kr. Motsatta lärdomen: hans baslinje är avmätt
+  och exakt — avvikelsen är ÖVERPRESTATION (svaret om kvällen kommer för snabbt,
+  för perfekt, i rapportspråk; känslan för den älskade klockan är borta; första
+  äkta pausen kommer utanför manus). Ny mekanik: »ställ frågan igen« — svaret
+  kommer ordagrant identiskt, och manus avslöjas.
+- **Delbart utlåtandekort:** genereras som bild (canvas) efter varje löst fall —
+  titel + poäng, inga spoilers. Wordle-principen: daglig gratis marknadsföring.
+- **Ljud:** syntetiserat (WebAudio) — klick, skrivticks, facitklang. Valbart.
+- **Motorn är datadriven:** ett fall är en datastruktur, inte kod. Fall 03+
+  är innehållsarbete.
+
+Prototypen testar: är loopen rolig, bär variationen mellan fall, och känns
+lärdomarna äkta? Grafiken är medvetet enkel — känslan är det som bedöms.
 
 ## 8. Öppna frågor till Jeton (svara efter att du SPELAT prototypen)
 

@@ -14,11 +14,15 @@ Empire (branch `claude/solar-empire-idle-game-akn240`) och GLÖD (branch
 
 | Del | Status |
 |---|---|
-| Konceptdokument v0.1 (kärnloop, affärsmodell, etik, säsongsplan) | ✅ Skrivet |
-| Spelbar webbprototyp av Fall 01 "Handkassan" (3 akter, poäng, facit) | ✅ Byggd |
-| Jeton har spelat prototypen och gett GO/NO-GO | ⚠️ Återstår — NÄSTA STEG |
-| Pitchtest på 5 riktiga personer | ⚠️ Återstår (frågorna i koncept §8) |
-| Fall 02+, iOS-app, namnkontroll | ⏸ Väntar på GO |
+| Konceptdokument v0.2 (kärnloop, affärsmodell, etik, fallbibel för säsong 1) | ✅ Skrivet |
+| Prototyp v0.2: hubb/persongalleri + sparade framsteg (localStorage) | ✅ Byggd |
+| Fall 01 "Handkassan" (Moa — nervositet är inte skuld) | ✅ Byggd |
+| Fall 02 "Den som aldrig darrar" (Richard — manus varierar inte; ny mekanik: ställ frågan igen) | ✅ Byggd |
+| Delbart utlåtandekort (canvas-bild) + syntetiserat ljud (valbart) | ✅ Byggd |
+| Automatisk genomspelning av båda fallen utan fel (Playwright) | ✅ Grönt |
+| Jeton speltestar v0.2 + pitchtest på 5 personer | ⚠️ Återstår — NÄSTA STEG |
+| Fall 03 "Två personer, en lögn" (tvåstols-mekanik) | ⏸ Nästa bygge |
+| iOS-app, namnkontroll, App Store | ⏸ Efter fler fall + speltest |
 
 ## Testa prototypen
 
@@ -50,5 +54,16 @@ Empire (branch `claude/solar-empire-idle-game-akn240`) och GLÖD (branch
   fram något som faktiskt funkar, är roligt och folk betalar för." Claude valde
   BASLINJEN (motivering i koncept §2: bevisad betalgenre, färsk mekanik, ingen
   löpande AI-kostnad, Jeton är domänexperten), skrev konceptdokument v0.1 och
-  byggde spelbar webbprototyp av Fall 01 "Handkassan". Nästa session: börja med
-  Jetons speltestreaktion + pitchtestet — bygg inget mer före GO.
+  byggde spelbar webbprototyp av Fall 01 "Handkassan".
+- **2026-07-20 (session 3, forts — GO):** Jeton: "Gå vidare med detta koncept
+  och utveckla på djupet — riktigt grymt." Claude byggde v0.2: datadriven
+  fallmotor, hubb med persongalleri och sparade framsteg, Fall 02 "Den som
+  aldrig darrar" (motsatt lärdom + ny »ställ frågan igen«-mekanik), delbart
+  utlåtandekort (canvas), syntetiserat ljud med av/på, reduced-motion-stöd.
+  Fallbibeln för hela säsong 1 (10 fall, en lärdom + en mekanik per fall)
+  skriven i koncept §4b. Båda fallen automatiskt genomspelade utan fel
+  (perfekt spel = exakt maxpoäng: 120 resp 115). Obs: artefakt-länkar öppnades
+  inte hos Jeton tidigare — spelfilen skickas även direkt i chatten och via
+  raw.githack-länk. Nästa session: Jetons reaktion på v0.2 (fråga särskilt om
+  Fall 02 kändes tillräckligt ANNORLUNDA än Fall 01 — det är variationstestet),
+  därefter Fall 03 med tvåstols-mekanik.
