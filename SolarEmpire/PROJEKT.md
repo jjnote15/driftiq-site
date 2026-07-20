@@ -441,6 +441,74 @@ bästa vänner på olika orter.
 - *4 %-nischen:* ren premium begränsar; hybridmodellen (gratis in, par-köp,
   gåvor) är sannolikt rätt — bekräftas av både marknadsdata och Sky.
 
+## Stresstestet (session 2, forts 2) — flyger "daglig tvåsamhet"? Och: människa eller AI som den andre?
+
+Jeton tänkte högt: håller konceptet mot globala sociala trender — och kan den
+andra "personen" vara en AI/avatar i stället för en levande människa?
+Research 2026-07-20 (ensamhetsstatistik, AI-kompanjonsmarknaden, regulatorik).
+
+**Flyger det? De sociala trenderna (medvind, med en viktig nyans):**
+- Ensamhetsepidemin är global och växande: WHO — 1 av 6 människor drabbade,
+  kopplad till ~100 dödsfall i timmen; 57 % av amerikaner ensamma; värst bland
+  unga vuxna (24 % under 30 ensamma större delen av tiden). "Friendship
+  recession": andelen män med 6+ nära vänner halverad sedan 1990.
+  US Surgeon General: brist på social kontakt lika farligt som 15 cigaretter/dag.
+- **Nyansen:** vår målgrupp är inte "de ensamma" (de saknar en person att spela
+  med) utan **"de åtskilda"** — par på distans, förälder–vuxet barn, bästa
+  vänner på olika orter, familjer över landsgränser (Jeton lever själv
+  Sverige–Kosovo-vardagen). Den gruppen växer strukturellt: migration,
+  distansarbete, globala familjer. Och friendship recession gör de FÅ
+  relationer man har mer värda att underhålla — vi säljer underhåll av
+  relationer, inte bot mot ensamhet.
+- Kulturell medvind nr 2: växande backlash mot parasocial skärmtid ("brain
+  rot", digital detox, "social fitness"). Ett spel vars produkt är en STÄRKT
+  verklig relation rider både på problemet och på motreaktionen. Det är
+  positioneringen "skärmtid ni inte behöver skämmas över".
+
+**AI/avatar-varianten — marknaden är stor men fel för oss som KÄRNA:**
+- Marknadsfakta: AI-kompanjonsappar ~220 M ackumulerade nedladdningar, ~50 M
+  aktiva användare (feb 2026), ~120 M USD 2025 → 20 M+ USD/månad 2026;
+  Replika 200 M+ USD/år; Character.AI 233 M registrerade, ~92 min/dag
+  engagemang. Kommersiellt verklig och växande.
+- **Fyra skäl att INTE göra AI:n till den andre spelaren:**
+  1. *Regulatorisk storm:* Kaliforniens SB 243 (i kraft 2026-01-01), New Yorks
+     minderårig-förbud (25 000 USD/överträdelse), federala GUARD Act, Kinas
+     minderårig-förbud, Character.AI/Google förlikade fem wrongful-death-
+     stämningar 2026. Kraven (åldersverifiering, självmordsdetektering,
+     ständiga "jag är inte människa"-påminnelser) är tunga för ett tvåmansbolag,
+     och App Store-reglerna lär skärpas.
+  2. *Etiskt/psykologiskt:* hela vår kärnmekanism är att väntan är ÄKTA — en
+     verklig människa gjorde sitt drag. En AI som låtsas vänta är simulerad
+     anknytning — exakt den beroendemekanik som stämningarna handlar om, och
+     Kings cynism i ny skepnad. Det bryter konceptets själ.
+  3. *Strategiskt:* i AI-kompanjonskategorin blir vi app nr 338 i en marknad
+     där topp-10 % tar 89 % av intäkterna, mot bolag med LLM-infrastruktur-
+     budgetar. I "daglig tvåsamhet mellan riktiga människor" är vi först.
+  4. *Tidlöshet:* SDT-behovet samhörighet handlar om att BETYDA något för
+     någon verklig; forskningen tyder på att AI-sällskap ger kortsiktig
+     lindring men riskerar fördjupad isolering. Äkta människa = tidlöst;
+     AI-kompanjon = trendkänsligt och backlash-exponerat.
+- **Där AI DÄREMOT hör hemma (principen "AI driver världen, ersätter aldrig
+  människan"):**
+  - *AI som innehållsmotor:* genererar/personaliserar dagliga pussel åt paret —
+    löser innehållstrampkvarnen (identifierad huvudrisk).
+  - *AI som den TREDJE karaktären:* världens varelse/väsen som paret sköter
+    TILLSAMMANS — inte din partner utan ert gemensamma "barn/husdjur".
+    Beprövat: Tamagotchi, Finch (självomsorgs-fågeln), Widgetable (delade
+    husdjurswidgets för par — redan en trend). Ger världen personlighet,
+    ger solo-ögonblick mening ("varelsen har saknat er"), och är
+    pitch-testbar som variant.
+  - *AI som mjuk fallback:* om ena parten är borta en vecka dör inte världen —
+    varelsen "håller ställningarna" (aldrig genom att låtsas vara partnern).
+  - *Ev. solo-övningsläge* märkt som just övning — mildrar tvåsidig cold start.
+
+**Slutsats stresstestet:** konceptet flyger — trenderna är medvind åt två håll
+samtidigt (behovet växer OCH motreaktionen mot fejkad närhet växer). Människa
+som den andre är rätt; AI som osynlig motor och ev. som parets gemensamma
+varelse. Enmenings-pitchen kan nu testas i två varianter: med och utan
+varelsen ("ni två sköter en värld ingen ser hela av" vs "ni två uppfostrar
+ett väsen som bara överlever om ni båda kommer tillbaka").
+
 **Uppdaterade öppna frågor till Jeton (ersätter listan i Pivot-avsnittet):**
 1. Vem ska sakna spelet om det försvinner? (Par? Vänner? Familj över avstånd?)
 2. Sync (TVÅ) eller async (MELLAN) — eller ett eget tredje koncept?
@@ -533,3 +601,14 @@ bästa vänner på olika orter.
   (se "Djupdykningen" ovan), hybridmodell. Risker dokumenterade (innehålls-
   trampkvarn, tvåsidig cold start, par-churn). **Inget byggt, inget beslutat —
   Jeton tar ställning till rekommendationen.**
+- **2026-07-20 (session 2, forts 2 — stresstest + AI-frågan):** Jeton tänkte
+  högt: flyger daglig tvåsamhet mot globala trender, och kan den andre vara en
+  AI/avatar? Research: ensamhetsepidemin (WHO 1 av 6; friendship recession),
+  AI-kompanjonsmarknaden (50 M aktiva, Replika 200 M USD/år) och regulatoriken
+  (SB 243, NY-förbud, GUARD Act, förlikade dödsfallsstämningar). Slutsats i
+  "Stresstestet" ovan: konceptet har dubbel medvind (behovet växer + backlash
+  mot fejkad närhet); målgruppen preciserad till "de åtskilda", inte "de
+  ensamma". AI som den andre spelaren avråds (4 skäl); AI:s rätta roll:
+  innehållsmotor + ev. parets gemensamma varelse (Tamagotchi/Finch/Widgetable-
+  spåret) + mjuk fallback. Två pitch-varianter att testa formulerade.
+  **Inget byggt, inget beslutat.**
