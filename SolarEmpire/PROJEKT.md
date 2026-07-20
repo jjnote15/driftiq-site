@@ -626,3 +626,14 @@ ett väsen som bara överlever om ni båda kommer tillbaka").
   riskregister och valideringsplan (pitchtest + Trollkarlen från Oz-test via
   WhatsApp — noll kod). Öppna antaganden listade i §12 för Jetons reaktion.
   **Fortfarande inget byggt.**
+- **2026-07-20 (session 2, forts 4 — Oz-testmaterialet levererat):** Jeton bad
+  om vecka 1-gåtorna för Oz-testet. Claude byggde `SolarEmpire/OzTest/`:
+  14 gåtkort som PNG (1080×1593, 7 dagar × Grynings-/Skymningssida, genererade
+  via `gen_oztest.py` + Chromium-screenshots — omgenererbara) och
+  `OZTEST-GUIDE.md` (körinstruktioner, observationslogg, förutbestämda
+  beslutskriterier, facit). Gåtorna: Symbolbron (GNISTA), Mönsterhalvan (V),
+  Vandringen (DAGG), Rösterna (GRYNINGSSTJÄRNA, röstmeddelanden), Frågorna
+  (gissa om varandra), Sifferlåset (3517), Kläckningen (VAKNA + lågbild).
+  Varje kort har "Avskedet"-gåvouppmaning. Jeton kör testet 7 dagar med en
+  verklig person; nästa session: fråga efter loggen och utfall mot
+  beslutskriterierna. **Inget byggt utöver testmaterialet.**
