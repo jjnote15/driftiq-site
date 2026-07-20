@@ -334,6 +334,113 @@ och drar slutsatser för TVÅ och MELLAN.
   och ton* (auteur-linjen behålls). Kapitel ska kunna ombalanseras via
   serverflagga/uppdatering utan ny App Store-granskning där det går.
 
+## Djupdykningen (session 2, forts) — marknaden 2026, de främsta utvecklarna, och en riktningsrekommendation
+
+Jeton bad om en bredare analys: Fares och King är bara två exempel — studera de
+främsta, marknaden idag, globala preferenser och den tidlösa psykologin, och
+destillera till en riktning för oss. Research gjord med webbkällor 2026-07-20
+(marknadsrapporter, deconstructions, utvecklarintervjuer).
+
+**Marknadsläget 2026 (det viktigaste, med konsekvens för oss):**
+- **Nedladdningar är platta (+0,8 %), intäkter växer (+10,6 %).** Eran
+  "växa till varje pris" är över; vinnarna är de som behärskar retention och
+  värdeskapande, inte volym. → Ett litet spel med extremt lojala användare är
+  rätt spelplan; vi ska inte tävla i nedladdningar.
+- **Premium på mobil växer kraftigt från låg bas:** +77 % fler premiumsläpp 2025
+  (~750 titlar), men bara 4 % av nedladdningarna. Balatro (99 kr-klassen) tog
+  ~21 M USD och 3,1 M nedladdningar på mobil enbart — utan annonser, driven av
+  community, streamers och mun-till-mun. → Premium är möjligt, men bara om
+  spelet i sig är delbart/pratbart.
+- **Socialt är motorn:** sociala funktioner höjer LTV 40–60 %, co-op höjer
+  retention ~20 %+, och ~78 % av all speltid är multiplayer. → Bekräftar
+  pivotens kärntes från båda tidigare analyserna: människor är kroken.
+- **Hybrid-monetisering är norm** — få framgångsrika spel är rena F2P- eller
+  rena premiumspel längre.
+
+**De främsta utveckarna — vad varje mästare lär oss (utöver Fares & King):**
+- **Supercell (Clash of Clans/Royale):** formeln "bekant men nytt + litet
+  featureset + kompromisslös polish". Viktigast för oss är dock deras
+  *processprincip*: små team, snabba prototyper, och stolthet i att döda spel
+  som inte bär ("skåla när ett projekt läggs ner"). → Vi ska testa billigt och
+  våga döda — Solar Empire-pausen var alltså rätt beteende, inte ett misslyckande.
+- **Rusty Lake — The Past Within (2022):** tvåspelarpussel där en spelare är i
+  "det förflutna" och en i "framtiden"; man MÅSTE prata med varandra utanför
+  spelet för att lösa gåtorna. ~6 USD, **1 miljon sålda enheter bara på Steam**
+  plus mobil/Switch. → **Direkt bevis på att MELLAN-typen säljer som premium.**
+  Men: synkront (man spelar samtidigt) och ändligt (~2 tim). Luckan de lämnar:
+  async + pågående.
+- **Tick Tock: A Tale for Two:** två telefoner, varsin halva av världen, allt
+  löses genom att prata. Kallas återkommande "det bäst designade spelet för
+  distanspar". Samma lucka: engångsupplevelse, inget skäl att återvända.
+- **thatgamecompany — Sky: Children of the Light:** 160 M nedladdningar,
+  ~300 M USD livstid på "etisk monetisering" kring socialt uttryck.
+  **22 % av intäkterna är gåvor; 40–50 % av säsongspassen köps som gåva till
+  någon annan.** Avgörande nyans: de försökte först med en HELT altruistisk
+  ekonomi — det misslyckades (quid pro quo-bitterhet när gåvor inte
+  återgäldades). Balansen som fungerar: både köp till sig själv OCH gåvor.
+  → Validerar gåvo-idén i modell B ovan, men korrigerar den: erbjud båda.
+- **Wordle (Josh Wardle/NYT):** EN gåta om dagen — medveten brist utan
+  energisystem-cynism; resultatet är en delbar artefakt (de gröna rutorna) som
+  marknadsför spelet varje dag; ritual i stället för binge. → Kadensen för vårt
+  spel: kort, daglig, delbar — inte oändlig session.
+- **Duolingo:** streak-psykologin kvantifierad (7-dagars streak → 3,6× högre
+  fullföljande; förlustaversion som motor) och *etiskt utförd* (streak freeze
+  som förlåtelse i stället för straff). → Delad svit för två personer, med
+  inbyggd förlåtelsemekanik så den bygger relation i stället för skuld.
+- **Nintendo/Miyamoto (det tidlösa):** jaga den fundamentala lekkänslan, inte
+  teknik eller grafik; "experiential gaming" — spel ska skapa känslor, inte
+  bara berätta; enkelt att börja, djupt att bemästra. Tidlöshetens facit.
+- **Självbestämmandeteorin (SDT — forskningsgrunden bakom allt ovan):**
+  människor återvänder varaktigt till det som föder tre medfödda behov:
+  **autonomi** (egna val), **kompetens** (växande skicklighet), **samhörighet**
+  (betyda något för någon). Candy Crush kör mest på kompetens-dopamin; Fares på
+  samhörighet+kompetens; Wordle/Duolingo på vana+kompetens. Ett spel som föder
+  alla tre samtidigt har den tidlösa profilen. Samhörighet är det behov som är
+  sämst betjänat på mobil idag — och det är exakt MELLAN:s kärna.
+
+**Syntesen — vad allt pekar mot (Claudes rekommendation):**
+Marknadsdata, mästarstudierna och psykologin konvergerar på samma punkt:
+
+> **"Det dagliga ritualet för två" — ett asynkront tvåpersonsspel byggt som
+> vana, inte som engångsupplevelse.** MELLAN-riktningen, skärpt: en kort
+> (~5 min), daglig, asymmetrisk pusselritual mellan två specifika människor
+> som delar en värld ingen ser hela av. The Past Within bevisar att formen
+> säljer; Wordle bevisar kadensen; Duolingo bevisar streak-limmet; Sky bevisar
+> gåvoekonomin; Fares bevisar mekanisk variation + Friend's Pass; King bevisar
+> juiciness + naturlig väntan; SDT förklarar varför det är tidlöst
+> (samhörighet + kompetens + autonomi i samma loop).
+
+Positioneringsluckan är tydlig: listorna över "spel för par/distanspar"
+domineras av spel som inte är byggda för det. De två som ÄR byggda för det
+(The Past Within, Tick Tock) är synkrona engångsupplevelser utan
+återkomstmekanik. **Ingen äger kategorin "det dagliga vi:et"** — Duolingo äger
+dagligt lärande, Wordle äger daglig gåta, ingen äger daglig tvåsamhet.
+Målgruppen är global och tidlös: par, distanspar, förälder–vuxet barn,
+bästa vänner på olika orter.
+
+**Formeln "stjäl principen, inte mekaniken" (svar på Jetons hur-fråga):**
+1. Identifiera VARFÖR något fungerar hos en mästare (psykologisk princip),
+   aldrig VAD de gjorde (mekanik). Kings liv-system = "paus skapar längtan" —
+   vi tar principen (den andres drag är pausen), inte mekaniken (energibar).
+2. Kombinera principer från olika mästare som aldrig mötts förut — det är där
+   innovationen uppstår. Vår mix (async-tvåsamhet × daglig ritual ×
+   gåvoekonomi) finns inte på marknaden; varje ingrediens är dock bevisad var
+   för sig. Det är "bekant men nytt" (Supercell) på konceptnivå.
+3. Validera som Supercell: billigast möjliga test först (pitch → papper →
+   prototyp), och var stolt över att döda det som inte bär.
+
+**Risker att ha ögonen på (ärlighet, inte säljsnack):**
+- *Innehållstrampkvarnen:* daglig kadens kräver antingen genererbara pussel
+  (à la Wordle — en formel, oändligt innehåll) eller kapitel + daglig
+  mikroritual i kombination. Måste lösas i designen tidigt.
+- *Tvåsidig cold start:* spelet är värdelöst ensam — onboarding måste göra
+  det trivialt att bjuda in sin person (Friend's Pass löser betalningen,
+  inbjudningsflödet måste vara friktionsfritt).
+- *Churn i par:* om en tröttnar dör spelet för båda. Duolingos
+  förlåtelsemekanik + möjlighet till "solo-drag som gåva" mildrar.
+- *4 %-nischen:* ren premium begränsar; hybridmodellen (gratis in, par-köp,
+  gåvor) är sannolikt rätt — bekräftas av både marknadsdata och Sky.
+
 **Uppdaterade öppna frågor till Jeton (ersätter listan i Pivot-avsnittet):**
 1. Vem ska sakna spelet om det försvinner? (Par? Vänner? Familj över avstånd?)
 2. Sync (TVÅ) eller async (MELLAN) — eller ett eget tredje koncept?
@@ -414,3 +521,15 @@ och drar slutsatser för TVÅ och MELLAN.
   (premium / hybrid med gåvo-köp / F2P), hybrid B rekommenderad att utreda.
   Öppna frågor uppdaterade (5 st, inkl. affärsmodellsval). **Fortfarande inget
   koncept formellt valt — invänta Jetons besked.**
+- **2026-07-20 (session 2, forts — djupdykningen):** Jeton bad om bredare
+  research: marknaden idag, globala preferenser, tidlös psykologi, fler mästare
+  än Fares/King. Webbresearch gjord (marknadsrapporter 2026, Supercell,
+  Rusty Lake/The Past Within, Tick Tock, thatgamecompany/Sky, Wordle, Duolingo,
+  Nintendo/Miyamoto, självbestämmandeteorin). Nyckelfynd: The Past Within
+  (tvåspelarpussel, ~6 USD) sålde 1M+ enheter — MELLAN-formen bevisat säljbar;
+  Sky tjänar 22 % av intäkterna på gåvor; premium växer +77 % men är 4 % av
+  nedladdningar; socialt höjer LTV 40–60 %. Claudes rekommendation formulerad:
+  **"Det dagliga ritualet för två"** — async tvåpersonsspel som daglig vana
+  (se "Djupdykningen" ovan), hybridmodell. Risker dokumenterade (innehålls-
+  trampkvarn, tvåsidig cold start, par-churn). **Inget byggt, inget beslutat —
+  Jeton tar ställning till rekommendationen.**
