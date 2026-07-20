@@ -2,10 +2,27 @@
 
 **Läs den här filen i början av varje session. Uppdatera den i slutet.**
 
-Idle-spel för iPhone. Spelaren bygger en solpark: trycker för att skapa energi,
-säljer energi för pengar, köper uppgraderingar, tjänar pengar offline och
-expanderar till nya länder (prestige). Mål: App Store-lansering inom 30 dagar,
-intäkter via belönade annonser + köpet "Ta bort annonser".
+## ⚠️ LÄS DETTA FÖRST: projektet är i en riktningspaus
+
+Solar Empire v1–v1.3 (idle-klickspel om en solpark) är **fullt byggt, testat och
+fungerande** — se status och arkitektur nedan. Men i slutet av session 1 kom
+Jeton och Claude fram till att ett rent idle-klickspel troligen **inte kommer
+sälja eller behålla spelare på den nivå Jeton siktar på** ("Top-notch,
+världsnivå", betalvilja ~100 kr, "man kan bara inte låta bli att öppna spelet").
+
+Vi utforskar därför just nu **en ny spelriktning**, inspirerad av Josef Fares/
+Hazelight (It Takes Two, Split Fiction) — se "Pivot-diskussionen" längre ner
+för hela resonemanget och två skissade koncept (TVÅ och MELLAN). **Inget beslut
+är taget.** Jeton skulle fundera vidare och eventuellt testa pitchar på riktiga
+människor. **Nästa session ska börja med att fråga Jeton var han landade**,
+inte anta att Solar Empire eller något av de skissade koncepten är valt.
+Om ett nytt koncept väljs blir det sannolikt ett nytt projekt/mapp — Solar
+Empire-koden och hela CI/bygginfrastrukturen fredas och återanvänds tekniskt
+(se "Tekniska beslut"), men spelet, namnet och designen kan bytas helt ut.
+
+Idle-spelet i sin nuvarande form: spelaren bygger en solpark, trycker för att
+skapa energi, säljer energi för pengar, köper uppgraderingar, tjänar pengar
+offline och expanderar till nya länder (prestige).
 
 **Ägare:** Jeton (entreprenör, kodar inte — Claude gör allt tekniskt).
 **Startad:** 2026-07-19 (session 1).
@@ -147,7 +164,76 @@ SolarEmpire/
 - **Ikonen** är genererad med ett skript; duger gott för test,
   men bör ersättas med en proffsigare version innan lansering.
 
-## 30-dagarsplan (prioriterad, anpassad för PC-ägare)
+## Pivot-diskussionen (session 1, forts 3) — läs detta innan du planerar nästa steg
+
+**Utlösande fråga från Jeton:** "hade du betalt för att spela denna [Solar Empire]?"
+Claudes ärliga svar: nej — trots retentionmekanik (v1.1), ljud/humor (v1.2) och
+en synlig växande park (v1.3) är kärnhandlingen ("tryck på en knapp, se siffror
+växa") en handelsvara. Polish kan inte kompensera för att grundmekaniken saknar
+skicklighet, spänning eller spektakel. Jeton höll med: "det är inget kul eller
+engagerande spel — bara en massa klickande på en sol."
+
+**Jetons kravbild för nästa försök:**
+- Tidlöst (talar till människan) + samtida (relaterbart till vår tid) på samma gång
+- Psykologiska beroendemekanismer inbyggda i kärnan, inte pålagda
+- Starkt visuellt — "captivating", "glues them to the screen"
+- Prisnivå ~100 kr (premium, inte free-to-play-annonser)
+- Jeton refererade explicit till **Josef Fares / Hazelight** (It Takes Two, A Way
+  Out, Split Fiction) som förebild och skickade en detaljerad analys av deras
+  framgångsfaktorer (finns i sin helhet i chatthistoriken, sammanfattat här).
+
+**Fares-principerna (destillerade, källa: Jetons analys + Claudes tillägg):**
+1. Obligatoriskt beroende av en annan människa (inte nödvändigtvis samma skärm/rum —
+   se diskussionen om sync vs. async nedan) → delad sårbarhet, delad agens.
+2. Mekanisk variation / ingen grinding — ny mekanik i nästan varje kapitel, aldrig
+   återanvänd länge nog för att bli tråkig.
+3. Ludonarrativ resonans — det spelaren gör med fingrarna ska spegla vad
+   karaktärerna känner/upplever i berättelsen.
+4. Kompromisslös nisch — designa 100 % för en specifik upplevelse (t.ex. "bara två
+   personer"), inte "hyfsat bra" för alla.
+5. Generositet som spridningsmotor — en betalar, en (eller fler) spelar gratis
+   ("Friend's Pass") → köparen blir självmotiverad ambassadör.
+
+**Koncept 1 — "TVÅ" (föreslaget av Claude, sedan ifrågasatt):**
+Samma iPhone, delad skärm, två tummar, omöjligt att spela ensam. Asymmetriska
+mekaniker per kort kapitel (gyroskop, viskning i mikrofon, delade hörlurar för
+info-asymmetri i ena örat vardera, m.m.). Ordlös berättelse om två ljusvarelser.
+Gratis nedladdning, episod 1–3 gratis, engångsköp ~99–129 kr låser upp resten
+(köparens vän spelar gratis på samma telefon).
+
+**Jetons invändning (viktig, giltig):** samma-skärm begränsar när/var/med vem
+man kan spela. Fares kommer undan med det för att hans spel är 10–15-timmars
+soffupplevelser; mobil lever på återkommande, portabelt spelande. "Samma skärm"
+är transportlager, inte kärnprincip — man kan hålla fast vid principerna 1–5
+utan att kräva fysisk närhet.
+
+**Koncept 2 — "MELLAN" (Claudes svar på invändningen, oprövat):**
+Asynkront tvåsamhet. Jeton + en specifik person (partner, förälder, bästa vän)
+delar en värld ingen av dem ser hela av. Man spelar var för sig, när man vill —
+men lämnar spår, nycklar, gåvor i den andres halva (jag vrider en nyckel i
+morse → du kan öppna en dörr i kväll). Konversationen ("öppnade du porten?!")
+sker i verkligheten, inte i appen. Bygger på CloudKit (gratis, Apple-inbyggt,
+ingen egen server) för datadelning mellan två enheter. Retentionkroken: en
+människa man bryr sig om väntar på en — samma mekanism som gör Snapchat/streaks
+beroendeframkallande, men i en varm/relationell form i stället för manipulativ.
+Samma Friend's Pass-affärsmodell (ett par-köp låser upp för båda).
+
+**Öppna frågor Jeton skulle fundera på (svara på dessa när ni återupptar):**
+1. Vem ska sakna spelet om det försvinner? (Par? Vänner? Familj över avstånd?
+   Svaret styr ton, svårighetsgrad och marknadsföring.)
+2. Sync (samma rum, intensivt, "TVÅ") eller async (över avstånd, dagligt, "MELLAN")
+   — eller ett tredje koncept Jeton själv kommer på? v1 bör välja EN riktning
+   kompromisslöst (Fares-princip 4), inte försöka bli bra på båda.
+3. Jeton skulle testa en enmenings-pitch på 5 riktiga personer och observera
+   reaktionen — det är billigare och mer tillförlitlig data än fortsatt
+   brainstorming i chatten.
+
+**Status vid pausen:** inget koncept är valt. Ingen kod skriven för det nya
+spelet. Solar Empire v1–v1.3 ligger orörd och fungerande i repot om Jeton
+väljer att ändå gå vidare med idle-spelet, eller om delar (CI, StoreKit,
+språksystem, ljudmotor) ska återanvändas i ett nytt projekt.
+
+## 30-dagarsplan (prioriterad, anpassad för PC-ägare) — PAUSAD, gäller endast om Solar Empire återupptas som den är
 
 **Vecka 1 — Speltesta och polera (nästa session börjar här)**
 1. Jeton spelar via appetize.io (instruktioner ovan) och ger feedback på känsla,
@@ -196,3 +282,12 @@ SolarEmpire/
   i TestFlight avgör ev. annonsbudget). Därefter byggdes retentionpaketet v1.1
   (se ovan) på Jetons klartecken "inga restriktioner". Gamla sparfiler
   är kompatibla (GameState avkodar nu med standardvärden för nya fält).
+- **2026-07-19 (session 1, forts 3 — PIVOT-PAUS):** Jeton testade v1.2/v1.3 och
+  svarade ärligt: inte köpvärt, "bara klickande på en sol". Öppnade en bredare
+  diskussion om Josef Fares/Hazelight-designfilosofi som förebild, ~100 kr
+  prisnivå och "world-class"-ambition. Claude föreslog co-op-koncept "TVÅ"
+  (samma skärm); Jeton ifrågasatte klokt att samma-skärm begränsar räckvidden.
+  Claude föreslog async-alternativet "MELLAN". **Ingen riktning vald.** Jeton
+  skulle fundera vidare/testa pitchar på riktiga personer. Se "Pivot-diskussionen"
+  ovan för fullt resonemang och öppna frågor. Nästa session: fråga var Jeton
+  landade innan något byggs.
