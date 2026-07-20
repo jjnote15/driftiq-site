@@ -10,10 +10,11 @@ Jeton och Claude fram till att ett rent idle-klickspel troligen **inte kommer
 sälja eller behålla spelare på den nivå Jeton siktar på** ("Top-notch,
 världsnivå", betalvilja ~100 kr, "man kan bara inte låta bli att öppna spelet").
 
-Vi utforskar därför just nu **en ny spelriktning**, inspirerad av Josef Fares/
-Hazelight (It Takes Two, Split Fiction) — se "Pivot-diskussionen" längre ner
-för hela resonemanget och två skissade koncept (TVÅ och MELLAN). **Inget beslut
-är taget.** Jeton skulle fundera vidare och eventuellt testa pitchar på riktiga
+Vi utforskar därför just nu **en ny spelriktning**, inspirerad av två förebilder:
+**Josef Fares/Hazelight** (It Takes Two, Split Fiction — se "Pivot-diskussionen")
+och **King/Candy Crush Saga** (Sebastian Knutsson — se "King-analysen", tillagd
+session 2). Två skissade koncept finns: TVÅ och MELLAN. **Inget beslut är
+taget.** Jeton skulle fundera vidare och eventuellt testa pitchar på riktiga
 människor. **Nästa session ska börja med att fråga Jeton var han landade**,
 inte anta att Solar Empire eller något av de skissade koncepten är valt.
 Om ett nytt koncept väljs blir det sannolikt ett nytt projekt/mapp — Solar
@@ -233,6 +234,116 @@ spelet. Solar Empire v1–v1.3 ligger orörd och fungerande i repot om Jeton
 väljer att ändå gå vidare med idle-spelet, eller om delar (CI, StoreKit,
 språksystem, ljudmotor) ska återanvändas i ett nytt projekt.
 
+## King-analysen (session 2, 2026-07-20) — andra förebilden: Candy Crush Saga
+
+Jeton skickade en detaljerad analys av hur King (Sebastian Knutsson m.fl.)
+byggde Candy Crush Saga. Uppdraget: fortsätt utveckla konceptet — bygg inget.
+Detta avsnitt destillerar King-principerna, ställer dem mot Fares-principerna
+och drar slutsatser för TVÅ och MELLAN.
+
+**King-principerna (destillerade ur Jetons analys):**
+1. **Juiciness** — varje lyckad handling belönas överdrivet: partiklar, skärmskak,
+   ljus, tillfredsställande ljud ("Delicious!"). Objekten designas glansiga/"blöta"
+   för att vara maximalt attraktiva för ögat. Universellt tema som väcker omedelbart
+   positiva känslor hos alla åldrar och kulturer.
+2. **Socialt kapital** — vänner synliga på kartan (tävlingsinstinkt: "förbi grannen"),
+   be vänner om liv (gratis viral spridning). Andra människor är retentionmotorn.
+3. **Kontrollerad frustration** — artificiell brist (5 liv, 30 min väntan per liv)
+   förhindrar mättnad, skapar längtan och daglig vana. Monetiseringen säljer **tid,
+   inte framgång**: betala för att fortsätta *just nu*, inte för att vinna.
+4. **Near-miss** — banor designade så man ofta faller på målsnöret ("ett drag ifrån").
+   Medveten växling svår/lätt bana: frustration gör lättnaden vid seger mycket
+   starkare — det är *den känslan* spelaren betalar för med boosters.
+5. **Datadriven svårighetsgrad (LiveOps)** — spåra exakt var spelare fastnar och
+   slutar; justera banor i realtid via molnuppdatering; A/B-testa allt. Spelet är
+   aldrig "klart", det balanseras kontinuerligt på gränsen utmanande/uppgivet.
+
+**Var Fares och King är ÖVERENS (→ obligatoriska krav på vårt koncept, oavsett riktning):**
+- **Andra människor är den starkaste kroken.** Fares gör det genom obligatoriskt
+  co-op-beroende; King genom grannen på kartan och liv från vänner. Båda företagen
+  byggde sin succé på att en verklig människa drar dig tillbaka in i spelet.
+  Detta validerar kärnan i både TVÅ och MELLAN.
+- **Känslomässig bergochdalbana.** Fares: mekanikbyten + narrativa kontraster.
+  King: svår bana → lätt bana, frustration → lättnad. Ett spel som håller jämn
+  känslonivå tappar spelare. Konceptet måste designa kontrast medvetet.
+- **Kompromisslös polish i feedbacken.** Fares spektakel = Kings juiciness.
+  Solar Empire-lärdomen bekräftas från två håll: polish räddar inte en tom kärna,
+  men en bra kärna utan juiciness når aldrig sin potential. Budgetera juiciness
+  som kärnfunktion, inte som yta i slutet.
+- **En betalar, fler dras in.** Fares Friend's Pass = Kings vän-inbjudningar.
+  Spridningsmotorn ska vara inbyggd i spelet, inte köpt via annonser.
+
+**Var de är OFÖRENLIGA (→ val Jeton måste göra):**
+- **Affärsmodell.** King säljer lindring av frustration de själva skapat
+  (energisystem, betalväggar) — kräver F2P och massiv volym. Fares säljer en
+  generös premiumupplevelse en gång (~100 kr) och vägrar mikrotransaktioner.
+  Ett energisystem i ett 100-kronorsspel vore ett löftesbrott mot köparen —
+  de två modellerna kan inte blandas rakt av.
+- **Vem bestämmer designen.** King låter data ändra spelet (bana 12 för svår →
+  sänk den). Fares är auteur — visionen kompromissas inte av telemetri.
+  Medelväg finns (data justerar *balans*, aldrig *vision*), men default måste väljas.
+- **Relationen till spelarens tid.** King vill maximera återkommande sessioner i
+  åratal (vana). Fares vill ge en avslutad, minnesvärd upplevelse (10–15 tim, slut).
+  MELLAN lutar åt King här (daglig vana), TVÅ åt Fares (intensiv, ändlig).
+
+**Vad King-linsen säger om de två koncepten:**
+- **MELLAN stärks mest.** Viktigaste insikten i hela analysen: MELLAN har redan
+  ett "liv-system" — men ett naturligt och mänskligt i stället för artificiellt.
+  Du kan inte fortsätta förrän den andra personen gjort sitt drag. Samma psykologi
+  som Kings 30-minuterstimer (paus → längtan → vana → återkomst), men bristen
+  går inte att köpa bort och skapas av en människa du bryr dig om, inte av en
+  timer som vill åt ditt kort. King bevisar att mekanismen fungerar i miljardskala;
+  MELLAN gör den varm i stället för cynisk.
+  Fler King-mekaniker som mappar direkt på MELLAN:
+  - *Delad svit* i stället för individuell streak: "er dag 12 tillsammans" —
+    dubbel förlustaversion, man sviker en person, inte en siffra (Snapchat-streaks
+    bevisar styrkan; Kings dagliga bonus är samma mekanik solo).
+  - *Near-miss i async-form:* "nyckeln du fick passade nästan — en kugge fattas,
+    den finns i hennes halva" → tvingar fram samtalet i verkligheten ("kolla
+    i tornet ikväll!"), vilket är exakt den krok konceptet lever på.
+  - *Juiciness på överlämningarna:* ögonblicket när den andres gåva/spår dyker upp
+    i din värld ska vara spelets mest överdådiga effekt (Kings "Delicious!"-ögonblick).
+- **TVÅ påverkas mindre.** Juiciness och near-miss gäller, men samma-soffa-sync
+  har ingen naturlig plats för Kings vane-/pausmekanik — det är en ändlig
+  upplevelse à la Fares. King-analysen ger alltså inget nytt argument för TVÅ,
+  och Jetons tidigare invändning (begränsad räckvidd på mobil) står kvar.
+  Sammantaget pekar nu båda förebilderna åt MELLAN-hållet — men beslutet är Jetons.
+
+**Monetisering — tre vägar (ny öppen fråga, kravbilden ~100 kr behöver bekräftas eller revideras):**
+- **A) Ren premium (Fares):** 99–129 kr engångsköp + Friend's Pass (partnern
+  spelar gratis). King-lärdomarna används enbart för retention, inte intäkt.
+  Enklast, ärligast, men taket är lägre och all intäkt tas dag 1.
+- **B) Hybrid (rekommenderas att utreda vidare):** gratis nedladdning, kapitel 1–3
+  gratis, engångsköp (~99–129 kr per *par*) låser resten — plus **gåvo-köp**:
+  små kosmetiska saker man bara kan köpa *till den andre* (aldrig till sig själv).
+  Det är Kings intäktspsykologi (betala i ett känsloladdat ögonblick) omvänd till
+  generositet i stället för frustrationslindring. Ingen energi, inga annonser,
+  inget pay-to-win — bör klara både App Store-granskning och den varma tonen.
+  Troligen unik mekanik på marknaden = marknadsföringsvinkel i sig.
+- **C) Ren F2P (King):** kräver energisystem/annonser/booster-ekonomi och
+  miljonvolym för att bära sig. Krockar frontalt med varm ton, premiumambition
+  och tvåpersonskärnan. Avråds — noteras bara för fullständighet.
+
+**LiveOps-lärdomen (gäller ALLA riktningar, även ren premium):**
+- Bygg in analytics från dag 1: var i kapitlen slutar folk, hur ofta öppnas appen,
+  hur lång tid mellan de två spelarnas drag. Utan data famlar vi som med Solar Empire.
+- Soft-launch i ett litet land (King-standard; t.ex. Nya Zeeland/Norden) och mät
+  D1/D7/D30-retention *innan* pengar läggs på marknadsföring — detta ersätter
+  den gamla TestFlight-mätgrinden som beslutspunkt.
+- Datans roll: justera *balans och friktion* (var folk fastnar), aldrig *vision
+  och ton* (auteur-linjen behålls). Kapitel ska kunna ombalanseras via
+  serverflagga/uppdatering utan ny App Store-granskning där det går.
+
+**Uppdaterade öppna frågor till Jeton (ersätter listan i Pivot-avsnittet):**
+1. Vem ska sakna spelet om det försvinner? (Par? Vänner? Familj över avstånd?)
+2. Sync (TVÅ) eller async (MELLAN) — eller ett eget tredje koncept?
+   Båda förebilderna pekar nu mot async/MELLAN, men valet är inte taget.
+3. Enmenings-pitchen på 5 riktiga personer — gjord? Vad blev reaktionerna?
+4. **Ny:** Affärsmodell A, B eller C ovan? (Påverkar designen i grunden och
+   måste väljas före första spelbara prototyp.)
+5. **Ny:** Står ~100 kr-premiumkravet fast, eller öppnade King-analysen för
+   hybrid (gratis in, betala för att fortsätta + gåvo-köp)?
+
 ## 30-dagarsplan (prioriterad, anpassad för PC-ägare) — PAUSAD, gäller endast om Solar Empire återupptas som den är
 
 **Vecka 1 — Speltesta och polera (nästa session börjar här)**
@@ -291,3 +402,15 @@ språksystem, ljudmotor) ska återanvändas i ett nytt projekt.
   skulle fundera vidare/testa pitchar på riktiga personer. Se "Pivot-diskussionen"
   ovan för fullt resonemang och öppna frågor. Nästa session: fråga var Jeton
   landade innan något byggs.
+- **2026-07-20 (session 2 — konceptarbete, inget byggt):** Jeton skickade en
+  King/Candy Crush-analys (Knutsson: juiciness, socialt kapital, kontrollerad
+  frustration, near-miss, datadriven svårighetsgrad) som andra förebild vid
+  sidan av Fares, med uppdraget "fortsätt utveckla konceptet utan att bygga".
+  Claude skrev "King-analysen" (ovan): var King/Fares är överens (människor som
+  krok, känslokontrast, juiciness, inbyggd spridning) respektive oförenliga
+  (affärsmodell, data vs auteur, vana vs avslutad upplevelse). Central slutsats:
+  MELLAN:s vänta-på-den-andre-mekanik är Kings liv-system i naturlig, mänsklig
+  form — båda förebilderna pekar nu mot MELLAN. Tre monetiseringsvägar skissade
+  (premium / hybrid med gåvo-köp / F2P), hybrid B rekommenderad att utreda.
+  Öppna frågor uppdaterade (5 st, inkl. affärsmodellsval). **Fortfarande inget
+  koncept formellt valt — invänta Jetons besked.**
