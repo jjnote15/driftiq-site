@@ -224,7 +224,66 @@ Monument Valley/Sky-nivå. Hellre en säsong färre än en ful övergång.
 3. **Först därefter:** beslut om prototyp. (Supercell-disciplinen: döda gratis
    är en vinst, döda efter tre månaders bygge är ett misslyckande.)
 
-## 12. Öppna antaganden Jeton kan reagera på (inget blockerar)
+## 12. Ekonomi — ärlig intäktsprognos och kostnadsbild (tillagd på Jetons fråga)
+
+**Grundsanning först:** indiespelsintäkter är en potenslag. Medianresultatet
+för en okänd premiumapp utan marknadsföringsbudget är nära noll; snittet dras
+upp av sällsynta utbrott (Balatro, The Past Within — båda hade etablerade
+skapare/förlag bakom sig). All seriös planering utgår från medianen och
+behandlar utbrottet som en option, inte en plan.
+
+**Antagandekedjan (per månad, räknat från LANSERING — inte från idag):**
+nedladdningar → ~50 % skickar ägget → ~50 % av inbjudna aktiverar (par bildas)
+→ ~30 % av paren når dag 14 (betalväggen) → 20–30 % av dessa köper parpasset
+(hög andel eftersom de redan investerat två veckor tillsammans)
+→ 129 kr − Apples 15 % (Small Business Program) ≈ **110 kr netto per köp**.
+Gåvoköp adderar uppskattningsvis 15–25 % ovanpå från månad 3+ (Sky-benchmark: 22 %).
+
+**Tre scenarier (intäkt, ackumulerat från lansering):**
+
+| Scenario | Antagande | 3 mån | 6 mån | 12 mån |
+|---|---|---|---|---|
+| **Median** (organiskt enbart, ingen kanal hittas) | ~500–1 500 nedladdn./mån | 3–8 tkr | 8–20 tkr | 25–60 tkr |
+| **Kanal funnen** (LDR-communityn nappar, dagkorten delas, ASO fungerar) | 5–10 k nedladdn./mån växande | 15–40 tkr | 50–120 tkr | 150–350 tkr |
+| **Utbrott** (viral TikTok-våg eller Apple-feature; <5 % sannolikhet) | 50–150 k nedladdn. under toppmånader | — | — | 1–3+ mnkr |
+
+Viktiga brasklappar: (1) De första ~2–3 månaderna från idag är bygg-/soft
+launch-tid med **0 kr intäkt** — "3 mån" ovan börjar vid riktig lansering.
+(2) Tvåsidigheten halverar i praktiken konverteringen mot en vanlig app —
+men de som väl konverterar är mer lojala. (3) Siffrorna är antaganden att
+ERSÄTTA med data från soft launch — det är hela poängen med mätgrinden.
+
+**Kostnadsbild (kassaflöde, år 1):**
+
+| Post | Kostnad |
+|---|---|
+| Apple Developer Program | ~1 100 kr/år |
+| CloudKit (par-datasynk) | 0 kr (ingår i Apple-kontot, våra datamängder är minimala) |
+| Bygg-CI (GitHub Actions, publikt repo) | 0 kr |
+| Utveckling (Claude gör allt tekniskt) | 0 kr utöver befintligt abonnemang |
+| Gåtgenerering (AI) | ~0 kr (förgenereras i batch; ev. API-kostnad <500 kr/mån först vid skala) |
+| Ljud/musik | 0–3 tkr (syntetiseras som Solar Empire; ev. licens senare) |
+| Analytics | 0–200 kr/mån (Apple gratis + ev. TelemetryDeck) |
+| Domän/landningssida | ~200 kr/år (kan ligga under driftiq.se) |
+| App Store-material, ikon, skärmbilder | ~0 (genereras) |
+| Apples provision | 15 % av intäkt (redan avdragen i tabellen ovan) |
+| **Summa fasta år 1** | **~2–5 tkr** |
+| *Valfritt: marknadsföringstest (annonser mot LDR-nisch)* | *5–20 tkr — köps INTE förrän soft launch-data visar att ett par är värt mer än det kostar att skaffa* |
+| *Valfritt: varumärkesregistrering EU* | *~10–15 tkr — först om spelet får fäste* |
+
+**Break-even: ~30–50 sålda parpass.** Det är projektets verkliga styrka:
+nedsidan är kaffepengar, uppsidan är en potenslag, och den största insatsen
+är Jetons tid — som samtidigt bygger en återanvändbar app-fabrik
+(CI, StoreKit, CloudKit, LiveOps-kunnande) oavsett utfall.
+
+**Ärlig slutsats mot Jetons mål:** detta blir sannolikt INTE en stabil inkomst
+inom 12 månader (medianscenariot är hobbyintäkt). Det är en billig option på
+ett utbrott plus en kompetensinvestering. Den variabel som flyttar utfallet
+mest är inte spelet utan **distributionen** — och där ligger Jetons
+superkraft (sälj, nätverk, dörröppning) om den riktas mot communities,
+creators och press i stället för köpta annonser.
+
+## 13. Öppna antaganden Jeton kan reagera på (inget blockerar)
 
 - Målgruppsprioritering: par först, vän/familj-inkluderande design (§2).
 - Arbetsnamnet GLÖD/EMBER och eld-metaforen som kärnfantasi.
