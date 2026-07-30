@@ -1,290 +1,372 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Driftiq — Intelligent IT-support, drift och installation på plats</title>
-<meta name="description" content="Driftiq kombinerar AI, dataanalys och erfarna tekniker för en ny generation fältstyrka inom IT. On-site support, installation och drift med mänsklig närvaro och teknisk skärpa." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Driftiq | IT-drift och fältservice i Öresund</title>
+<meta name="description" content="Driftiq levererar IT-drift, support och installation på plats i södra Sverige. Egna anställda tekniker, säkerhetsprövade enligt kundens krav. Som underleverantör till större IT-bolag och direkt till verksamheter i Öresund." />
+<link rel="canonical" href="https://driftiq.se/" />
+<meta name="theme-color" content="#F5F3EF" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="sv_SE" />
+<meta property="og:site_name" content="Driftiq" />
+<meta property="og:title" content="Driftiq | IT-drift och fältservice i Öresund" />
+<meta property="og:description" content="Tekniker på plats när driften inte kan vänta. Egna anställda, säkerhetsprövade enligt kundens krav, med bas i Skåne." />
+<meta property="og:url" content="https://driftiq.se/" />
+<meta property="og:image" content="https://driftiq.se/assets/img/it-technician.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/geistmono-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-<!-- ===================== Header ===================== -->
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand" aria-label="Driftiq startsida">Drift<span class="doti">i</span>q</a>
-    <nav class="nav-links" aria-label="Huvudmeny">
-      <a href="erbjudanden.html">Erbjudanden</a>
-      <a href="index.html#kompetenser">Kompetenser</a>
-      <a href="index.html#insikter">Insikter</a>
+<a class="skip" href="#main">Hoppa till innehåll</a>
+
+<!-- ============================ Sidhuvud ============================ -->
+<header class="hdr">
+  <div class="u hdr__in">
+    <a class="brand" href="index.html" aria-label="Driftiq, startsida">
+      <span class="brand__mark" aria-hidden="true"></span>Driftiq
+    </a>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="kapacitet.html">Kapacitet</a>
+      <a href="leverans.html">Så arbetar vi</a>
       <a href="om-oss.html">Om oss</a>
       <a href="kontakt.html">Kontakt</a>
     </nav>
-    <div class="nav-right">
-      <span class="lang"><span class="flag"></span>SE</span>
-      <a href="kontakt.html" class="btn btn-light">Kontakta oss</a>
+    <div class="hdr__end">
+      <a class="btn hdr__cta" href="kontakt.html">Beskriv ert behov <span class="arr" aria-hidden="true">→</span></a>
+      <button class="burger" aria-expanded="false" aria-controls="mobilmeny" aria-label="Öppna meny">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="nav-toggle" aria-label="Öppna meny"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
-
-<!-- ===================== Hero ===================== -->
-<section class="hero section">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">Framtidens IT-partner</span>
-      <h1>IT-drift med <span class="text-accent">mänsklig skärpa</span></h1>
-      <p class="lead">Vi erbjuder intelligent IT-support, installation och drift på plats — där AI, dataanalys och erfarna tekniker möts. En ny generation fältstyrka inom IT, med lokal närhet och snabb tillgänglighet.</p>
-      <div class="hero-actions">
-        <a href="erbjudanden.html" class="btn btn-primary">Se våra erbjudanden <span class="arr">→</span></a>
-        <a href="index.html#kompetenser" class="link-arrow">Våra kompetenser <span class="arr">→</span></a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="assets/img/hero-abstract.jpg" alt="Abstrakt nätverk av sammankopplade noder" />
-      <span class="gradient-edge"></span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Trust strip ===================== -->
-<div class="trust">
-  <div class="container">
-    <span><b>100%</b> bakgrundskontrollerad personal</span>
-    <span class="dot">•</span>
-    <span><b>Säkerhetsutbildade</b> tekniker</span>
-    <span class="dot">•</span>
-    <span><b>Certifierade</b> konsulter</span>
-    <span class="dot">•</span>
-    <span>Bas i <b>södra Sverige</b> — växande i hela landet</span>
-  </div>
+<div class="sheet" id="mobilmeny">
+  <a href="kapacitet.html">Kapacitet <span class="arr" aria-hidden="true">→</span></a>
+  <a href="leverans.html">Så arbetar vi <span class="arr" aria-hidden="true">→</span></a>
+  <a href="om-oss.html">Om oss <span class="arr" aria-hidden="true">→</span></a>
+  <a href="kontakt.html">Kontakt <span class="arr" aria-hidden="true">→</span></a>
+  <a class="btn" href="kontakt.html">Beskriv ert behov <span class="arr" aria-hidden="true">→</span></a>
 </div>
 
-<!-- ===================== Insights ===================== -->
-<section class="section" id="insikter">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Insikter & nyheter</span>
-        <h2>Det senaste från Driftiq</h2>
+<main id="main">
+
+<!-- ============================== Hero ============================== -->
+<section class="hero">
+  <div class="u">
+    <span class="label hero__label rv">Driftiq AB · IT-drift och fältservice · Öresund</span>
+    <h1 class="display rv">Tekniker på plats när driften inte kan vänta.</h1>
+    <p class="lead hero__lead rv">Vi levererar IT-drift, support och installation där utrustningen faktiskt står. Dels som förlängd arm till större IT-bolag som behöver kapacitet i södra Sverige, dels direkt till verksamheter som vill ha en tekniker som känner deras miljö. Teknikerna är anställda hos oss och säkerhetsprövas enligt kundens krav.</p>
+    <div class="actions hero__actions rv">
+      <a class="btn" href="kapacitet.html">Se vad vi levererar <span class="arr" aria-hidden="true">→</span></a>
+      <a class="alink" href="leverans.html">Så arbetar vi <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="u">
+    <div class="fig hero__fig rv">
+      <img src="assets/img/it-technician.jpg" alt="Tekniker som arbetar med nätverksutrustning i ett serverrum" width="1600" height="700" />
+    </div>
+  </div>
+</section>
+
+<!-- =========================== Faktarad ============================ -->
+<section class="sec-tight">
+  <div class="u">
+    <div class="facts">
+      <div class="rv">
+        <h4>Egna anställda</h4>
+        <p>Vi skickar inte vidare uppdrag till okända underleverantörer. Teknikerna som kommer ut är anställda hos Driftiq.</p>
       </div>
-      <a href="om-oss.html" class="btn btn-outline">Se alla</a>
-    </div>
-    <div class="cards-3">
-      <article class="insight">
-        <div class="insight-img"><img src="assets/img/ai-network.jpg" alt="AI-nätverk" /></div>
-        <div class="insight-body">
-          <span class="tag">AI &amp; drift</span>
-          <h3>Så gör AI-driven felanalys IT-supporten snabbare</h3>
-          <p>Fjärrdiagnostik som hittar grundorsaken innan teknikern ens är på plats — och kortar ledtiderna rejält.</p>
-        </div>
-      </article>
-      <article class="insight">
-        <div class="insight-img"><img src="assets/img/cyber-security.jpg" alt="IT-säkerhet" /></div>
-        <div class="insight-body">
-          <span class="tag">Säkerhet</span>
-          <h3>Säkerhet &amp; efterlevnad i varje uppdrag</h3>
-          <p>All personal är bakgrundskontrollerad och säkerhetsutbildad. Så bygger vi förtroende hos enterprise-kunder.</p>
-        </div>
-      </article>
-      <article class="insight">
-        <div class="insight-img"><img src="assets/img/network-cables.jpg" alt="Installation av nätverk" /></div>
-        <div class="insight-body">
-          <span class="tag">Fältservice</span>
-          <h3>Installationer och utrullningar i stor skala</h3>
-          <p>Från enstaka site till rikstäckande utrullning — med lokal närvaro och tekniker som kan leverera direkt.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Offerings (plum) ===================== -->
-<section class="section section-plum" id="erbjudanden">
-  <div class="container">
-    <div class="plum-head">
-      <span class="eyebrow on-dark">Vårt erbjudande</span>
-      <h2>Allt ni behöver för en intelligent IT-drift</h2>
-      <p class="lead">Sex tjänsteområden som tillsammans ger en komplett, skalbar IT-leverans — med människor, teknik och data i samma lag.</p>
-    </div>
-    <div class="offer-grid">
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4"/><path d="m9 17 3 4 3-4"/></svg></div>
-        <h3>On-site IT-tekniker &amp; support</h3>
-        <p>Erfarna tekniker på plats hos kunden — snabb hjälp där den behövs, med mänsklig närvaro och hög servicegrad.</p>
-        <a href="erbjudanden.html#support" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
-        <h3>AI-driven felanalys &amp; fjärrdiagnostik</h3>
-        <p>Vi använder AI och dataanalys för att hitta grundorsaken snabbt — och lösa fler ärenden på distans innan de blir akuta.</p>
-        <a href="erbjudanden.html#ai" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Installationer &amp; utrullningar</h3>
-        <p>Storskaliga installationer, hårdvaruutrullning och migreringar — planerat, dokumenterat och levererat i tid.</p>
-        <a href="erbjudanden.html#installation" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Säkerhet &amp; efterlevnad</h3>
-        <p>Bakgrundskontrollerad och säkerhetsutbildad personal. Vi arbetar enligt era krav på säkerhet, GDPR och efterlevnad.</p>
-        <a href="erbjudanden.html#sakerhet" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="m7 14 3-4 4 3 5-6"/></svg></div>
-        <h3>Data &amp; analys</h3>
-        <p>Vi gör IT-driften datadriven — insikter och uppföljning som hjälper er fatta bättre beslut och planera framåt.</p>
-        <a href="erbjudanden.html#data" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
-        <h3>Mötesbokning &amp; kunddialog</h3>
-        <p>Affärsdrivande mötesbokning och kunddialog som öppnar dörrar — så att rätt personer pratar med varandra i rätt tid.</p>
-        <a href="erbjudanden.html#dialog" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== Visions split ===================== -->
-<section class="section">
-  <div class="container split">
-    <div class="split-visual">
-      <img src="assets/img/team-meeting.jpg" alt="Driftiqs team i samtal" />
-      <span class="gradient-edge"></span>
-    </div>
-    <div>
-      <h2>Mänskligt, lokalt<br />och smart.</h2>
-      <p class="lead">Driftiq grundades på en enkel övertygelse: framtidens IT-stöd blir bättre när människor, teknik och data möts. Vi kombinerar AI-driven skärpa med erfarna tekniker — och lokal närhet som gör oss snabbt tillgängliga.</p>
-      <a href="om-oss.html" class="btn btn-primary">Lär känna oss <span class="arr">→</span></a>
-      <div class="stats">
-        <div class="stat"><div class="num">3</div><div class="lbl">regioner i Sverige</div></div>
-        <div class="stat"><div class="num">24/7</div><div class="lbl">tillgänglighet</div></div>
-        <div class="stat"><div class="num">100%</div><div class="lbl">certifierad personal</div></div>
-        <div class="stat"><div class="num">AI</div><div class="lbl">först i varje ärende</div></div>
+      <div class="rv">
+        <h4>Säkerhetsprövning</h4>
+        <p>Bakgrundskontroll och registerkontroll enligt kundens krav, dokumenterat per uppdrag och person.</p>
+      </div>
+      <div class="rv">
+        <h4>ITIL-baserat arbetssätt</h4>
+        <p>Incidenter, problem och förändringar hanteras i era processer och i ert ärendesystem, inte i vårt.</p>
+      </div>
+      <div class="rv">
+        <h4>Bas i Skåne</h4>
+        <p>Öresundsregionen är närområdet. Uppdrag längre bort planeras och bemannas per överenskommelse.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== Strategic partner (indigo) ===================== -->
-<section class="section section-indigo">
-  <div class="container partner-grid">
-    <div class="partner">
-      <span class="eyebrow on-dark">Vårt erbjudande</span>
-      <h2>En <span class="text-accent">strategisk partner</span> för framtiden</h2>
-      <ul class="ul">
-        <li><span class="arr">→</span> On-site support och fältservice i hela landet</li>
-        <li><span class="arr">→</span> AI-driven felanalys, fjärrdiagnostik och drift</li>
-        <li><span class="arr">→</span> Installation, utrullning, säkerhet och efterlevnad</li>
-      </ul>
-      <a href="erbjudanden.html" class="btn btn-light">Se våra erbjudanden <span class="arr">→</span></a>
+<!-- ========================= 01 Marknadsläget ======================= -->
+<section class="sec" id="marknadslaget">
+  <div class="u">
+    <div class="sec-head">
+      <span class="label"><span class="num">01</span> / Marknadsläget</span>
+      <div class="sec-head__body">
+        <h2 class="rv">Från januari 2026 räcker det inte att veta vad en leverantör gör. Ni behöver veta vem som står i rummet.</h2>
+      </div>
     </div>
-    <div class="partner-visual">
-      <img src="assets/img/abstract-3d.jpg" alt="Abstrakt geometrisk teknikbild" />
-      <span class="gradient-edge"></span>
-      <span class="play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+
+    <div class="cols cols-2 mt-l">
+      <div class="rv">
+        <p class="body-lg">Cybersäkerhetslagen (2025:1506) trädde i kraft den 15 januari 2026 och tar in NIS2 i svensk rätt. Den tydligaste förändringen handlar inte om brandväggar utan om leveranskedjan. Verksamheter som omfattas ska kunna redogöra för säkerheten hos sina leverantörer, och hos leverantörernas leverantörer.</p>
+        <p>För finanssektorn kom kravet tidigare. DORA gäller sedan den 17 januari 2025 och sträcker sig till tredjepartsleverantörer av IKT-tjänster, med krav på ett register över varje underleverantör som rör kritisk verksamhet. Den som säljer in kapacitet i de kedjorna behöver kunna dokumenteras, inte bara upphandlas.</p>
+      </div>
+      <div class="rv">
+        <p>Samtidigt är arbetskraften den knapphet som styr prisbilden. Inom IT uppger 83 procent av arbetsgivarna att de har svårt att hitta rätt kompetens, näst högst av alla sektorer i Sverige, och drifttekniker klassas som bristyrke.</p>
+        <p>Den fysiska delen av IT försvann inte när molnet kom. Windows 10 nådde end of life den 14 oktober 2025 och utlöste en våg av klientbyten. Hybrid är normen snarare än undantaget, vilket håller kvar hårdvara i egna lokaler. Och datacenterutbyggnaden i Norden fortsätter, med Staffanstorp som en av noderna i Microsofts svenska investering.</p>
+        <p>Det är i det gapet Driftiq finns. Någon behöver stå framför racket, och det ska gå att visa vem det var.</p>
+      </div>
+    </div>
+
+    <p class="note mt-m measure-lg">Källor: cybersäkerhetslagen (2025:1506) · förordning (EU) 2022/2554 (DORA) · ManpowerGroup Talent Shortage · Arbetsförmedlingens Yrkesbarometer · Microsoft, juni 2024.</p>
+  </div>
+</section>
+
+<!-- ========================== 02 Två vägar in ======================= -->
+<section class="sec band-soft" id="vagar-in">
+  <div class="u">
+    <div class="sec-head">
+      <span class="label"><span class="num">02</span> / Två vägar in</span>
+      <div class="sec-head__body">
+        <h2 class="rv">Två sätt att arbeta med oss.</h2>
+        <p class="lead rv">Behovet ser olika ut beroende på om ni säljer IT vidare eller använder den själva. Vi håller de två spåren isär, i pris, i avtal och i hur vi uppträder mot er kund.</p>
+      </div>
+    </div>
+
+    <div class="mesh mesh-2 mt-l">
+      <div class="block rv">
+        <span class="block__n">01 / För IT-bolag och systemintegratörer</span>
+        <h3>Kapacitet ni kan sätta i eget namn</h3>
+        <p>Ni har avtalet, kundrelationen och servicenivån att svara för. Vi har teknikerna i Öresund. Vi går in som underleverantör på era villkor, arbetar i er dokumentation och uppträder som er leverans när kunden kräver det. Vi konkurrerar inte om er slutkund.</p>
+        <dl class="dl mt-m">
+          <div><dt>Fältservice</dt><dd>On-site-support och bemanning per pass, vecka eller löpande.</dd></div>
+          <div><dt>Utrullning</dt><dd>Installation, hårdvarubyten och migrering med planerad överlämning.</dd></div>
+          <div><dt>Datacenter</dt><dd>Smart hands, kabling och hårdvarulivscykel i anläggningar i regionen.</dd></div>
+          <div><dt>Beredskap</dt><dd>Jour och förhöjd tillgänglighet enligt vad vi avtalar med er.</dd></div>
+        </dl>
+        <a class="alink" href="kapacitet.html#it-bolag">Läs mer om partnerleverans <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="block rv">
+        <span class="block__n">02 / För verksamheter i Öresund</span>
+        <h3>En tekniker som känner era lokaler</h3>
+        <p>Industri, fastighet, logistik och life science har en sak gemensamt. IT sitter i byggnaden, inte bara i webbläsaren. Vi tar löpande drift, support och installationer med samma personer varje gång, så att ni slipper förklara er miljö från början vid varje ärende.</p>
+        <dl class="dl mt-m">
+          <div><dt>Löpande drift</dt><dd>Användarsupport och driftuppgifter på plats, med avtalad närvaro.</dd></div>
+          <div><dt>Infrastruktur</dt><dd>Nätverk, klienter och kringutrustning i era egna lokaler.</dd></div>
+          <div><dt>OT-nära system</dt><dd>Uppkopplade lås, access och utrustning som sitter i verksamheten.</dd></div>
+          <div><dt>Livscykel</dt><dd>Klientutrullning, byten och avveckling av hårdvara.</dd></div>
+        </dl>
+        <a class="alink" href="kapacitet.html#verksamheter">Läs mer om löpande drift <span class="arr" aria-hidden="true">→</span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== Competencies ===================== -->
-<section class="section" id="kompetenser">
-  <div class="container compe-grid">
-    <div>
-      <span class="eyebrow">Kompetenser</span>
-      <h2>Heltäckande kompetens för era behov</h2>
-      <p class="lead">Bredd och spets i samma organisation — från help desk och fältservice till AI, infrastruktur och säkerhet.</p>
-      <a href="erbjudanden.html" class="btn btn-primary" style="margin-top:24px">Mer om våra kompetenser <span class="arr">→</span></a>
+<!-- =========================== 03 Kapacitet ========================= -->
+<section class="sec" id="kapacitet">
+  <div class="u">
+    <div class="sec-head">
+      <span class="label"><span class="num">03</span> / Kapacitet</span>
+      <div class="sec-head__body">
+        <h2 class="rv">Det vi levererar, och hur långt det räcker.</h2>
+        <p class="lead rv">Fem områden som hänger ihop i praktiken. Det sjätte, mötesbokning och kunddialog, är ett eget affärsområde och beskrivs separat.</p>
+      </div>
     </div>
-    <div class="checks">
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>On-site IT-support</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>AI &amp; automation</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Fjärrdiagnostik</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>IT-infrastruktur</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Molntjänster</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>IT-säkerhet</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Installation &amp; utrullning</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Nätverk &amp; infrastruktur</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Efterlevnad &amp; GDPR</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Data &amp; analys</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Help desk &amp; service</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Projektledning</span></div>
+
+    <div class="mesh mesh-3 mt-l">
+      <div class="block rv">
+        <span class="block__n">01</span>
+        <h3>On-site-support och fältservice</h3>
+        <p>Erfarna tekniker på plats, för enstaka ärenden eller löpande bemanning. Samma personer över tid, så att kunskapen om miljön stannar kvar hos er i stället för att börja om.</p>
+      </div>
+      <div class="block rv">
+        <span class="block__n">02</span>
+        <h3>Installation, utrullning och migrering</h3>
+        <p>Klientutrullning, hårdvarubyten, kabling och flyttar. Planerat innan, dokumenterat under vägen, avslutat med en överlämning någon annan kan läsa.</p>
+      </div>
+      <div class="block rv">
+        <span class="block__n">03</span>
+        <h3>AI-stödd felanalys och fjärrdiagnostik</h3>
+        <p>Vi använder AI och fjärrdiagnostik för att hitta grundorsaken tidigare och lösa mer utan att någon behöver resa. Det som ändå kräver en människa på plats får en människa på plats.</p>
+      </div>
+      <div class="block rv">
+        <span class="block__n">04</span>
+        <h3>Data och uppföljning</h3>
+        <p>Uppföljning på uppdragsnivå: ledtider, återkommande fel och var timmarna faktiskt går. Underlag ni kan lyfta rakt in i er egen rapportering.</p>
+      </div>
+      <div class="block rv">
+        <span class="block__n">05</span>
+        <h3>Säkerhet och efterlevnad</h3>
+        <p>Bakgrundskontroll och registerkontroll enligt kundens krav, avgränsade behörigheter och dokumentation som håller när er kund gör leverantörsgranskning.</p>
+      </div>
+      <div class="block rv">
+        <span class="block__n">06</span>
+        <h3>Hela kapaciteten i detalj</h3>
+        <p>Kompetensområden, avgränsningar och vad vi avstår från att ta oss an.</p>
+        <a class="alink" href="kapacitet.html">Till kapacitet <span class="arr" aria-hidden="true">→</span></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== CTA band ===================== -->
-<section class="section cta-band">
-  <div class="container">
-    <h2>Nyfiken på vad vi kan göra för er? Hör av dig så tar vi det därifrån.</h2>
-    <a href="kontakt.html" class="btn btn-light">Kontakta oss <span class="arr">→</span></a>
+<!-- ========================= 04 Så arbetar vi ======================= -->
+<section class="sec band-soft">
+  <div class="u">
+    <div class="sec-head">
+      <span class="label"><span class="num">04</span> / Arbetssätt</span>
+      <div class="sec-head__body">
+        <h2 class="rv">Fyra steg, och ett tydligt nej när det behövs.</h2>
+      </div>
+    </div>
+
+    <ol class="steps mt-l">
+      <li class="rv">
+        <span class="s-n">01</span>
+        <h3>Avgränsning</h3>
+        <p>Vi går igenom omfattning, platser, säkerhetskrav och svarstider innan vi lämnar pris. Ett uppdrag vi inte kan bemanna med rätt person säger vi nej till, hellre det än att lösa det med någon annans folk.</p>
+      </li>
+      <li class="rv">
+        <span class="s-n">02</span>
+        <h3>Bemanning</h3>
+        <p>Ni får namngivna tekniker, inte en pool. Bakgrundskontroll och eventuell registerkontroll är klar innan första passet, och ni får underlaget.</p>
+      </li>
+      <li class="rv">
+        <span class="s-n">03</span>
+        <h3>Leverans</h3>
+        <p>Arbetet följer era processer och er ärendehantering. Vi dokumenterar per besök så att spåret finns kvar hos er även den dag vi inte längre är kvar.</p>
+      </li>
+      <li class="rv">
+        <span class="s-n">04</span>
+        <h3>Uppföljning</h3>
+        <p>Genomgång av ledtider och avvikelser med bestämt intervall. Vi tar upp det som inte fungerade utan att ni ska behöva fråga.</p>
+      </li>
+    </ol>
+
+    <div class="actions mt-m rv">
+      <a class="alink" href="leverans.html">Hela leveransmodellen <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 05 Säkerhet ========================= -->
+<section class="sec band-ink">
+  <div class="u">
+    <div class="sec-head">
+      <span class="label"><span class="num">05</span> / Säkerhet och efterlevnad</span>
+      <div class="sec-head__body">
+        <h2 class="rv">Den som köper in händer köper in en risk. Vårt jobb är att göra den mätbar.</h2>
+      </div>
+    </div>
+
+    <div class="cols cols-2 mt-l">
+      <div class="rv">
+        <p class="body-lg">En tekniker som kommer in i ett serverrum, en produktionslinje eller ett låssystem har mer tillgång än de flesta konton ni granskar. Därför behandlar vi personen som en del av leveransen och inte som en resurs som råkade vara tillgänglig.</p>
+      </div>
+      <div class="rv">
+        <p>I praktiken betyder det bakgrundskontroll och registerkontroll i den omfattning uppdraget kräver, dokumenterat per person. Avgränsade behörigheter som upphör när uppdraget gör det. Och en loggföring per besök som ni kan lämna vidare när er egen kund frågar vem som var där och varför.</p>
+        <p>Vi är inte certifierade mot ISO 27001 i dag och påstår inte annat. Arbetssättet är byggt så att en certifiering ska kunna läggas ovanpå det vi redan gör, inte tvärtom.</p>
+      </div>
+    </div>
+
+    <div class="figs mt-l">
+      <div class="rv"><div class="n">100 %</div><div class="l">av teknikerna är anställda hos Driftiq</div></div>
+      <div class="rv"><div class="n">Per person</div><div class="l">bakgrundskontroll dokumenterad före första passet</div></div>
+      <div class="rv"><div class="n">ITIL</div><div class="l">ramverket arbetssättet bygger på</div></div>
+      <div class="rv"><div class="n">Skåne</div><div class="l">bas i Öresundsregionen, svensk jurisdiktion</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 Vilka vi är ====================== -->
+<section class="sec">
+  <div class="u">
+    <div class="sec-head">
+      <span class="label"><span class="num">06</span> / Vilka vi är</span>
+      <div class="sec-head__body">
+        <h2 class="rv">Ett litet bolag med lång erfarenhet i rummet.</h2>
+      </div>
+    </div>
+
+    <div class="cols cols-2-wide cols-align-end mt-l">
+      <div class="rv">
+        <p class="lead">Driftiq är nystartat. Det betyder att vi inte har tio års leveranshistorik att visa, och vi låtsas inte om något annat. Vad vi har är grundare som tillsammans lagt över trettio år i svensk IT-drift och IT-försäljning, och som vet skillnaden mellan ett uppdrag som ser bra ut på papper och ett som går att bemanna på tisdag.</p>
+        <p class="mt-s">Vi bygger bolaget i den ordning som håller: rätt personer först, dokumentation från dag ett, och referenser vi faktiskt har levererat innan vi hänvisar till dem.</p>
+        <div class="actions mt-m">
+          <a class="btn btn-ghost" href="om-oss.html">Om Driftiq <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="fig fig--tall fig--zoom rv">
+        <img src="assets/img/engineer-laptop.jpg" alt="Tekniker som dokumenterar arbete vid en laptop" width="800" height="1000" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== CTA ============================== -->
+<section class="cta">
+  <div class="u cta__in">
+    <h2 class="rv">Behöver ni kapacitet i Öresund inom kort? Beskriv uppdraget, ni får svar på vad vi kan bemanna och när.</h2>
+    <div class="actions rv">
+      <a class="btn" href="kontakt.html">Beskriv ert behov <span class="arr" aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
 </main>
 
-<!-- ===================== Footer ===================== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="brand">Drift<span class="doti">i</span>q</a>
-        <p>Intelligent IT-support, installation och drift på plats — med mänsklig närvaro och teknisk skärpa.</p>
+<!-- ============================= Sidfot ============================= -->
+<footer class="ftr">
+  <div class="u">
+    <div class="ftr__top">
+      <div>
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true"></span>Driftiq
+        </a>
+        <p class="ftr__pitch">IT-drift, support och installation på plats i Öresundsregionen. Egna anställda tekniker, säkerhetsprövade enligt kundens krav.</p>
       </div>
-      <div class="footer-col">
-        <h4>Erbjudanden</h4>
+      <div>
+        <h4>Kapacitet</h4>
         <ul>
-          <li><a href="erbjudanden.html#support">On-site support</a></li>
-          <li><a href="erbjudanden.html#ai">AI &amp; fjärrdiagnostik</a></li>
-          <li><a href="erbjudanden.html#installation">Installationer</a></li>
-          <li><a href="erbjudanden.html#sakerhet">Säkerhet</a></li>
+          <li><a href="kapacitet.html#it-bolag">För IT-bolag</a></li>
+          <li><a href="kapacitet.html#verksamheter">För verksamheter</a></li>
+          <li><a href="kapacitet.html#kompetens">Kompetensområden</a></li>
+          <li><a href="kapacitet.html#dialog">Mötesbokning</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Kompetenser</h4>
+      <div>
+        <h4>Leverans</h4>
         <ul>
-          <li><a href="index.html#kompetenser">IT-infrastruktur</a></li>
-          <li><a href="index.html#kompetenser">Molntjänster</a></li>
-          <li><a href="index.html#kompetenser">IT-säkerhet</a></li>
-          <li><a href="index.html#kompetenser">Data &amp; analys</a></li>
+          <li><a href="leverans.html">Så arbetar vi</a></li>
+          <li><a href="leverans.html#sakerhet">Säkerhet</a></li>
+          <li><a href="kapacitet.html#avgransning">Vad vi avstår från</a></li>
+          <li><a href="index.html#marknadslaget">Marknadsläget</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Företag</h4>
+      <div>
+        <h4>Bolaget</h4>
         <ul>
           <li><a href="om-oss.html">Om oss</a></li>
-          <li><a href="om-oss.html#vision">Vision &amp; mission</a></li>
+          <li><a href="om-oss.html#grundare">Grundarna</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="kontakt.html#karriar">Karriär</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
           <li><a href="mailto:info@driftiq.se">info@driftiq.se</a></li>
-          <li><a href="kontakt.html">Boka möte</a></li>
-          <li><a href="https://driftiq.se">driftiq.se</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Driftiq. Alla rättigheter förbehålls.</span>
-      <div class="socials">
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4 0 4.74 2.5 4.74 5.76V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <div class="ftr__bot">
+      <span class="note">© <span data-year>2026</span> Driftiq AB · Skåne, Sverige</span>
+      <div class="ftr__soc">
+        <a href="https://www.linkedin.com/" aria-label="Driftiq på LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4 0 4.74 2.5 4.74 5.76V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
