@@ -1,290 +1,475 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Driftiq — Intelligent IT-support, drift och installation på plats</title>
-<meta name="description" content="Driftiq kombinerar AI, dataanalys och erfarna tekniker för en ny generation fältstyrka inom IT. On-site support, installation och drift med mänsklig närvaro och teknisk skärpa." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Driftiq — IT-drift, fältservice och utrullning i Sverige</title>
+<meta name="description" content="Driftiq levererar IT-drift, support på plats och utrullningar till större svenska verksamheter. Bakgrundskontrollerade tekniker och en namngiven ansvarig per uppdrag.">
+<link rel="canonical" href="https://driftiq.se/">
+<meta name="theme-color" content="#F4F3EF">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Driftiq">
+<meta property="og:title" content="Driftiq — IT-drift, fältservice och utrullning i Sverige">
+<meta property="og:description" content="Vi håller igång IT:n. På plats, där ni är. Bakgrundskontrollerade tekniker och en namngiven ansvarig per uppdrag.">
+<meta property="og:url" content="https://driftiq.se/">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/familjen-grotesk-latin-ddca6da8.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/driftiq.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Driftiq",
+  "url": "https://driftiq.se/",
+  "email": "info@driftiq.se",
+  "description": "IT-drift, fältservice och utrullning för större svenska verksamheter.",
+  "areaServed": { "@type": "Country", "name": "Sverige" },
+  "address": { "@type": "PostalAddress", "addressRegion": "Skåne", "addressCountry": "SE" }
+}
+</script>
 </head>
 <body>
 
-<!-- ===================== Header ===================== -->
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand" aria-label="Driftiq startsida">Drift<span class="doti">i</span>q</a>
-    <nav class="nav-links" aria-label="Huvudmeny">
-      <a href="erbjudanden.html">Erbjudanden</a>
-      <a href="index.html#kompetenser">Kompetenser</a>
-      <a href="index.html#insikter">Insikter</a>
+<a class="skip" href="#innehall">Hoppa till innehåll</a>
+
+<!-- ====================== Masthead ====================== -->
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="index.html" aria-label="Driftiq — startsida">
+      <svg class="wordmark__glyph" viewBox="0 0 26 26" aria-hidden="true">
+        <rect x=".85" y=".85" width="24.3" height="24.3" rx="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M5.6 16.2h3.1l2.3-6.4 2.9 9.2 2.2-5.6h3.9" fill="none" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Drift<span class="wordmark__q">iq</span></span>
+    </a>
+
+    <nav class="mainnav" aria-label="Huvudmeny">
+      <a href="tjanster.html">Tjänster</a>
+      <a href="sa-arbetar-vi.html">Så arbetar vi</a>
       <a href="om-oss.html">Om oss</a>
       <a href="kontakt.html">Kontakt</a>
     </nav>
-    <div class="nav-right">
-      <span class="lang"><span class="flag"></span>SE</span>
-      <a href="kontakt.html" class="btn btn-light">Kontakta oss</a>
+
+    <div class="masthead__cta">
+      <a class="btn btn--ink" href="kontakt.html">
+        Boka ett samtal
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="burger" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
-    <button class="nav-toggle" aria-label="Öppna meny"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
+<nav class="drawer" id="drawer" aria-label="Mobilmeny">
+  <a href="tjanster.html">Tjänster</a>
+  <a href="sa-arbetar-vi.html">Så arbetar vi</a>
+  <a href="om-oss.html">Om oss</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a class="btn btn--signal" href="kontakt.html">
+    Boka ett samtal
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</nav>
 
-<!-- ===================== Hero ===================== -->
-<section class="hero section">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <span class="eyebrow">Framtidens IT-partner</span>
-      <h1>IT-drift med <span class="text-accent">mänsklig skärpa</span></h1>
-      <p class="lead">Vi erbjuder intelligent IT-support, installation och drift på plats — där AI, dataanalys och erfarna tekniker möts. En ny generation fältstyrka inom IT, med lokal närhet och snabb tillgänglighet.</p>
-      <div class="hero-actions">
-        <a href="erbjudanden.html" class="btn btn-primary">Se våra erbjudanden <span class="arr">→</span></a>
-        <a href="index.html#kompetenser" class="link-arrow">Våra kompetenser <span class="arr">→</span></a>
+<main id="innehall">
+
+<!-- ====================== Hero ====================== -->
+<section class="hero">
+  <canvas class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="shell hero__inner">
+    <p class="tag">IT-drift · Fältservice · Utrullning</p>
+    <h1 class="display-xl">Vi håller igång IT:n. På plats, där ni är.</h1>
+    <p class="lede">Driftiq levererar drift, support och installationer till större svenska verksamheter. Erfarna, bakgrundskontrollerade tekniker — och en namngiven ansvarig som svarar när ni ringer.</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--signal" href="kontakt.html">
+        Boka ett samtal
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="tlink" href="#tjanster">
+        Se vad vi gör
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <dl class="specrail">
+      <div class="specrail__item">
+        <dt class="specrail__k">Bas</dt>
+        <dd class="specrail__v">Skåne — uppdrag i hela Sverige</dd>
       </div>
-    </div>
-    <div class="hero-visual">
-      <img src="assets/img/hero-abstract.jpg" alt="Abstrakt nätverk av sammankopplade noder" />
-      <span class="gradient-edge"></span>
-    </div>
+      <div class="specrail__item">
+        <dt class="specrail__k">Personal</dt>
+        <dd class="specrail__v">Bakgrundskontrollerad och certifierad</dd>
+      </div>
+      <div class="specrail__item">
+        <dt class="specrail__k">Ansvar</dt>
+        <dd class="specrail__v">En namngiven kontakt per uppdrag</dd>
+      </div>
+      <div class="specrail__item">
+        <dt class="specrail__k">Form</dt>
+        <dd class="specrail__v">Löpande avtal eller enskilt uppdrag</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
-<!-- ===================== Trust strip ===================== -->
-<div class="trust">
-  <div class="container">
-    <span><b>100%</b> bakgrundskontrollerad personal</span>
-    <span class="dot">•</span>
-    <span><b>Säkerhetsutbildade</b> tekniker</span>
-    <span class="dot">•</span>
-    <span><b>Certifierade</b> konsulter</span>
-    <span class="dot">•</span>
-    <span>Bas i <b>södra Sverige</b> — växande i hela landet</span>
-  </div>
-</div>
-
-<!-- ===================== Insights ===================== -->
-<section class="section" id="insikter">
-  <div class="container">
-    <div class="section-head">
+<!-- ====================== Varför vi finns ====================== -->
+<section class="band band--tight">
+  <div class="shell">
+    <div class="shead" data-reveal>
       <div>
-        <span class="eyebrow">Insikter & nyheter</span>
-        <h2>Det senaste från Driftiq</h2>
+        <p class="tag">Varför vi finns</p>
+        <h2 class="display-l shead__title">Det är sällan tekniken som är problemet.</h2>
       </div>
-      <a href="om-oss.html" class="btn btn-outline">Se alla</a>
+      <p class="lede">Det är att ingen tar tag i den. Ärendet flyttas mellan köer, teknikern som dyker upp saknar mandat att fatta beslut, och den som lovade något på säljmötet går inte längre att nå. Driftiq är byggt för att göra tvärtom.</p>
     </div>
-    <div class="cards-3">
-      <article class="insight">
-        <div class="insight-img"><img src="assets/img/ai-network.jpg" alt="AI-nätverk" /></div>
-        <div class="insight-body">
-          <span class="tag">AI &amp; drift</span>
-          <h3>Så gör AI-driven felanalys IT-supporten snabbare</h3>
-          <p>Fjärrdiagnostik som hittar grundorsaken innan teknikern ens är på plats — och kortar ledtiderna rejält.</p>
-        </div>
-      </article>
-      <article class="insight">
-        <div class="insight-img"><img src="assets/img/cyber-security.jpg" alt="IT-säkerhet" /></div>
-        <div class="insight-body">
-          <span class="tag">Säkerhet</span>
-          <h3>Säkerhet &amp; efterlevnad i varje uppdrag</h3>
-          <p>All personal är bakgrundskontrollerad och säkerhetsutbildad. Så bygger vi förtroende hos enterprise-kunder.</p>
-        </div>
-      </article>
-      <article class="insight">
-        <div class="insight-img"><img src="assets/img/network-cables.jpg" alt="Installation av nätverk" /></div>
-        <div class="insight-body">
-          <span class="tag">Fältservice</span>
-          <h3>Installationer och utrullningar i stor skala</h3>
-          <p>Från enstaka site till rikstäckande utrullning — med lokal närvaro och tekniker som kan leverera direkt.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 
-<!-- ===================== Offerings (plum) ===================== -->
-<section class="section section-plum" id="erbjudanden">
-  <div class="container">
-    <div class="plum-head">
-      <span class="eyebrow on-dark">Vårt erbjudande</span>
-      <h2>Allt ni behöver för en intelligent IT-drift</h2>
-      <p class="lead">Sex tjänsteområden som tillsammans ger en komplett, skalbar IT-leverans — med människor, teknik och data i samma lag.</p>
-    </div>
-    <div class="offer-grid">
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4"/><path d="m9 17 3 4 3-4"/></svg></div>
-        <h3>On-site IT-tekniker &amp; support</h3>
-        <p>Erfarna tekniker på plats hos kunden — snabb hjälp där den behövs, med mänsklig närvaro och hög servicegrad.</p>
-        <a href="erbjudanden.html#support" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
-        <h3>AI-driven felanalys &amp; fjärrdiagnostik</h3>
-        <p>Vi använder AI och dataanalys för att hitta grundorsaken snabbt — och lösa fler ärenden på distans innan de blir akuta.</p>
-        <a href="erbjudanden.html#ai" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Installationer &amp; utrullningar</h3>
-        <p>Storskaliga installationer, hårdvaruutrullning och migreringar — planerat, dokumenterat och levererat i tid.</p>
-        <a href="erbjudanden.html#installation" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Säkerhet &amp; efterlevnad</h3>
-        <p>Bakgrundskontrollerad och säkerhetsutbildad personal. Vi arbetar enligt era krav på säkerhet, GDPR och efterlevnad.</p>
-        <a href="erbjudanden.html#sakerhet" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="m7 14 3-4 4 3 5-6"/></svg></div>
-        <h3>Data &amp; analys</h3>
-        <p>Vi gör IT-driften datadriven — insikter och uppföljning som hjälper er fatta bättre beslut och planera framåt.</p>
-        <a href="erbjudanden.html#data" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-      <article class="offer-card">
-        <div class="offer-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
-        <h3>Mötesbokning &amp; kunddialog</h3>
-        <p>Affärsdrivande mötesbokning och kunddialog som öppnar dörrar — så att rätt personer pratar med varandra i rätt tid.</p>
-        <a href="erbjudanden.html#dialog" class="link-arrow">Läs mer <span class="arr">→</span></a>
-      </article>
-    </div>
-  </div>
-</section>
+    <div class="contrast" data-reveal>
+      <div class="contrast__head" aria-hidden="true">
+        <span>Så brukar det låta</span>
+        <span>Så gör vi</span>
+      </div>
 
-<!-- ===================== Visions split ===================== -->
-<section class="section">
-  <div class="container split">
-    <div class="split-visual">
-      <img src="assets/img/team-meeting.jpg" alt="Driftiqs team i samtal" />
-      <span class="gradient-edge"></span>
-    </div>
-    <div>
-      <h2>Mänskligt, lokalt<br />och smart.</h2>
-      <p class="lead">Driftiq grundades på en enkel övertygelse: framtidens IT-stöd blir bättre när människor, teknik och data möts. Vi kombinerar AI-driven skärpa med erfarna tekniker — och lokal närhet som gör oss snabbt tillgängliga.</p>
-      <a href="om-oss.html" class="btn btn-primary">Lär känna oss <span class="arr">→</span></a>
-      <div class="stats">
-        <div class="stat"><div class="num">3</div><div class="lbl">regioner i Sverige</div></div>
-        <div class="stat"><div class="num">24/7</div><div class="lbl">tillgänglighet</div></div>
-        <div class="stat"><div class="num">100%</div><div class="lbl">certifierad personal</div></div>
-        <div class="stat"><div class="num">AI</div><div class="lbl">först i varje ärende</div></div>
+      <div class="contrast__row">
+        <div class="contrast__side contrast__was" data-label="Så brukar det låta">
+          <p>”Registrera ärendet i portalen så återkommer vi.”</p>
+        </div>
+        <div class="contrast__side contrast__is" data-label="Så gör vi">
+          <svg class="contrast__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="#C13606" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Ni får ett namn och ett mobilnummer. Samma person äger ärendet tills det är stängt.</p>
+        </div>
+      </div>
+
+      <div class="contrast__row">
+        <div class="contrast__side contrast__was" data-label="Så brukar det låta">
+          <p>Säljaren ni träffade lämnar över till en leveransorganisation ni aldrig mött.</p>
+        </div>
+        <div class="contrast__side contrast__is" data-label="Så gör vi">
+          <svg class="contrast__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="#C13606" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Vi som säljer uppdraget följer det hela vägen. Vi är för få för att kunna gömma oss.</p>
+        </div>
+      </div>
+
+      <div class="contrast__row">
+        <div class="contrast__side contrast__was" data-label="Så brukar det låta">
+          <p>Teknikern på plats måste ringa in för varje beslut som kostar pengar.</p>
+        </div>
+        <div class="contrast__side contrast__is" data-label="Så gör vi">
+          <svg class="contrast__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="#C13606" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Våra tekniker är seniora nog att lösa det på plats, inom en beslutsram vi kommit överens om i förväg.</p>
+        </div>
+      </div>
+
+      <div class="contrast__row">
+        <div class="contrast__side contrast__was" data-label="Så brukar det låta">
+          <p>Uppföljningen kommer när kvartalet är slut, i en rapport ingen läser.</p>
+        </div>
+        <div class="contrast__side contrast__is" data-label="Så gör vi">
+          <svg class="contrast__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="#C13606" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Ni ser vad som gjorts, av vem och hur lång tid det tog. Löpande, i klartext.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== Strategic partner (indigo) ===================== -->
-<section class="section section-indigo">
-  <div class="container partner-grid">
-    <div class="partner">
-      <span class="eyebrow on-dark">Vårt erbjudande</span>
-      <h2>En <span class="text-accent">strategisk partner</span> för framtiden</h2>
-      <ul class="ul">
-        <li><span class="arr">→</span> On-site support och fältservice i hela landet</li>
-        <li><span class="arr">→</span> AI-driven felanalys, fjärrdiagnostik och drift</li>
-        <li><span class="arr">→</span> Installation, utrullning, säkerhet och efterlevnad</li>
-      </ul>
-      <a href="erbjudanden.html" class="btn btn-light">Se våra erbjudanden <span class="arr">→</span></a>
+<!-- ====================== Tjänster ====================== -->
+<section class="band band--tight" id="tjanster">
+  <div class="shell">
+    <div class="shead" data-reveal>
+      <div>
+        <p class="tag">Tjänster</p>
+        <h2 class="display-l shead__title">Sex saker vi gör, och gör ordentligt.</h2>
+      </div>
+      <p class="lede">Ingen tjänstekatalog med trettio rubriker. Vi håller oss till det vi kan bemanna med folk vi själva står för.</p>
     </div>
-    <div class="partner-visual">
-      <img src="assets/img/abstract-3d.jpg" alt="Abstrakt geometrisk teknikbild" />
-      <span class="gradient-edge"></span>
-      <span class="play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+
+    <div class="services" data-reveal>
+      <a class="service" href="tjanster.html#drift">
+        <span class="service__no">01</span>
+        <span class="service__name">IT-drift och löpande support</span>
+        <span class="service__desc">Övervakning, ärendehantering, patchning och uppföljning. Fast kontakt och ett underlag på vad som faktiskt gjorts.</span>
+        <span class="service__go"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="service" href="tjanster.html#faltservice">
+        <span class="service__no">02</span>
+        <span class="service__name">Fältservice och tekniker på plats</span>
+        <span class="service__desc">När det inte går att lösa på distans skickar vi någon. Tekniker som kan arbeta i era lokaler, i produktion och i miljöer med höga säkerhetskrav.</span>
+        <span class="service__go"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="service" href="tjanster.html#utrullning">
+        <span class="service__no">03</span>
+        <span class="service__name">Installation och utrullning</span>
+        <span class="service__desc">Byte av klientparker, nätverksutrustning, kontorsflyttar och nyetableringar. Planerat per plats, dokumenterat per enhet.</span>
+        <span class="service__go"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="service" href="tjanster.html#natverk">
+        <span class="service__no">04</span>
+        <span class="service__name">Nätverk och infrastruktur</span>
+        <span class="service__desc">Switchning, wifi, serverrum, kabeldragning och struktur. Vi bygger och underhåller det som allt annat står på.</span>
+        <span class="service__go"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="service" href="tjanster.html#konsulter">
+        <span class="service__no">05</span>
+        <span class="service__name">Konsulter och resursförstärkning</span>
+        <span class="service__desc">Tekniker, projektledare eller specialist under en period. Vi föreslår bara personer vi själva hade satt hos vår viktigaste kund.</span>
+        <span class="service__go"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <a class="service" href="tjanster.html#automation">
+        <span class="service__no">06</span>
+        <span class="service__name">Automation och AI-stöd i driften</span>
+        <span class="service__desc">Sortering av ärenden, avvikelser i övervakningen, dokumentation som skriver sig själv. Inte som en produkt vi säljer — som ett sätt att arbeta snabbare.</span>
+        <span class="service__go"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ===================== Competencies ===================== -->
-<section class="section" id="kompetenser">
-  <div class="container compe-grid">
-    <div>
-      <span class="eyebrow">Kompetenser</span>
-      <h2>Heltäckande kompetens för era behov</h2>
-      <p class="lead">Bredd och spets i samma organisation — från help desk och fältservice till AI, infrastruktur och säkerhet.</p>
-      <a href="erbjudanden.html" class="btn btn-primary" style="margin-top:24px">Mer om våra kompetenser <span class="arr">→</span></a>
+<!-- ====================== Statement ====================== -->
+<section class="statement">
+  <div class="statement__media">
+    <img src="assets/img/network-cables.jpg" alt="Fiberkablar inkopplade i en patchpanel i ett serverrum" loading="lazy" decoding="async" width="1920" height="1280">
+  </div>
+  <div class="shell statement__body">
+    <q>En leverantör är värd något först när något går sönder.</q>
+    <p class="statement__by">
+      <a class="tlink" href="sa-arbetar-vi.html" style="color:inherit">
+        Så arbetar vi
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- ====================== Så arbetar vi ====================== -->
+<section class="band band--tight">
+  <div class="shell">
+    <div class="shead" data-reveal>
+      <div>
+        <p class="tag">Arbetssätt</p>
+        <h2 class="display-l shead__title">Fyra steg. Inga överraskningar.</h2>
+      </div>
+      <p class="lede">Vi vill att ni ska veta exakt vad som händer innan ni skriver på — och exakt vad som hänt när månaden är slut.</p>
     </div>
-    <div class="checks">
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>On-site IT-support</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>AI &amp; automation</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Fjärrdiagnostik</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>IT-infrastruktur</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Molntjänster</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>IT-säkerhet</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Installation &amp; utrullning</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Nätverk &amp; infrastruktur</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Efterlevnad &amp; GDPR</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Data &amp; analys</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Help desk &amp; service</span></div>
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5L20 6"/></svg><span>Projektledning</span></div>
+
+    <div class="steps">
+      <article class="step" data-reveal>
+        <p class="step__no">01</p>
+        <h3>Vi lyssnar innan vi föreslår</h3>
+        <p>En timme där vi går igenom vad ni har, vad som gör ont och vad ni redan betalar för. Kostar ingenting och slutar med ett rakt besked om vi är rätt eller inte.</p>
+      </article>
+      <article class="step" data-reveal>
+        <p class="step__no">02</p>
+        <h3>Vi skriver ner vad som gäller</h3>
+        <p>Omfattning, svarstider, vem som gör vad och vad det kostar — på ett underlag er inköpare kan läsa utan att någon behöver översätta det.</p>
+      </article>
+      <article class="step" data-reveal>
+        <p class="step__no">03</p>
+        <h3>Vi bemannar med namn</h3>
+        <p>Ni får veta vilka som kommer, vad de kan och vem som är ansvarig. Behöver vi byta någon säger vi till innan, inte efteråt.</p>
+      </article>
+      <article class="step" data-reveal>
+        <p class="step__no">04</p>
+        <h3>Vi redovisar</h3>
+        <p>Vad som gjorts, vad som återstår och vad som tog längre tid än vi trodde. Varje månad, utan att ni behöver be om det.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===================== CTA band ===================== -->
-<section class="section cta-band">
-  <div class="container">
-    <h2>Nyfiken på vad vi kan göra för er? Hör av dig så tar vi det därifrån.</h2>
-    <a href="kontakt.html" class="btn btn-light">Kontakta oss <span class="arr">→</span></a>
+<!-- ====================== Åtaganden ====================== -->
+<section class="band band--ink">
+  <div class="shell">
+    <div class="shead" data-reveal>
+      <div>
+        <p class="tag">Åtaganden</p>
+        <h2 class="display-l shead__title">Vad ni kan hålla oss till.</h2>
+      </div>
+      <p class="lede">Vi har inte hundra referenscase att luta oss mot. Vi har det här — skrivet så att ni kan påminna oss om det när vi glömmer.</p>
+    </div>
+
+    <div class="commits" data-reveal>
+      <div class="commit">
+        <span class="commit__dot" aria-hidden="true"></span>
+        <h3 class="commit__t">Svar samma arbetsdag</h3>
+        <p class="commit__d">Hör ni av er före klockan 15 en vardag får ni svar från en människa samma dag. Inte ett automatiskt kvitto med ett ärendenummer.</p>
+      </div>
+      <div class="commit">
+        <span class="commit__dot" aria-hidden="true"></span>
+        <h3 class="commit__t">En namngiven ansvarig</h3>
+        <p class="commit__d">Varje uppdrag har en person med namn, direktnummer och mandat att fatta beslut. Den personen byts inte ut utan att vi säger till i förväg.</p>
+      </div>
+      <div class="commit">
+        <span class="commit__dot" aria-hidden="true"></span>
+        <h3 class="commit__t">Kontrollerad och tystnadspliktig personal</h3>
+        <p class="commit__d">Alla som arbetar hos er är bakgrundskontrollerade och har skrivit på sekretessförbindelse. Vill ni se underlaget visar vi det.</p>
+      </div>
+      <div class="commit">
+        <span class="commit__dot" aria-hidden="true"></span>
+        <h3 class="commit__t">Vi gör överlämningen enkel</h3>
+        <p class="commit__d">Väljer ni att ta hem driften eller byta leverantör hjälper vi till med överlämningen. Det är förutsättningen för att ni ska våga börja med oss.</p>
+      </div>
+      <div class="commit">
+        <span class="commit__dot" aria-hidden="true"></span>
+        <h3 class="commit__t">Vi säger nej när vi inte är rätt</h3>
+        <p class="commit__d">Kräver uppdraget kompetens eller närvaro vi inte har säger vi det direkt och pekar vidare. Det blir billigare för alla än att vi försöker ändå.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Passform ====================== -->
+<section class="band band--tight">
+  <div class="shell">
+    <div class="shead shead--stack" data-reveal>
+      <p class="tag">Passform</p>
+      <h2 class="display-l shead__title">Vi är inte rätt för alla.</h2>
+      <p class="lede" style="margin-top:22px">Det sparar tid för båda att säga det här på webbplatsen i stället för på tredje mötet.</p>
+    </div>
+
+    <div class="fit">
+      <div class="fitcard fitcard--yes" data-reveal>
+        <h3>Vi passar er om</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ni har från ett par hundra användare och uppåt, och en IT-avdelning som är för tunn för allt som ska hinnas med.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ni har fysiska platser där någon faktiskt behöver dyka upp — kontor, lager, produktion, butik.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ni är trötta på att vara ett litet konto hos en stor leverantör.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Ni värderar att veta vem som kommer högre än att leverantören har flest logotyper på sin webbplats.</span></li>
+        </ul>
+      </div>
+
+      <div class="fitcard fitcard--no" data-reveal>
+        <h3>Vi passar er inte om</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Ni handlar uteslutande på lägsta timpris. Då finns det bättre alternativ än vi, och vi säger det utan bitterhet.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Ni behöver egen personal på plats i hela landet från dag ett. Vi växer region för region och lovar inte mer än vi kan bemanna.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Ni kräver hundra referenscase. Vi är ett ungt bolag med erfarna grundare — det är skillnad, och vi låtsas inte om något annat.</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Ni vill köpa en plattform. Vi säljer människor som gör jobbet, med teknik som stöd.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Vilka vi är ====================== -->
+<section class="band band--tight band--sunk">
+  <div class="shell">
+    <div class="shead shead--stack" data-reveal>
+      <p class="tag">Vilka vi är</p>
+      <h2 class="display-l shead__title">Ni handlar av två personer, inte av ett varumärke.</h2>
+    </div>
+
+    <!--
+      Att fylla i när ni är redo: medgrundarens namn och gärna porträttbilder.
+      Texten fungerar som den är tills dess.
+    -->
+    <div class="people">
+      <article class="person" data-reveal>
+        <p class="person__role">Medgrundare · Affärer och leverans</p>
+        <h3>Tjugo år inne i den svenska IT-konsultbranschen</h3>
+        <p>Vår medgrundare har byggt affärer och satt konsulter hos några av Sveriges största IT-konsultbolag i över 20 år. Det är därför vi vet vilka tekniker som håller i skarpt läge — och vilka som mest ser bra ut på ett CV.</p>
+      </article>
+      <article class="person" data-reveal>
+        <p class="person__role">Medgrundare · CFO</p>
+        <h3>Jeton Jasharaj</h3>
+        <p>Ansvarar för avtal, ekonomi och rekrytering av konsulter. Bakgrund inom försäljning, affärsutveckling och investeringsfrämjande i södra Sverige. Är den ni pratar med om villkor, pris och uppföljning.</p>
+        <p class="person__links">
+          <a class="tlink" href="https://www.linkedin.com/in/jeton-jasharaj-398a0915/" rel="noopener" target="_blank">
+            LinkedIn
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== CTA ====================== -->
+<section class="band band--ink band--tight">
+  <div class="shell cta" data-reveal>
+    <h2 class="display-m">Berätta vad som inte fungerar. Vi säger rakt ut om vi kan lösa det.</h2>
+    <div class="cta__actions">
+      <a class="btn btn--signal" href="kontakt.html">
+        Boka ett samtal
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="mailto:info@driftiq.se">info@driftiq.se</a>
+    </div>
   </div>
 </section>
 
 </main>
 
-<!-- ===================== Footer ===================== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="brand">Drift<span class="doti">i</span>q</a>
-        <p>Intelligent IT-support, installation och drift på plats — med mänsklig närvaro och teknisk skärpa.</p>
+<!-- ====================== Footer ====================== -->
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <a class="wordmark" href="index.html" aria-label="Driftiq — startsida">
+          <svg class="wordmark__glyph" viewBox="0 0 26 26" aria-hidden="true">
+            <rect x=".85" y=".85" width="24.3" height="24.3" rx="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5.6 16.2h3.1l2.3-6.4 2.9 9.2 2.2-5.6h3.9" fill="none" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Drift<span class="wordmark__q">iq</span></span>
+        </a>
+        <p class="footer__blurb">IT-drift, fältservice och utrullning för större svenska verksamheter. Bas i Skåne, uppdrag i hela landet.</p>
       </div>
-      <div class="footer-col">
-        <h4>Erbjudanden</h4>
+
+      <div>
+        <h4>Tjänster</h4>
         <ul>
-          <li><a href="erbjudanden.html#support">On-site support</a></li>
-          <li><a href="erbjudanden.html#ai">AI &amp; fjärrdiagnostik</a></li>
-          <li><a href="erbjudanden.html#installation">Installationer</a></li>
-          <li><a href="erbjudanden.html#sakerhet">Säkerhet</a></li>
+          <li><a href="tjanster.html#drift">IT-drift och support</a></li>
+          <li><a href="tjanster.html#faltservice">Fältservice</a></li>
+          <li><a href="tjanster.html#utrullning">Installation och utrullning</a></li>
+          <li><a href="tjanster.html#natverk">Nätverk och infrastruktur</a></li>
+          <li><a href="tjanster.html#konsulter">Konsulter</a></li>
+          <li><a href="tjanster.html#automation">Automation och AI-stöd</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Kompetenser</h4>
+
+      <div>
+        <h4>Företaget</h4>
         <ul>
-          <li><a href="index.html#kompetenser">IT-infrastruktur</a></li>
-          <li><a href="index.html#kompetenser">Molntjänster</a></li>
-          <li><a href="index.html#kompetenser">IT-säkerhet</a></li>
-          <li><a href="index.html#kompetenser">Data &amp; analys</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Företag</h4>
-        <ul>
+          <li><a href="sa-arbetar-vi.html">Så arbetar vi</a></li>
+          <li><a href="sa-arbetar-vi.html#sakerhet">Säkerhet och sekretess</a></li>
           <li><a href="om-oss.html">Om oss</a></li>
-          <li><a href="om-oss.html#vision">Vision &amp; mission</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="kontakt.html#karriar">Karriär</a></li>
+          <li><a href="om-oss.html#jobb">Jobba hos oss</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+
+      <div>
         <h4>Kontakt</h4>
         <ul>
           <li><a href="mailto:info@driftiq.se">info@driftiq.se</a></li>
-          <li><a href="kontakt.html">Boka möte</a></li>
-          <li><a href="https://driftiq.se">driftiq.se</a></li>
+          <li><a href="kontakt.html">Boka ett samtal</a></li>
+          <li><a href="kontakt.html#vanliga-fragor">Vanliga frågor</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Driftiq. Alla rättigheter förbehålls.</span>
-      <div class="socials">
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4 0 4.74 2.5 4.74 5.76V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+
+    <div class="footer__base">
+      <span>© <span data-year>2026</span> Driftiq. Alla rättigheter förbehållna.</span>
+      <div class="social">
+        <a href="https://www.linkedin.com/" rel="noopener" target="_blank" aria-label="Driftiq på LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4 0 4.74 2.5 4.74 5.76V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/driftiq.js" defer></script>
 </body>
 </html>

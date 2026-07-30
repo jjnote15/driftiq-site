@@ -1,161 +1,260 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kontakt — Driftiq</title>
-<meta name="description" content="Kontakta Driftiq. Boka ett möte eller ställ en fråga — vi hör av oss inom kort." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css" />
+<meta name="description" content="Boka ett samtal med Driftiq. Beskriv vad som inte fungerar, så säger vi rakt ut om vi kan lösa det.">
+<link rel="canonical" href="https://driftiq.se/kontakt.html">
+<meta name="theme-color" content="#F4F3EF">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Driftiq">
+<meta property="og:title" content="Kontakt — Driftiq">
+<meta property="og:description" content="Beskriv vad som inte fungerar, så säger vi rakt ut om vi kan lösa det.">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/familjen-grotesk-latin-ddca6da8.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/driftiq.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="brand" aria-label="Driftiq startsida">Drift<span class="doti">i</span>q</a>
-    <nav class="nav-links" aria-label="Huvudmeny">
-      <a href="erbjudanden.html">Erbjudanden</a>
-      <a href="index.html#kompetenser">Kompetenser</a>
-      <a href="index.html#insikter">Insikter</a>
+<a class="skip" href="#innehall">Hoppa till innehåll</a>
+
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="index.html" aria-label="Driftiq — startsida">
+      <svg class="wordmark__glyph" viewBox="0 0 26 26" aria-hidden="true">
+        <rect x=".85" y=".85" width="24.3" height="24.3" rx="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M5.6 16.2h3.1l2.3-6.4 2.9 9.2 2.2-5.6h3.9" fill="none" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Drift<span class="wordmark__q">iq</span></span>
+    </a>
+    <nav class="mainnav" aria-label="Huvudmeny">
+      <a href="tjanster.html">Tjänster</a>
+      <a href="sa-arbetar-vi.html">Så arbetar vi</a>
       <a href="om-oss.html">Om oss</a>
-      <a href="kontakt.html" class="active">Kontakt</a>
+      <a href="kontakt.html" aria-current="page">Kontakt</a>
     </nav>
-    <div class="nav-right">
-      <span class="lang"><span class="flag"></span>SE</span>
-      <a href="kontakt.html" class="btn btn-light">Kontakta oss</a>
+    <div class="masthead__cta">
+      <a class="btn btn--ink" href="mailto:info@driftiq.se">info@driftiq.se</a>
+      <button class="burger" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
-    <button class="nav-toggle" aria-label="Öppna meny"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
+<nav class="drawer" id="drawer" aria-label="Mobilmeny">
+  <a href="tjanster.html">Tjänster</a>
+  <a href="sa-arbetar-vi.html">Så arbetar vi</a>
+  <a href="om-oss.html">Om oss</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a class="btn btn--signal" href="mailto:info@driftiq.se">info@driftiq.se</a>
+</nav>
 
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow">Kontakt</span>
-    <h1>Låt oss prata IT-drift</h1>
-    <p>Vare sig ni behöver on-site support, en utrullning eller en strategisk IT-partner — hör av dig så tar vi det därifrån.</p>
+<main id="innehall">
+
+<section class="phero">
+  <div class="shell">
+    <p class="tag">Kontakt</p>
+    <h1 class="display-l">Berätta vad som inte fungerar.</h1>
+    <p class="lede">Vi svarar från en människa samma arbetsdag om ni hör av er före klockan 15. Första samtalet tar ungefär en timme, kostar ingenting och slutar med ett rakt besked om vi är rätt leverantör för er eller inte.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container contact-grid">
-    <div>
-      <span class="eyebrow">Skicka ett meddelande</span>
-      <h2 style="font-size:clamp(1.8rem,2.8vw,2.4rem);margin-bottom:24px">Berätta om ert behov</h2>
-      <form class="form" id="contact-form" novalidate>
-        <div class="form-row">
+<section class="band band--tight">
+  <div class="shell contact">
+
+    <div class="contactinfo" data-reveal>
+      <dl>
+        <div>
+          <dt>E-post</dt>
+          <dd><a href="mailto:info@driftiq.se">info@driftiq.se</a></dd>
+        </div>
+        <div>
+          <dt>Svarstid</dt>
+          <dd>Samma arbetsdag vid kontakt före kl. 15</dd>
+        </div>
+        <div>
+          <dt>Bas</dt>
+          <dd>Skåne — uppdrag i hela Sverige</dd>
+        </div>
+        <div>
+          <dt>Söker du jobb?</dt>
+          <dd><a href="om-oss.html#jobb">Se vad vi söker</a></dd>
+        </div>
+      </dl>
+
+      <!--
+        Att fylla i när ni har det på plats: telefonnummer, besöksadress,
+        organisationsnummer och uppgift om godkänd F-skatt. Inköpare frågar
+        efter det, och det gör webbplatsen mer trovärdig.
+      -->
+
+      <div class="note" style="margin-top:32px">
+        <strong>Ska ni upphandla?</strong> Säg till direkt, så skickar vi bolagsuppgifter, försäkringsbevis och referenser i samma svar i stället för i tre omgångar.
+      </div>
+    </div>
+
+    <div data-reveal>
+      <form id="kontaktformular" novalidate>
+        <div class="field--pair">
           <div class="field">
-            <label for="name">Namn</label>
-            <input id="name" name="name" type="text" placeholder="För- och efternamn" required />
+            <label for="namn">Namn</label>
+            <input id="namn" name="namn" type="text" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="company">Företag</label>
-            <input id="company" name="company" type="text" placeholder="Företagsnamn" />
+            <label for="foretag">Företag</label>
+            <input id="foretag" name="foretag" type="text" autocomplete="organization" required>
           </div>
         </div>
-        <div class="form-row">
+
+        <div class="field--pair">
           <div class="field">
-            <label for="email">E-post</label>
-            <input id="email" name="email" type="email" placeholder="namn@foretag.se" required />
+            <label for="epost">E-post</label>
+            <input id="epost" name="epost" type="email" autocomplete="email" required>
           </div>
           <div class="field">
-            <label for="phone">Telefon</label>
-            <input id="phone" name="phone" type="tel" placeholder="07X-XXX XX XX" />
+            <label for="telefon">Telefon (valfritt)</label>
+            <input id="telefon" name="telefon" type="tel" autocomplete="tel">
           </div>
         </div>
+
         <div class="field">
-          <label for="message">Meddelande</label>
-          <textarea id="message" name="message" placeholder="Beskriv kort vad ni behöver hjälp med…" required></textarea>
+          <label for="arende">Vad gäller det?</label>
+          <select id="arende" name="arende" required>
+            <option value="IT-drift och löpande support">IT-drift och löpande support</option>
+            <option value="Fältservice och tekniker på plats">Fältservice och tekniker på plats</option>
+            <option value="Installation och utrullning">Installation och utrullning</option>
+            <option value="Nätverk och infrastruktur">Nätverk och infrastruktur</option>
+            <option value="Konsulter och resursförstärkning">Konsulter och resursförstärkning</option>
+            <option value="Automation och AI-stöd">Automation och AI-stöd</option>
+            <option value="Vet inte än — hjälp oss reda ut det">Vet inte än — hjälp oss reda ut det</option>
+          </select>
         </div>
-        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
-          <button type="submit" class="btn btn-primary">Skicka meddelande <span class="arr">→</span></button>
-          <span class="form-status note"></span>
+
+        <div class="field">
+          <label for="meddelande">Beskriv läget</label>
+          <textarea id="meddelande" name="meddelande" required placeholder="Hur många användare och platser? Vad har ni i dag, och vad är det som skaver?"></textarea>
         </div>
-        <p class="note">Genom att skicka godkänner du att vi behandlar dina uppgifter enligt GDPR.</p>
+
+        <div class="formfoot">
+          <button class="btn btn--signal" type="submit">
+            Skicka
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <small>Formuläret öppnar ditt eget e-postprogram med uppgifterna ifyllda. Inget skickas eller lagras via den här webbplatsen.</small>
+        </div>
+
+        <p class="formstatus" role="status" aria-live="polite"></p>
       </form>
     </div>
 
-    <aside class="contact-info">
-      <h3>Nå oss direkt</h3>
-      <div class="ci-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        <div><b>E-post</b><span>info@driftiq.se</span></div>
-      </div>
-      <div class="ci-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-        <div><b>Telefon</b><span>Boka möte så ringer vi upp</span></div>
-      </div>
-      <div class="ci-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div><b>Bas</b><span>Södra Sverige — verksamma i hela landet</span></div>
-      </div>
-      <div class="ci-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <div><b>Tillgänglighet</b><span>24/7 för avtalskunder</span></div>
-      </div>
-      <a href="erbjudanden.html" class="btn btn-light" style="margin-top:24px;width:100%;justify-content:center">Se våra erbjudanden <span class="arr">→</span></a>
-    </aside>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section class="band band--tight band--sunk" id="vanliga-fragor">
+  <div class="shell">
+    <div class="shead shead--stack" data-reveal>
+      <p class="tag">Vanliga frågor</p>
+      <h2 class="display-l shead__title">Det ni brukar fråga innan första mötet.</h2>
+    </div>
+
+    <div class="faq" data-reveal>
+      <details>
+        <summary>Ni är ett nytt bolag. Varför skulle vi välja er framför en etablerad leverantör?</summary>
+        <div>Det ska ni bara göra om vår storlek är en fördel för er. Hos en stor leverantör är ni ett konto bland tusen; hos oss är ni ett av få, och grundarna själva är inblandade i leveransen. Kräver ni däremot rikstäckande egen personal från dag ett eller en lång referenslista är en etablerad leverantör ett bättre val — och vi säger det hellre nu än på tredje mötet.</div>
+      </details>
+      <details>
+        <summary>Vilken geografi klarar ni?</summary>
+        <div>Egen personal finns i Skåne och södra Sverige, där vi också kan åta oss löpande fältservice med korta inställelsetider. Projekt, utrullningar och installationer tar vi i hela landet, med resande tekniker eller tillsammans med partner vi själva har arbetat med. Har ni platser vi inte kan bemanna säger vi det innan avtal skrivs.</div>
+      </details>
+      <details>
+        <summary>Hur snabbt kan ni komma igång?</summary>
+        <div>Det beror på omfattningen. Ett avgränsat uppdrag — en genomgång av infrastrukturen, en enstaka installation — kan oftast starta inom ett par veckor. Att ta över löpande drift kräver en överlämning från er nuvarande leverantör och tar längre tid. Vi går igenom en realistisk tidplan redan på första mötet i stället för att lova ett datum vi inte kan hålla.</div>
+      </details>
+      <details>
+        <summary>Vad kostar det?</summary>
+        <div>Löpande avtal prissätts som ett fast månadsbelopp för en definierad omfattning. Enskilda uppdrag får fast pris när vi kan avgränsa dem, annars löpande räkning med ett tak — och ni får alltid veta vilket av de två som gäller. Konsulter debiteras per timme eller månad, öppet redovisat per roll. Vi lämnar ingen offert på något vi inte har förstått.</div>
+      </details>
+      <details>
+        <summary>Vilka bindningstider har ni?</summary>
+        <div>Så korta som omfattningen tillåter. Kräver uppdraget att vi anställer eller investerar behöver vi en rimlig avtalstid för att våga göra det, och då säger vi varför. Vi skriver alltid in hur ni tar er ur avtalet och vad vi gör för att överlämningen till er själva eller till nästa leverantör ska bli enkel.</div>
+      </details>
+      <details>
+        <summary>Hur hanterar ni säkerhet och personuppgifter?</summary>
+        <div>All personal är bakgrundskontrollerad och har skrivit på sekretessförbindelse innan första uppdraget. Vi tecknar personuppgiftsbiträdesavtal där vi behandlar era personuppgifter och redovisar våra underbiträden. Vi begär den behörighet uppdraget kräver och inte mer. <a class="tlink" href="sa-arbetar-vi.html#sakerhet">Mer om säkerhet och sekretess</a></div>
+      </details>
+      <details>
+        <summary>Använder ni AI, och var hamnar våra uppgifter då?</summary>
+        <div>Vi använder automatisering och språkmodeller för att sortera ärenden, sammanställa larm och ta fram dokumentation. Ingen AI fattar beslut åt er — den föreslår, en människa avgör och står för beslutet. Vi berättar vilka verktyg som används och var era uppgifter behandlas, och anpassar oss om ni har egna krav.</div>
+      </details>
+      <details>
+        <summary>Kan ni arbeta som underleverantör till vår nuvarande partner?</summary>
+        <div>Ja. Det är ofta ett bra sätt att börja, särskilt när det gäller fältservice eller en utrullning där er nuvarande leverantör saknar lokal närvaro. Vi konkurrerar inte om helheten bakom ryggen på någon vi arbetar åt.</div>
+      </details>
+    </div>
   </div>
 </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="brand">Drift<span class="doti">i</span>q</a>
-        <p>Intelligent IT-support, installation och drift på plats — med mänsklig närvaro och teknisk skärpa.</p>
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div>
+        <a class="wordmark" href="index.html" aria-label="Driftiq — startsida">
+          <svg class="wordmark__glyph" viewBox="0 0 26 26" aria-hidden="true">
+            <rect x=".85" y=".85" width="24.3" height="24.3" rx="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M5.6 16.2h3.1l2.3-6.4 2.9 9.2 2.2-5.6h3.9" fill="none" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Drift<span class="wordmark__q">iq</span></span>
+        </a>
+        <p class="footer__blurb">IT-drift, fältservice och utrullning för större svenska verksamheter. Bas i Skåne, uppdrag i hela landet.</p>
       </div>
-      <div class="footer-col">
-        <h4>Erbjudanden</h4>
+      <div>
+        <h4>Tjänster</h4>
         <ul>
-          <li><a href="erbjudanden.html#support">On-site support</a></li>
-          <li><a href="erbjudanden.html#ai">AI &amp; fjärrdiagnostik</a></li>
-          <li><a href="erbjudanden.html#installation">Installationer</a></li>
-          <li><a href="erbjudanden.html#sakerhet">Säkerhet</a></li>
+          <li><a href="tjanster.html#drift">IT-drift och support</a></li>
+          <li><a href="tjanster.html#faltservice">Fältservice</a></li>
+          <li><a href="tjanster.html#utrullning">Installation och utrullning</a></li>
+          <li><a href="tjanster.html#natverk">Nätverk och infrastruktur</a></li>
+          <li><a href="tjanster.html#konsulter">Konsulter</a></li>
+          <li><a href="tjanster.html#automation">Automation och AI-stöd</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Kompetenser</h4>
+      <div>
+        <h4>Företaget</h4>
         <ul>
-          <li><a href="index.html#kompetenser">IT-infrastruktur</a></li>
-          <li><a href="index.html#kompetenser">Molntjänster</a></li>
-          <li><a href="index.html#kompetenser">IT-säkerhet</a></li>
-          <li><a href="index.html#kompetenser">Data &amp; analys</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Företag</h4>
-        <ul>
+          <li><a href="sa-arbetar-vi.html">Så arbetar vi</a></li>
+          <li><a href="sa-arbetar-vi.html#sakerhet">Säkerhet och sekretess</a></li>
           <li><a href="om-oss.html">Om oss</a></li>
-          <li><a href="om-oss.html#vision">Vision &amp; mission</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-          <li><a href="kontakt.html#karriar">Karriär</a></li>
+          <li><a href="om-oss.html#jobb">Jobba hos oss</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div>
         <h4>Kontakt</h4>
         <ul>
           <li><a href="mailto:info@driftiq.se">info@driftiq.se</a></li>
-          <li><a href="kontakt.html">Boka möte</a></li>
-          <li><a href="https://driftiq.se">driftiq.se</a></li>
+          <li><a href="kontakt.html">Boka ett samtal</a></li>
+          <li><a href="kontakt.html#vanliga-fragor">Vanliga frågor</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Driftiq. Alla rättigheter förbehålls.</span>
-      <div class="socials">
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4 0 4.74 2.5 4.74 5.76V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <div class="footer__base">
+      <span>© <span data-year>2026</span> Driftiq. Alla rättigheter förbehållna.</span>
+      <div class="social">
+        <a href="https://www.linkedin.com/" rel="noopener" target="_blank" aria-label="Driftiq på LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4 0 4.74 2.5 4.74 5.76V21h-4v-5.3c0-1.26-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/driftiq.js" defer></script>
 </body>
 </html>

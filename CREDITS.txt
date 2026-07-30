@@ -1,0 +1,37 @@
+DRIFTIQ — bildkällor och typsnittslicenser
+==========================================
+
+BILDER (Pexels-licensen: fri användning, kommersiellt, ingen attribution krävd —
+vi anger den ändå.)
+
+assets/img/network-cables.jpg
+  Foto: Brett Sayles — https://www.pexels.com/@brett-sayles
+  https://www.pexels.com/photo/patch-cables-plugged-in-patch-panel-5354506/
+
+assets/img/it-technician.jpg
+  Foto: Field Engineer — https://www.pexels.com/@field-engineer-147254
+  https://www.pexels.com/photo/crop-focused-ethnic-engineer-using-electric-screwdriver-442151/
+
+assets/img/data-center.jpg
+  Foto: panumas nikhomkhai — https://www.pexels.com/@cookiecutter
+  https://www.pexels.com/photo/data-center-server-racks-with-active-equipment-37730212/
+
+
+TYPSNITT (självhostade i assets/fonts/ — inga anrop till Google eller annan
+tredje part, vilket är både snabbare och enklare att svara på i en
+GDPR-granskning.)
+
+Familjen Grotesk — Letters from Sweden
+  SIL Open Font License 1.1
+  https://fonts.google.com/specimen/Familjen+Grotesk
+
+Inter — Rasmus Andersson
+  SIL Open Font License 1.1
+  https://fonts.google.com/specimen/Inter
+
+IBM Plex Mono — IBM
+  SIL Open Font License 1.1
+  https://fonts.google.com/specimen/IBM+Plex+Mono
+
+Endast delmängderna "latin" och "latin-ext" ingår, vilket täcker svenska
+och de flesta europeiska språk.
