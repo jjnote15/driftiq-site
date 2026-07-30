@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kontakt — Driftiq</title>
-<meta name="description" content="Boka ett samtal med Driftiq. Beskriv vad som inte fungerar, så säger vi rakt ut om vi kan lösa det.">
+<meta name="description" content="Beskriv utrullningen, så säger vi rakt ut om vi klarar den. Svar från en människa samma arbetsdag.">
 <link rel="canonical" href="https://driftiq.se/kontakt.html">
 <meta name="theme-color" content="#F4F3EF">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sv_SE">
 <meta property="og:site_name" content="Driftiq">
 <meta property="og:title" content="Kontakt — Driftiq">
-<meta property="og:description" content="Beskriv vad som inte fungerar, så säger vi rakt ut om vi kan lösa det.">
+<meta property="og:description" content="Beskriv utrullningen, så säger vi rakt ut om vi klarar den. Svar från en människa samma arbetsdag.">
+<meta property="og:url" content="https://driftiq.se/kontakt.html">
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/familjen-grotesk-latin-ddca6da8.woff2" as="font" type="font/woff2" crossorigin>
@@ -33,14 +34,19 @@
       </svg>
       <span>Drift<span class="wordmark__q">iq</span></span>
     </a>
+
     <nav class="mainnav" aria-label="Huvudmeny">
       <a href="tjanster.html">Tjänster</a>
-      <a href="sa-arbetar-vi.html">Så arbetar vi</a>
+      <a href="sa-levererar-vi.html">Så levererar vi</a>
       <a href="om-oss.html">Om oss</a>
       <a href="kontakt.html" aria-current="page">Kontakt</a>
     </nav>
+
     <div class="masthead__cta">
-      <a class="btn btn--ink" href="mailto:info@driftiq.se">info@driftiq.se</a>
+      <a class="btn btn--ink" href="kontakt.html">
+        Boka ett samtal
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
       <button class="burger" type="button" aria-label="Öppna meny" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
   </div>
@@ -48,10 +54,13 @@
 
 <nav class="drawer" id="drawer" aria-label="Mobilmeny">
   <a href="tjanster.html">Tjänster</a>
-  <a href="sa-arbetar-vi.html">Så arbetar vi</a>
+  <a href="sa-levererar-vi.html">Så levererar vi</a>
   <a href="om-oss.html">Om oss</a>
   <a href="kontakt.html">Kontakt</a>
-  <a class="btn btn--signal" href="mailto:info@driftiq.se">info@driftiq.se</a>
+  <a class="btn btn--signal" href="kontakt.html">
+    Boka ett samtal
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </nav>
 
 <main id="innehall">
@@ -59,8 +68,8 @@
 <section class="phero">
   <div class="shell">
     <p class="tag">Kontakt</p>
-    <h1 class="display-l">Berätta vad som inte fungerar.</h1>
-    <p class="lede">Vi svarar från en människa samma arbetsdag om ni hör av er före klockan 15. Första samtalet tar ungefär en timme, kostar ingenting och slutar med ett rakt besked om vi är rätt leverantör för er eller inte.</p>
+    <h1 class="display-l">Beskriv utrullningen. Vi säger rakt ut om vi klarar den.</h1>
+    <p class="lede">Antal sajter, säkerhetskrav och tidsfönster räcker för ett första besked. Hör ni av er före klockan 15 en vardag svarar en människa samma dag — och är vi fel leverantör får ni veta det direkt i stället för efter tre möten.</p>
   </div>
 </section>
 
@@ -79,7 +88,11 @@
         </div>
         <div>
           <dt>Bas</dt>
-          <dd>Skåne — uppdrag i hela Sverige</dd>
+          <dd>Skåne och Öresund — uppdrag i hela Sverige</dd>
+        </div>
+        <div>
+          <dt>Roll</dt>
+          <dd>Underleverantör eller white label</dd>
         </div>
         <div>
           <dt>Söker du jobb?</dt>
@@ -89,12 +102,12 @@
 
       <!--
         Att fylla i när ni har det på plats: telefonnummer, besöksadress,
-        organisationsnummer och uppgift om godkänd F-skatt. Inköpare frågar
-        efter det, och det gör webbplatsen mer trovärdig.
+        organisationsnummer och uppgift om godkänd F-skatt. Inköpare och
+        partneransvariga frågar efter det, och det gör sidan mer trovärdig.
       -->
 
       <div class="note" style="margin-top:32px">
-        <strong>Ska ni upphandla?</strong> Säg till direkt, så skickar vi bolagsuppgifter, försäkringsbevis och referenser i samma svar i stället för i tre omgångar.
+        <strong>Leverantörsgranskning på gång?</strong> Säg till direkt, så skickar vi bolagsuppgifter, försäkringsbevis, sekretessunderlag och beskrivning av vår säkerhetsprövningsprocess i samma svar — i stället för i tre omgångar.
       </div>
     </div>
 
@@ -125,19 +138,18 @@
         <div class="field">
           <label for="arende">Vad gäller det?</label>
           <select id="arende" name="arende" required>
-            <option value="IT-drift och löpande support">IT-drift och löpande support</option>
-            <option value="Fältservice och tekniker på plats">Fältservice och tekniker på plats</option>
-            <option value="Installation och utrullning">Installation och utrullning</option>
-            <option value="Nätverk och infrastruktur">Nätverk och infrastruktur</option>
-            <option value="Konsulter och resursförstärkning">Konsulter och resursförstärkning</option>
-            <option value="Automation och AI-stöd">Automation och AI-stöd</option>
-            <option value="Vet inte än — hjälp oss reda ut det">Vet inte än — hjälp oss reda ut det</option>
+            <option value="Utrullning eller driftsattning (Secure FieldOps)">Utrullning eller driftsättning</option>
+            <option value="Uppgradering eller retrofit i falt">Uppgradering eller retrofit i fält</option>
+            <option value="White label-faltkapacitet at oss som integrator">White label-fältkapacitet åt oss som integratör</option>
+            <option value="Lifecycle Assurance - pilot">Lifecycle Assurance — pilot</option>
+            <option value="Leverantorsgranskning eller upphandling">Leverantörsgranskning eller upphandling</option>
+            <option value="Vet inte an - hjalp oss reda ut det">Vet inte än — hjälp oss reda ut det</option>
           </select>
         </div>
 
         <div class="field">
-          <label for="meddelande">Beskriv läget</label>
-          <textarea id="meddelande" name="meddelande" required placeholder="Hur många användare och platser? Vad har ni i dag, och vad är det som skaver?"></textarea>
+          <label for="meddelande">Beskriv uppdraget</label>
+          <textarea id="meddelande" name="meddelande" required placeholder="Hur många sajter, vilken typ av utrustning, vilka säkerhetskrav och vilket tidsfönster?"></textarea>
         </div>
 
         <div class="formfoot">
@@ -155,7 +167,6 @@
   </div>
 </section>
 
-<!-- ====================== FAQ ====================== -->
 <section class="band band--tight band--sunk" id="vanliga-fragor">
   <div class="shell">
     <div class="shead shead--stack" data-reveal>
@@ -165,36 +176,44 @@
 
     <div class="faq" data-reveal>
       <details>
-        <summary>Ni är ett nytt bolag. Varför skulle vi välja er framför en etablerad leverantör?</summary>
-        <div>Det ska ni bara göra om vår storlek är en fördel för er. Hos en stor leverantör är ni ett konto bland tusen; hos oss är ni ett av få, och grundarna själva är inblandade i leveransen. Kräver ni däremot rikstäckande egen personal från dag ett eller en lång referenslista är en etablerad leverantör ett bättre val — och vi säger det hellre nu än på tredje mötet.</div>
+        <summary>Ni är nystartade och har inga referenscase. Varför skulle vi anlita er?</summary>
+        <div>Det ska ni bara göra om ni kan börja i liten skala. Vårt förslag är därför alltid ett avgränsat, betalt första uppdrag — en sajt eller ett tydligt moment — där ni bedömer oss på faktiskt utfört arbete i stället för på en referenslista. Behöver ni en leverantör med lång dokumenterad historik från dag ett är vi fel val, och det säger vi hellre nu än på tredje mötet.</div>
+      </details>
+      <details>
+        <summary>Konkurrerar ni med oss om vår slutkund?</summary>
+        <div>Nej. Vi levererar kapacitet till er, som underleverantör eller under ert varumärke. Vi tar inte kontakt med er slutkund vid sidan av er, varken under uppdraget eller efteråt, och vi skriver gärna in det i avtalet. Hela vår affärsmodell bygger på att ni vågar släppa in oss i era kundrelationer.</div>
       </details>
       <details>
         <summary>Vilken geografi klarar ni?</summary>
-        <div>Egen personal finns i Skåne och södra Sverige, där vi också kan åta oss löpande fältservice med korta inställelsetider. Projekt, utrullningar och installationer tar vi i hela landet, med resande tekniker eller tillsammans med partner vi själva har arbetat med. Har ni platser vi inte kan bemanna säger vi det innan avtal skrivs.</div>
+        <div>Egen fältstyrka finns i Skåne och Öresund, där vi kan åta oss löpande arbete med korta inställelsetider. Utrullningar och projekt tar vi i hela Sverige, med resande tekniker eller tillsammans med partner vi själva har arbetat med. Har ni sajter vi inte kan bemanna på ett bra sätt säger vi det innan avtal skrivs.</div>
       </details>
       <details>
-        <summary>Hur snabbt kan ni komma igång?</summary>
-        <div>Det beror på omfattningen. Ett avgränsat uppdrag — en genomgång av infrastrukturen, en enstaka installation — kan oftast starta inom ett par veckor. Att ta över löpande drift kräver en överlämning från er nuvarande leverantör och tar längre tid. Vi går igenom en realistisk tidplan redan på första mötet i stället för att lova ett datum vi inte kan hålla.</div>
+        <summary>Är era tekniker anställda eller inhyrda?</summary>
+        <div>Anställda hos oss. Det är en av de få saker som faktiskt skiljer oss från ett bemanningsbolag: vi kan säkerhetspröva, utbilda på era rutiner och hålla samma personer i uppdraget över tid. Behöver vi byta någon meddelar vi det i förväg med överlämning.</div>
+      </details>
+      <details>
+        <summary>Hur snabbt kan ni bemanna?</summary>
+        <div>Det beror på säkerhetskraven. Ett uppdrag som kräver full säkerhetsprövning och kundspecifik utbildning kan inte startas nästa vecka, och vi tänker inte påstå det. Vi ger en realistisk startpunkt redan på första samtalet och binder oss inte till ett datum vi inte kan hålla.</div>
       </details>
       <details>
         <summary>Vad kostar det?</summary>
-        <div>Löpande avtal prissätts som ett fast månadsbelopp för en definierad omfattning. Enskilda uppdrag får fast pris när vi kan avgränsa dem, annars löpande räkning med ett tak — och ni får alltid veta vilket av de två som gäller. Konsulter debiteras per timme eller månad, öppet redovisat per roll. Vi lämnar ingen offert på något vi inte har förstått.</div>
+        <div>Löpande fältkapacitet debiteras per timme och tekniker, satt efter kompetensnivå och säkerhetskrav. Avgränsade uppdrag får fast pris per sajt eller milstolpe när omfattningen går att definiera. Lifecycle Assurance säljs som månadsavgift med inkluderad volym. Resa, bil och boende hanteras separat och göms aldrig i timpriset. Pris lämnas alltid skriftligt innan arbetet startar.</div>
       </details>
       <details>
-        <summary>Vilka bindningstider har ni?</summary>
-        <div>Så korta som omfattningen tillåter. Kräver uppdraget att vi anställer eller investerar behöver vi en rimlig avtalstid för att våga göra det, och då säger vi varför. Vi skriver alltid in hur ni tar er ur avtalet och vad vi gör för att överlämningen till er själva eller till nästa leverantör ska bli enkel.</div>
+        <summary>Har ni ISO 27001 eller motsvarande?</summary>
+        <div>Nej. Vi har inga ISO-certifieringar i dag och påstår inte att vi har det. Vi bygger den process- och kvalitetsdokumentation som ska leda dit och säger till när certifieringen finns. Under tiden kan vi visa säkerhetsprövning, sekretessförbindelser, checklistor och evidensrapporter — det som faktiskt existerar.</div>
       </details>
       <details>
-        <summary>Hur hanterar ni säkerhet och personuppgifter?</summary>
-        <div>All personal är bakgrundskontrollerad och har skrivit på sekretessförbindelse innan första uppdraget. Vi tecknar personuppgiftsbiträdesavtal där vi behandlar era personuppgifter och redovisar våra underbiträden. Vi begär den behörighet uppdraget kräver och inte mer. <a class="tlink" href="sa-arbetar-vi.html#sakerhet">Mer om säkerhet och sekretess</a></div>
+        <summary>Hjälper ni oss uppfylla NIS2 och DORA?</summary>
+        <div>Vi stödjer er efterlevnad genom säkerhetsprövad personal och spårbar dokumentation av utfört arbete, vilket är det leveranskedjan granskas på. Men vi är inte själva certifierade enligt NIS2 eller DORA, och den skillnaden ska ni känna till innan ni skriver in oss i något regelverksunderlag.</div>
       </details>
       <details>
-        <summary>Använder ni AI, och var hamnar våra uppgifter då?</summary>
-        <div>Vi använder automatisering och språkmodeller för att sortera ärenden, sammanställa larm och ta fram dokumentation. Ingen AI fattar beslut åt er — den föreslår, en människa avgör och står för beslutet. Vi berättar vilka verktyg som används och var era uppgifter behandlas, och anpassar oss om ni har egna krav.</div>
+        <summary>Använder ni AI, och vad händer med vår data?</summary>
+        <div>Vi använder automatisering och språkmodeller i vår egen leverans — för dokumentation, kunskapssökning och avvikelseanalys. Ingen AI fattar säkerhetskritiska beslut; en människa godkänner och godkännandet loggas. Er data används inte för träning eller korsvis analys utan uttryckligt avtal. Vi säljer ingen AI-produkt.</div>
       </details>
       <details>
-        <summary>Kan ni arbeta som underleverantör till vår nuvarande partner?</summary>
-        <div>Ja. Det är ofta ett bra sätt att börja, särskilt när det gäller fältservice eller en utrullning där er nuvarande leverantör saknar lokal närvaro. Vi konkurrerar inte om helheten bakom ryggen på någon vi arbetar åt.</div>
+        <summary>Kan vi börja litet?</summary>
+        <div>Ja, och vi föredrar det. En sajt, ett avgränsat moment, fast pris och full evidens när det är klart. Det är billigare för er att testa oss så än att förhandla ett stort avtal med en leverantör ingen av oss ännu har underlag för att bedöma.</div>
       </details>
     </div>
   </div>
@@ -208,33 +227,36 @@
       <div>
         <a class="wordmark" href="index.html" aria-label="Driftiq — startsida">
           <svg class="wordmark__glyph" viewBox="0 0 26 26" aria-hidden="true">
-            <rect x=".85" y=".85" width="24.3" height="24.3" rx="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M5.6 16.2h3.1l2.3-6.4 2.9 9.2 2.2-5.6h3.9" fill="none" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <rect x=".85" y=".85" width="24.3" height="24.3" rx="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M5.6 16.2h3.1l2.3-6.4 2.9 9.2 2.2-5.6h3.9" fill="none" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
           <span>Drift<span class="wordmark__q">iq</span></span>
         </a>
-        <p class="footer__blurb">IT-drift, fältservice och utrullning för större svenska verksamheter. Bas i Skåne, uppdrag i hela landet.</p>
+        <p class="footer__blurb">Säkerhetsprövad fältkapacitet för utrullningar, driftsättningar och uppgraderingar i säkerhetskritiska miljöer. Bas i Skåne och Öresund.</p>
       </div>
+
       <div>
         <h4>Tjänster</h4>
         <ul>
-          <li><a href="tjanster.html#drift">IT-drift och support</a></li>
-          <li><a href="tjanster.html#faltservice">Fältservice</a></li>
-          <li><a href="tjanster.html#utrullning">Installation och utrullning</a></li>
-          <li><a href="tjanster.html#natverk">Nätverk och infrastruktur</a></li>
-          <li><a href="tjanster.html#konsulter">Konsulter</a></li>
-          <li><a href="tjanster.html#automation">Automation och AI-stöd</a></li>
+          <li><a href="tjanster.html#fieldops">Secure FieldOps</a></li>
+          <li><a href="tjanster.html#lifecycle">Lifecycle Assurance</a></li>
+          <li><a href="tjanster.html#remoteops">AI-stödd RemoteOps</a></li>
+          <li><a href="tjanster.html#pris">Pris och avtalsform</a></li>
+          <li><a href="tjanster.html#avstar">Det vi avstår från</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Företaget</h4>
         <ul>
-          <li><a href="sa-arbetar-vi.html">Så arbetar vi</a></li>
-          <li><a href="sa-arbetar-vi.html#sakerhet">Säkerhet och sekretess</a></li>
+          <li><a href="sa-levererar-vi.html">Så levererar vi</a></li>
+          <li><a href="sa-levererar-vi.html#sakerhet">Säkerhetsprövning och sekretess</a></li>
           <li><a href="om-oss.html">Om oss</a></li>
+          <li><a href="om-oss.html#lage">Var vi står i dag</a></li>
           <li><a href="om-oss.html#jobb">Jobba hos oss</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Kontakt</h4>
         <ul>
@@ -244,6 +266,7 @@
         </ul>
       </div>
     </div>
+
     <div class="footer__base">
       <span>© <span data-year>2026</span> Driftiq. Alla rättigheter förbehållna.</span>
       <div class="social">

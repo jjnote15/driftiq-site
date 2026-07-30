@@ -1094,3 +1094,56 @@ form{ display: grid; gap: 20px; }
   body{ background: #fff; }
   .band--ink, .footer{ background: #fff; color: #000; }
 }
+
+/* ---------- 27. Status-märken på tjänster ----------
+   Varje tjänst visar öppet var den står: levereras nu, bokas som
+   pilot, eller används bara internt. Färgen bär ingen ensam
+   betydelse — texten säger samma sak. */
+
+.service__state{
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.service__state--now{      background: rgba(52,199,123,.18);  color: #16663F; }
+.service__state--pilot{    background: var(--signal-dim);     color: #A62D04; }
+.service__state--internal{ background: rgba(20,24,29,.07);    color: #525A64; }
+
+.band--ink .service__state--now{      background: rgba(52,199,123,.16); color: #6FE3AC; }
+.band--ink .service__state--pilot{    background: rgba(255,90,31,.18);  color: #FF8F63; }
+.band--ink .service__state--internal{ background: rgba(255,255,255,.09); color: var(--on-ink-dim); }
+
+/* Rad med föreslaget första steg i "För vem"-korten */
+.step__offer{
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--signal-ink) !important;
+  line-height: 1.5;
+}
+.step__offer b{
+  display: block;
+  font-weight: 400;
+  color: var(--text-3);
+  margin-bottom: 3px;
+}
+.band--ink .step__offer b{ color: var(--on-ink-dim); }
+.band--ink .step__offer{ border-top-color: var(--ink-line); color: var(--signal) !important; }
+
+/* CTA-blocket rymmer nu rubrik + brödtext i första kolumnen */
+.cta{ align-items: start; }
+.cta .lede{ margin-top: 20px; }
+@media (max-width: 880px){
+  .cta__actions{ margin-top: 4px; }
+}
